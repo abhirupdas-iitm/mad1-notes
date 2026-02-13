@@ -249,3 +249,94 @@ Client-Server architecture clearly separates roles: clients request and display,
 1. The model does not control user interaction and the controller executes the business logic of an application. (Question: 1)
 2. In the M-V-C architecture, the developer can create multiple views of a model. (Question: 4)
 ---
+
+## Lecture 5
+
+### Why the "Web"
+##### Description: - Understanding why the web is chosen as the platform for this course, along with its historical evolution and underlying networking principles.
+
+#### Why Web as a Platform
+
+- Platform of choice for this course
+- Generic platform:
+  - Works across operating systems
+  - Works across hardware architectures
+  - Cross-platform by design
+- Built on sound underlying principles
+- Worth understanding:
+  - Constraints: what can and cannot be done easily
+  - Costs: storage, network, device sizing, datacenter infrastructure
+
+#### Historical Background
+
+##### Telephone Networks (~1890+)
+- Circuit-switched networks
+  - Allow A to talk to B through a complex switching network
+- Physical wires tied up for the entire duration of a call
+- Resources occupied even if no data (voice) is being transmitted
+##### Packet-Switched Networks (~1960s)
+- Wires occupied only when data is sent
+- More efficient resource usage
+- Designed for data instead of continuous voice transmission
+##### ARPANet (1969)
+- Node-to-node network
+- Mostly university-driven
+- Early foundation of modern internet concepts
+##### Other Early Networks
+- IBM SNA
+- Digital DECNet
+- Xerox Ethernet
+- Each had its own design and protocol mechanisms
+
+#### Protocols and Internetworking
+
+##### Protocol
+- Defines how to format packets
+- How to place them on the wire
+- Headers, checksums, and interpretation rules
+- Initially, each network had its own protocol
+
+##### "Inter" Network Concept
+- How to communicate between different network protocols?
+- Idea: introduce a common "inter-network" protocol
+
+##### IP – Internet Protocol (1983)
+- Defines packet headers, packet types, and interpretation
+- Can operate over different underlying networks:
+  - Ethernet
+  - DECNet
+  - PPP
+  - SLIP
+
+##### TCP – Transmission Control Protocol (1983)
+- Establishes reliable communication
+  - Retries
+  - Error control
+- Automatically scales and adjusts to network limits
+
+#### Where Are We Now?
+##### Original Web (Early Web)
+- Static pages
+- Complicated executable interfaces
+- Limited styling capabilities
+- Browser compatibility issues
+
+##### Web 2.0 (~2004+)
+- Dynamic pages generated on the fly
+- HTTP used as a general transport mechanism
+  - Supports binary data and serialized objects
+- Client-side computation and rendering
+- Platform-agnostic environment (acts like an operating system layer)
+
+**Key Idea:**
+The web evolved from circuit-switched communication systems to packet-switched, protocol-driven networks that enabled scalable, cross-platform communication. With TCP/IP and Web 2.0, the web became a powerful, dynamic, platform-independent system capable of supporting modern applications.
+
+### Notes to be taken for `Activity Question 5`
+
+1. UDP can result in data loss. (Question: 2)
+2. A set of rules that defines how the data packets are formed and placed on wires is called `Protocol`. (Question: 6)
+3. Internet protocol does not necessarily establish a reliable communication. (Question: 7)
+4. Limited connectivity was not a limitation of the original web. (Question: 8)
+5. The internet is a network of networks. (Question: 11)
+6.  TCP gives priority to the reliability of data delivered. (Question: 12)
+---
