@@ -104,7 +104,6 @@ Different app platforms (desktop, mobile, web, embedded) have their own typical 
 - Client-Server
 - Distributed (Peer-to-Peer)
 #### Client-Server Architecture
-
 ##### Server:
 - Stores data
 - Provides data on demand
@@ -121,7 +120,6 @@ Different app platforms (desktop, mobile, web, embedded) have their own typical 
 - Acts as a data pipe (no alterations to data)
 
 #### Client-Server Model
-
 - Explicit differentiation between clients and servers
 - Explicit server(s)
 - Explicit client(s)
@@ -146,7 +144,6 @@ Different app platforms (desktop, mobile, web, embedded) have their own typical 
 - WhatsApp / messaging
 - Web browsing
 #### Distributed (Peer-to-Peer) Model
-
 - All peers are considered "equivalent"
   - Some peers may be more equal than others (practically)
 - No strict separation like client and server
@@ -170,4 +167,85 @@ Client-Server architecture clearly separates roles: clients request and display,
 1. In general, it can suffer from the failure of a certain number of nodes. (Question: 1)
 2. Peer-to-Peer is naturally more fault tolerant. (Question: 4)
 3. For a client-server model to function smoothly, the client and the server have to be on different machines. (Question: 5)
+---
+
+## Lecture 4
+
+### Software Architecture
+##### Description: - Introduction to design patterns in software architecture, with focus on Model-View-Controller (MVC) and related patterns used in web-based client-server applications.
+
+#### Common Software Architecture Patterns
+- MVC (Model-View-Controller)
+- MVA (Model-View-Adapter)
+- MVP (Model-View-Presenter)
+- HMVC (Hierarchical MVC)
+- MVVM (Model-View-ViewModel)
+- ...
+#### What is a Design Pattern?
+- A general, reusable solution to a commonly occurring problem within a given context in software design.
+- Experienced designers observe recurring "patterns" in code.
+- Reusing these patterns can make design and development faster.
+- Patterns guide the design and thought process.
+
+#### Model-View-Controller (MVC)
+
+##### Model:
+- Core data to be stored for the application.
+- Typically involves databases.
+- Responsible for indexing and preparing data for easy searching and manipulation.
+- Example (Email app): Stores emails on server, indexed and ready to manipulate.
+
+##### View:
+- User-facing side of the application.
+- Interfaces for finding and manipulating information.
+- Responsible for display only.
+- Example (Email app): Display list of emails; read individual emails.
+
+##### Controller:
+- Contains the "business logic" of the application.
+- Decides how data should be manipulated.
+- Handles user actions.
+- Example (Email app): Sort emails, delete, archive.
+
+#### MVC Interaction Flow
+- User uses **controller**
+- Controller manipulates **model**
+- Model updates **view**
+- User sees the updated view
+
+#### Origins of MVC
+- Not a new concept.
+- Originated in the Smalltalk language (1979).
+
+#### Other Design Patterns
+- Model-View-Adapter (MVA)
+- Model-View-Presenter (MVP)
+- Model-View-ViewModel (MVVM)
+- Hierarchical MVC (HMVC)
+- Presentation-Abstraction-Control (PAC)
+- ...
+
+- Each pattern has its own use cases, but the fundamentals are similar.
+#### Focus of This Course
+
+- Platform:
+  - Web-based
+- Architecture:
+  - Client-server
+- Software architecture:
+  - Model-View-Controller (MVC)
+
+- Goal: Build web-based applications with a central server.
+- Use hypertext markup to control and manipulate display.
+#### Example Scenario: User Wants to Check Email
+
+- User interacts with the View (email interface).
+- Action is sent to the Controller.
+- Controller requests required data from the Model.
+- Model retrieves emails from storage (server/database).
+- View is updated and displays the list of emails to the user.
+### Notes to be taken for `Activity Question 4`
+
+1. The model does not control user interaction and the controller executes the business logic of an application. (Question: 1)
+2. In the M-V-C architecture, the developer can create multiple views of a model. (Question: 4)
 ---
