@@ -94,3 +94,80 @@ Different app platforms (desktop, mobile, web, embedded) have their own typical 
 1. Electronic Calculator is an embedded application. (Question: 3)
 2. Storage is used to manipulate the data based on request. (Question: 4)
 ---
+## Lecture 3
+
+### Client-Server and Peer-to-Peer Architecture
+
+##### Description: - Understanding different system architectures used to build applications, mainly Client-Server and Distributed (Peer-to-Peer) models, and how clients, servers, and networks interact.
+
+#### Types of Architectures
+- Client-Server
+- Distributed (Peer-to-Peer)
+#### Client-Server Architecture
+
+##### Server:
+- Stores data
+- Provides data on demand
+- May perform computations
+
+##### Clients:
+- End users
+- Request data
+- Handle user interaction and display
+
+##### Network:
+- Connects client to server
+- Can be local
+- Acts as a data pipe (no alterations to data)
+
+#### Client-Server Model
+
+- Explicit differentiation between clients and servers
+- Explicit server(s)
+- Explicit client(s)
+
+##### Local Systems:
+- Both client and server can be on the same machine (local network / communication)
+- Conceptually still a networked system
+
+##### Machine Clients:
+- Example: Software / antivirus updaters
+- May not require direct user interaction
+
+##### Variants:
+- Multiple servers
+- Single queue
+- Multiple queues
+- Load balancing frontends
+
+##### Examples:
+- Email
+- Databases
+- WhatsApp / messaging
+- Web browsing
+#### Distributed (Peer-to-Peer) Model
+
+- All peers are considered "equivalent"
+  - Some peers may be more equal than others (practically)
+- No strict separation like client and server
+
+##### Error Tolerance:
+- Masters / introducers
+- Election / re-selection of masters on failure
+
+##### Shared Information:
+- Data and responsibilities distributed among peers
+
+##### Examples:
+- BitTorrent
+- Blockchain-based systems
+- IPFS, Tahoe (distributed file systems)
+
+**Key Ideas:**
+Client-Server architecture clearly separates roles: clients request and display, servers store and compute, and the network connects them. In Distributed (Peer-to-Peer) systems, nodes act as equals, share responsibilities, and improve fault tolerance through distributed control and master re-election mechanisms.
+### Notes to be taken for `Activity Question 3`
+
+1. In general, it can suffer from the failure of a certain number of nodes. (Question: 1)
+2. Peer-to-Peer is naturally more fault tolerant. (Question: 4)
+3. For a client-server model to function smoothly, the client and the server have to be on different machines. (Question: 5)
+---
