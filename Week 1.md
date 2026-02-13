@@ -340,3 +340,161 @@ The web evolved from circuit-switched communication systems to packet-switched, 
 5. The internet is a network of networks. (Question: 11)
 6.  TCP gives priority to the reliability of data delivered. (Question: 12)
 ---
+
+## Lecture 6
+
+### Digging Deeper – How Does the Web Work?
+##### Description: - Understanding what a server is, what a transport protocol is, and how HTTP requests and responses are processed.
+
+#### Topics Covered
+- What is a server?
+- What is a transport protocol?
+- Impact on performance:
+  - Network
+  - Server compute resources
+  - Storage requirements
+  - Client compute resources
+
+#### What is a Web Server?
+
+- At the most basic level, any computer with a network connection can act as a web server.
+- A web server is simply a machine running software that:
+  - Listens for incoming network connections on a fixed port.
+  - Processes requests.
+  - Sends appropriate responses.
+
+- Multiple server-like applications may run on the same machine.
+- Running a web server can be as simple as running a small piece of software.
+
+#### Basic Networking Concepts (High-Level)
+
+##### Network, Ports, Connections
+
+- When a machine is connected to a network, it can receive packets (bytes of information).
+- The operating system:
+  - Receives packets.
+  - Interprets headers.
+  - Determines which application should handle them.
+
+##### Port
+- A port is just a number (usually 16-bit).
+- Range: 0 to 65,535.
+- Used to identify which application on a machine should receive the incoming data.
+- Example:
+  - Client sends a packet specifying a destination port.
+  - OS checks which program is listening on that port.
+  - That program receives the request.
+
+- Example:
+  - Web servers commonly listen on port 80 (HTTP).
+
+#### Role Separation
+
+- Operating System:
+  - Handles low-level networking.
+  - Manages ports and connections.
+
+- Web Server Software:
+  - Handles higher-level logic.
+  - Understands HTTP requests.
+  - Generates appropriate responses.
+
+#### What is a Protocol?
+
+- A protocol defines how two devices communicate.
+- Specifies:
+  - Message format
+  - Headers
+  - Expected responses
+  - Interpretation rules
+
+- Network protocol:
+  - Defines packet format and transmission rules.
+- Application protocol (like HTTP):
+  - Defines how client and server communicate above the network layer.
+
+#### HTTP – HyperText Transfer Protocol
+
+##### HyperText
+
+- A hypertext document is essentially a text document.
+- Contains special codes embedded within it.
+- These codes:
+  - Indicate formatting.
+  - Define links to other documents.
+- Appears as plain text unless interpreted by a browser.
+- Browser interprets codes and renders formatted content.
+
+- Clicking a link:
+  - Sends a new request to the server.
+  - Fetches another document.
+  - Enables linking across documents and servers.
+
+##### HyperText Transfer Protocol (HTTP)
+
+- Standardized protocol that defines:
+  - How a client sends a request.
+  - How a server responds.
+
+- Largely text-based protocol.
+- Requests and responses are human-readable.
+- Client sends request.
+- Server responds with:
+  - Hypertext document (HTML), or
+  - Other data (images, files, etc.).
+
+#### Steps in Processing an HTTP Request
+
+1. Client sends a request:
+   - Specifies server address.
+   - Specifies port.
+   - Includes header information (requested file, accepted formats, etc.).
+
+2. Server receives packet:
+   - OS identifies target port.
+   - Forwards request to appropriate server application.
+
+3. Server application:
+   - Interprets HTTP request.
+   - Determines what is requested (e.g., file).
+   - Retrieves required data.
+
+4. Server generates response:
+   - Constructs HTTP response headers.
+   - Attaches requested content.
+   - Sends response back to client.
+
+5. Client (browser):
+   - Interprets response.
+   - Renders content.
+
+#### Impact on Performance
+
+Performance of a web application depends on:
+
+- Network:
+  - Latency
+  - Bandwidth
+
+- Server Compute Resources:
+  - CPU
+  - Memory
+
+- Storage Requirements:
+  - Size of data
+  - Type of storage
+  - Application-specific constraints
+
+- Client Compute Resources:
+  - Client-side rendering
+  - Client-side computation (e.g., Web 2.0 applications)
+
+**Key Idea**
+A web server is simply a computer running software that listens on a port and responds to HTTP requests. The operating system handles low-level networking, while HTTP defines how client and server communicate at a higher level using structured, largely text-based messages.
+
+### Notes to be taken for `Activity Question 6`
+
+1. HTTP is not a stateful protocol. (Question: 1)
+2. A network protocol is a set of rules that describes formatting, transmission and receiving of data between two network devices. (Question: 4)
+3. A web server doesn't maintain the state of the client. (Question: 5)
+---
