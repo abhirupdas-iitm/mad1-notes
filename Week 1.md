@@ -641,3 +641,197 @@ HTTP is largely text-based, making it readable, "debuggable", and simple at its 
 2. CGI is not related to transfer of data from client to server. (Question: 4)
 ---
 
+## Lecture 8
+
+### Digging Deeper – How the Web Works
+##### Description:
+- Understanding what a web server is, how HTTP works, and how client–server communication happens using requests and responses.
+
+#### What is a Web Server?
+
+- Any computer with a network connection can act as a web server.
+- A server:
+  - Listens on a fixed **port number**
+  - Waits for incoming connections
+  - Processes requests
+  - Sends back responses
+
+- Ports:
+  - Identified by 16-bit numbers (0 – 65535)
+  - Used by the OS to route incoming packets to the correct program
+
+- The Operating System:
+  - Handles low-level networking (ports, packets, sockets)
+  - The web server runs on top of this and handles HTTP logic
+
+#### Performance Considerations
+
+- Network quality
+- Server compute resources (CPU)
+- Storage requirements
+- Client-side compute capabilities
+
+Designers must balance server load and client-side processing.
+
+### HyperText Transfer Protocol (HTTP)
+
+#### HyperText
+- A regular text document
+- Contains special codes (links, formatting)
+- Interpreted by a browser or client application
+
+#### HTTP
+- Primarily text-based protocol
+- Client sends request
+- Server responds with:
+  - Status line
+  - Headers
+  - Blank line
+  - Body (data)
+### Simplest Possible Web Server (Shell Example)
+
+```bash
+while true; do 
+  echo -e "HTTP/1.1 200 OK\n\n $(date)" | nc -l localhost 1500
+done
+```
+
+- `while true` → run indefinitely
+- `echo` → generates HTTP response
+- `HTTP/1.1 200 OK` → status line
+- `\n\n` → separates headers and body
+- `$(date)` → dynamic content
+- `nc -l localhost 1500` → listens on port 1500
+
+This server:
+- Does not interpret requests
+- Always returns 200 OK
+- Sends current date as response body
+
+### Typical HTTP Request
+
+Example (from curl):
+
+```
+GET / HTTP/1.1
+Host: localhost:1500
+User-Agent: curl/7.64.1
+Accept: */*
+```
+
+- `GET` → request method
+- `/` → root resource
+- `Host` → required in HTTP/1.1
+- `User-Agent` → client info
+- `Accept` → MIME types client can handle
+- Blank line → end of headers
+
+### Typical HTTP Response
+
+Example:
+
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 31
+
+<h1>Hello world</h1>
+Hi there!
+```
+
+Response contains:
+1. Status line
+2. Response headers
+3. Blank line
+4. Body
+
+### HTTP Status Codes
+
+- `200 OK` → success
+- `404 Not Found` → resource missing
+- `500 Internal Server Error` → server-side failure
+- `3xx` → redirection
+- `4xx` → client error
+- `5xx` → server error
+
+### Protocol – What Does It Mean?
+
+A protocol defines how two systems communicate.
+
+- Both sides agree on:
+  - Format of messages
+  - Type of requests
+  - Expected responses
+
+#### Server expects:
+- Properly formatted requests
+- Information about client
+- Accepted response types
+
+#### Client expects:
+- Structured responses
+- Status codes
+- Data it can process
+
+### HTTP Request Methods (Use Cases)
+
+#### GET
+- Simple retrieval
+- Search queries
+- Fetching pages
+- No large data transfer
+
+#### POST
+- Form submissions
+- Large text blocks
+- File uploads
+
+#### PUT / DELETE
+- Used in APIs
+- Basis of REST and CRUD operations
+- Rare in Web 1.0, common in Web 2.0
+
+### Another Web Server – Python
+
+```bash
+python -m http.server
+```
+
+- Runs a basic HTTP server
+- Default port: 8000
+- Serves files from current directory
+- Automatically detects MIME types
+- Generates proper HTTP headers
+
+### GET /
+
+If `index.html` exists:
+- Server returns its contents automatically
+- This is a convention (not core HTTP rule)
+
+Response includes:
+- HTTP version
+- Status code
+- Server info
+- Date
+- Content-Type
+- Content-Length
+- Last-Modified
+- File contents
+
+### GET /serve.sh
+
+- Server detects MIME type: `application/x-sh`
+- Sends file contents as response body
+
+Web servers:
+- Identify file type
+- Set correct Content-Type
+- Send appropriate headers
+- Deliver actual file data
+
+### Notes to be taken for `Activity Question 8`
+
+1. Both `GET` and `POST` are used by the HTTP protocol to transfer data between a browser and a server. (Question: 1)
+2. POST method is generally used to submit forms. (Question: 4)
+---
