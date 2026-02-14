@@ -498,3 +498,146 @@ A web server is simply a computer running software that listens on a port and re
 2. A network protocol is a set of rules that describes formatting, transmission and receiving of data between two network devices. (Question: 4)
 3. A web server doesn't maintain the state of the client. (Question: 5)
 ---
+## Lecture 7
+
+### Simplest Web Server and HTTP Request–Response Cycle
+##### Description: - Understanding how a minimal web server works, structure of HTTP requests and responses, and how tools like curl help inspect communication.
+
+#### Simplest Possible Web Server (Shell Script Example)
+
+Example structure (conceptually):
+
+- Infinite loop:
+  - Generate an HTTP response.
+  - Listen on a fixed port.
+  - Send response to whoever connects.
+
+Core ideas from the script:
+
+- `while true`:
+  - Keeps server running indefinitely.
+- `echo "HTTP/1.1 200 OK\n\n $(date)"`:
+  - Sends HTTP status line.
+  - Leaves blank line to separate headers and body.
+  - Sends current date as response body.
+- `nc -l localhost 1500`:
+  - Listens on port 1500.
+  - Sends echoed response to any incoming connection.
+
+Key Insight:
+- A web server is simply:
+  - A program listening on a fixed port.
+  - Sending properly formatted HTTP responses.
+
+#### Important Concepts
+
+##### Port
+- Identifies which application receives incoming data.
+- 16-bit number (0–65535).
+- Example: Server listens on port 1500.
+
+##### Status Codes
+- Part of HTTP response.
+- Example:
+  - `200 OK` → Success
+  - `404` → Not Found
+  - `301` → Moved Permanently
+
+#### General Web Server Behavior
+
+A typical web server:
+
+- Listens on a fixed port.
+- On incoming request:
+  - Runs some code.
+  - Generates result.
+  - Sends standard HTTP headers.
+  - Sends output (text, HTML, image, JSON, etc.).
+
+Output format:
+- Determined by MIME type.
+- MIME originally from email (Multimedia Internet Mail Extensions).
+- Specifies content type (text/html, image/png, application/json, etc.).
+
+#### Typical HTTP Request
+
+Example structure:
+
+```
+HTTP/1.1 200 OK
+
+Thu Jun 17 08:14:55 IST 2021
+```
+
+Structure:
+
+1. Status line:
+   - Protocol version
+   - Status code
+   - Status message
+2. Blank line:
+   - Separates headers and body.
+3. Body:
+   - Actual content (date in this example).
+
+#### Using curl to Inspect Requests and Responses
+
+Command:
+
+```
+curl -v http://localhost:1500
+```
+
+Key Points:
+
+- `curl`:
+  - Command-line HTTP client.
+  - Useful for testing servers.
+- `-v` (verbose):
+  - Shows full request and response headers.
+  - Useful for debugging.
+
+Verbose output shows:
+
+- Connection attempt.
+- Request sent to server.
+- Response received.
+- Debug info (not part of HTTP protocol).
+
+#### HTTP Versions
+
+- HTTP/1.0 → Older version.
+- HTTP/1.1 → Most widely used.
+- HTTP/2 → Supports features like multiplexing.
+- HTTP/3 → Emerging version.
+
+Important:
+- HTTP version (e.g., 1.1, 2) is different from "Web 2.0".
+
+#### Full Back-and-Forth Communication Flow
+
+1. Client opens connection to server (IP + port).
+2. Client sends text-based HTTP request.
+3. Server:
+   - Parses request.
+   - Generates response.
+   - Sends HTTP status line + headers + body.
+4. Client:
+   - Parses headers.
+   - Displays body.
+
+**Key Idea**
+
+Even a one-line shell script can act as a web server if it:
+
+- Listens on a port.
+- Sends correctly formatted HTTP responses.
+
+HTTP is largely text-based, making it readable, "debuggable", and simple at its core. The web fundamentally operates as structured text-based communication between client and server.
+
+### Notes to be taken for `Activity Question 7`
+
+1. `127.0.0.1` and `::1`  are loopback addresses. (Question: 2)
+2. CGI is not related to transfer of data from client to server. (Question: 4)
+---
+
