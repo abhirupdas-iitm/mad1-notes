@@ -835,3 +835,108 @@ Web servers:
 1. Both `GET` and `POST` are used by the HTTP protocol to transfer data between a browser and a server. (Question: 1)
 2. POST method is generally used to submit forms. (Question: 4)
 ---
+## Lecture 9
+
+### Performance of a Website
+
+##### Description: - Understanding what limits web application performance, including latency, bandwidth, memory, and storage constraints, and why scaling requires architectural design.
+
+#### Key Questions
+- How fast can a site be?
+- What limits performance?
+- What basic observations help us estimate limits?
+### Latency
+
+Latency = time between sending a request and receiving a response.
+
+#### Speed of Light Constraint
+- Speed of light in vacuum ≈ 3 × 10^8 m/s
+- In cables (fiber/copper) ≈ 2 × 10^8 m/s
+- ≈ 5 nanoseconds per meter  
+- ≈ 5 milliseconds per 1000 km
+
+#### Example: Data Center 2000 km Away
+- One-way delay ≈ 10 ms
+- Round-trip time (RTT) ≈ 20 ms
+
+If each request requires a full round trip before proceeding:
+- Maximum theoretical rate ≈ 1 / 0.02 sec = **50 requests per second**
+
+Even the speed of light becomes a bottleneck.
+
+Satellite links (e.g., geostationary ~30,000 km) increase latency dramatically.
+
+### Response Size & Bandwidth Limits
+
+Assume:
+- Response size ≈ 1 KB (headers + HTML + CSS + JS)
+- Network bandwidth = 100 Mbps ≈ 10 MB/s (practical)
+
+Then:
+- 10 MB/s ÷ 1 KB ≈ **10,000 requests per second (bandwidth limit)**
+
+If many users hit the server simultaneously (e.g., exam results), a single 100 Mbps connection cannot scale.
+
+#### Real Example: Google Response
+
+Observed:
+- Headers ≈ 100 bytes
+- Content ≈ 144 KB
+- Approx ~60,000 requests per second (estimate)
+
+If each response ≈ 140 KB:
+- 60,000 × 140 KB ≈ ~8.4 GB per second
+- ≈ 80 Gbps aggregate bandwidth
+
+This cannot be handled by:
+- A single server
+- Likely not even a single data center
+
+Solution → Distributed infrastructure across multiple data centers globally.
+
+#### Memory Scaling Example: YouTube
+
+Measured:
+- One Python HTTP server process ≈ 6 MB RAM
+
+If:
+- 2 million concurrent viewers (e.g., live debate)
+
+Then:
+- 2,000,000 × 6 MB ≈ 12 TB RAM
+
+Clearly:
+- Not feasible on a single machine
+- Requires thousands of servers
+- Horizontal scaling is necessary
+
+#### Storage Constraints
+
+Example: Google Index
+- Estimated ~100 Petabytes
+- 1 PB = 1000 TB
+- 100 PB = 100,000 TB
+
+Requires:
+- Massive distributed storage
+- Efficient indexing
+- Fast retrieval systems
+- Redundant architectures
+Storage is not just about space — it's about retrieval speed and distributed design.
+
+#### Summary Observations
+
+- Latency limits request frequency.
+- Bandwidth limits throughput.
+- Memory limits concurrent users.
+- Storage limits dataset size.
+- Scaling cannot rely only on "adding hardware".
+- Architectural redesign is often necessary.
+
+**Key Idea:**  
+The web is a device- and OS-agnostic platform built on HTTP for transport and HTML-related technologies for presentation. While building a basic web server is simple, scaling it to handle real-world traffic requires careful architectural design to manage latency, bandwidth, memory, and storage constraints.
+
+### Notes to be taken for `Activity Question 9`
+
+1. The round trip time for a request sent by a client via fiber cable to a server machine that is 1500 kilometers away from the client will be 15 milliseconds and not 7.5 milliseconds since 7.5 milliseconds is the time for the one-way trip (Assume speed of light on fiber cable is 2×10<sup>8</sup> m/sec). (Question: 2)
+---
