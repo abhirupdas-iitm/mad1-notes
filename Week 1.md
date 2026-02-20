@@ -938,5 +938,9 @@ The web is a device- and OS-agnostic platform built on HTTP for transport and HT
 
 ### Notes to be taken for `Activity Question 9`
 
-1. The round trip time for a request sent by a client via fiber cable to a server machine that is 1500 kilometers away from the client will be 15 milliseconds and not 7.5 milliseconds since 7.5 milliseconds is the time for the one-way trip (Assume speed of light on fiber cable is 2×10<sup>8</sup> m/sec). (Question: 2)
+1. The round trip time for a request sent by a client via fiber cable to a server machine that is 1500 kilometers away from the client will be 15 milliseconds and not 7.5 milliseconds since 7.5 milliseconds is the time for the one-way trip (Assuming speed of light on fiber cable is 2×10<sup>8</sup> m/sec). (Question: 2)
 ---
+
+### Notes to be taken from GA1
+1. The view in MVC architecture is responsible for both `displaying the data` and **`receiving the data from the user`**. (Question: 6)
+2. The valid IPv4 addresses are a set of 4 digits separated by 3 `.`s which are between 0 and 255. (Question: 10)
