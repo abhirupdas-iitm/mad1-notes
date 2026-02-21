@@ -1,5 +1,4 @@
 ## Lecture 1
-
 ### Types of Apps
 ##### Description: Obtaining an overall idea about 'apps' in general and a broad classification of various kinds of applications
 
@@ -41,7 +40,6 @@
 ---
 
 ## Lecture 2
-
 ### Components of an App
 ##### Description: - Understanding the various components that are integral to implementing an app like storage, computation and presentation and discussing various platforms, like desktop, mobile, web and embedded, on which applications are built and used
 
@@ -95,7 +93,6 @@ Different app platforms (desktop, mobile, web, embedded) have their own typical 
 2. Storage is used to manipulate the data based on request. (Question: 4)
 ---
 ## Lecture 3
-
 ### Client-Server and Peer-to-Peer Architecture
 
 ##### Description: - Understanding different system architectures used to build applications, mainly Client-Server and Distributed (Peer-to-Peer) models, and how clients, servers, and networks interact.
@@ -168,9 +165,7 @@ Client-Server architecture clearly separates roles: clients request and display,
 2. Peer-to-Peer is naturally more fault tolerant. (Question: 4)
 3. For a client-server model to function smoothly, the client and the server have to be on different machines. (Question: 5)
 ---
-
 ## Lecture 4
-
 ### Software Architecture
 ##### Description: - Introduction to design patterns in software architecture, with focus on Model-View-Controller (MVC) and related patterns used in web-based client-server applications.
 
@@ -249,9 +244,7 @@ Client-Server architecture clearly separates roles: clients request and display,
 1. The model does not control user interaction and the controller executes the business logic of an application. (Question: 1)
 2. In the M-V-C architecture, the developer can create multiple views of a model. (Question: 4)
 ---
-
 ## Lecture 5
-
 ### Why the "Web"
 ##### Description: - Understanding why the web is chosen as the platform for this course, along with its historical evolution and underlying networking principles.
 
@@ -340,9 +333,7 @@ The web evolved from circuit-switched communication systems to packet-switched, 
 5. The internet is a network of networks. (Question: 11)
 6.  TCP gives priority to the reliability of data delivered. (Question: 12)
 ---
-
 ## Lecture 6
-
 ### Digging Deeper – How Does the Web Work?
 ##### Description: - Understanding what a server is, what a transport protocol is, and how HTTP requests and responses are processed.
 
@@ -640,9 +631,7 @@ HTTP is largely text-based, making it readable, "debuggable", and simple at its 
 1. `127.0.0.1` and `::1`  are loopback addresses. (Question: 2)
 2. CGI is not related to transfer of data from client to server. (Question: 4)
 ---
-
 ## Lecture 8
-
 ### Digging Deeper – How the Web Works
 ##### Description:
 - Understanding what a web server is, how HTTP works, and how client–server communication happens using requests and responses.
@@ -836,7 +825,6 @@ Web servers:
 2. POST method is generally used to submit forms. (Question: 4)
 ---
 ## Lecture 9
-
 ### Performance of a Website
 
 ##### Description: - Understanding what limits web application performance, including latency, bandwidth, memory, and storage constraints, and why scaling requires architectural design.

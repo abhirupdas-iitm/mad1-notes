@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "92e690649584d5e7",
+        "id": "5257b43f39cd5b5d",
         "type": "tabs",
         "children": [
           {
-            "id": "f42a8d720f0b18eb",
+            "id": "bade8bcf309c1032",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "284f762293b4c257",
@@ -184,9 +183,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "f42a8d720f0b18eb",
+  "active": "bade8bcf309c1032",
   "lastOpenFiles": [
-    "MAD1 Theory (Modern Application Development).md",
-    "Week 1.md"
+    "Week 1.md",
+    "MAD1 Theory (Modern Application Development).md"
   ]
 }
