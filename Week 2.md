@@ -129,4 +129,7 @@ Encoding is a balance between:
 **Key Idea**  
 Bits themselves have no inherent meaning. Meaning arises from context and standardized encoding. Markup and character encodings form the foundation of how computers represent, interpret, and display human-readable information.
 
+### Notes to be taken for `Activity Question 1`
 
+1. "Markup” is not necessarily computer readable. (Question: 5)
+---
