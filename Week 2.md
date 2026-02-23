@@ -475,3 +475,9 @@ Presentation becomes flexible.
 
 Semantics = Meaning.
 Markup encodes meaning, not just appearance.
+
+### Notes to be taken for `Activity Question 3`
+
+1. HTML is not an example of procedural markup. (Question: 2)
+2. Procedural Markup goes into the details of how to display the text. (Question: 6)
+---
