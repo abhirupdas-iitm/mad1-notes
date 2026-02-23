@@ -481,3 +481,227 @@ Markup encodes meaning, not just appearance.
 1. HTML is not an example of procedural markup. (Question: 2)
 2. Procedural Markup goes into the details of how to display the text. (Question: 6)
 ---
+## Lecture 4
+
+### HTML Evolution, Structure, and the DOM
+##### Description: - Understanding the origins of HTML, its forgiving design philosophy, the evolution from SGML to HTML5, the distinction between semantic and presentational tags, and the introduction of the Document Object Model (DOM).
+
+#### Origins of HTML
+- Created by Tim Berners-Lee at CERN (~1989).
+- Based on earlier markup systems.
+- Inspired by SGML (Standard Generalized Markup Language).
+
+SGML:
+- Strict structure.
+- Formal grammar.
+- Complex specification.
+
+HTML:
+- Simplified for browsers.
+- Designed for practical web use.
+- Key design choice:
+  - Browsers should be forgiving of mistakes.
+  - Best-effort rendering instead of strict rejection.
+
+Impact:
+- Massive adoption.
+- Tolerant parsing became part of web culture.
+
+#### Basic Structure of an HTML Document
+Modern minimal structure:
+
+- `<!DOCTYPE html>` → Declares document type.
+- `<html> ... </html>` → Root element.
+- `<body> ... </body>` → Main content.
+- `<h1> ... </h1>` → Heading.
+- `<p> ... </p>` → Paragraph.
+
+Rules:
+
+- Tags enclosed in angle brackets `< >`.
+- Most tags are paired:
+  - Opening tag: `<tag>`
+  - Closing tag: `</tag>`
+- Tags can be nested.
+
+Example structure meaning:
+- `<h1>` → First-level heading (semantic meaning).
+- `<p>` → Paragraph (semantic structure).
+
+Markup defines structure + meaning, not just formatting.
+
+#### Case Sensitivity and Tag Behavior
+
+- HTML is case-insensitive.
+- `<H1>` and `<h1>` both valid.
+- Mixed case allowed (not recommended for readability).
+
+Location-specific tags:
+- `DOCTYPE` must appear at top.
+
+#### Nesting and Valid Structure
+Proper nesting rule:
+- Last opened tag must be first closed.
+
+Correct:
+- `<strong><em>text</em></strong>`
+
+Incorrect:
+- `<strong><em>text</strong></em>`
+
+Improper nesting = invalid HTML.
+
+Browser behavior:
+- Usually attempts recovery.
+- May issue warnings.
+- Best-effort rendering.
+
+Missing closing tags:
+- Often auto-corrected by browser.
+- But technically invalid.
+
+Typos in tags:
+- Browser may ignore.
+- Output unpredictable.
+
+#### Semantic vs Presentational Tags
+Example:
+
+- `<strong>` → Semantic (importance).
+- `<b>` → Presentational (bold font).
+
+Both may render similarly (bold).
+
+Difference:
+- `<strong>` conveys meaning.
+- `<b>` conveys appearance.
+
+Guideline:
+- Prefer semantic tags.
+- Meaning outlasts styling.
+
+#### Evolution of HTML Versions
+Timeline:
+
+- ~1990 → Early SGML-based HTML.
+- 1995 → HTML 2.
+- 1997 → HTML 3 & 4.
+- Late 1990s–2000s → XHTML (XML-based strict variant).
+- 2014 → HTML5 standardized (W3C).
+
+XHTML:
+- Based on XML.
+- Stricter parsing rules.
+- Required proper nesting.
+- More formal structure.
+
+HTML5:
+- Unified standard.
+- More practical.
+- Added modern capabilities.
+- Dominant standard today.
+
+#### HTML5 Improvements
+Motivation:
+- Replace Flash (non-standard, plugin-based).
+- Standardize multimedia.
+- Improve cross-platform compatibility.
+
+New semantic elements:
+- `<div>` → Block container.
+- `<span>` → Inline container.
+- `<nav>` → Navigation.
+- `<footer>` → Footer section.
+- `<header>` → Header section.
+
+New media elements:
+- `<audio>`
+- `<video>`
+
+Deprecated presentational tags:
+- `<center>`
+- `<font>`
+
+Reason:
+- Styling should move to CSS.
+- HTML should focus on structure and meaning.
+
+#### Accessibility and Semantic Structure
+Semantic tags improve:
+
+- Screen reader interpretation.
+- Navigation by assistive technologies.
+- Logical grouping of content.
+- Machine understanding of structure.
+
+Example:
+- `<nav>` → Navigation links.
+- `<main>` → Primary content.
+- `<footer>` → Supplementary info.
+
+Logical markup improves accessibility.
+
+#### Document Object Model (DOM)
+When browser loads HTML:
+
+Step 1:
+- Parse HTML.
+- Interpret tags.
+- Build tree structure.
+
+This tree = Document Object Model (DOM).
+
+DOM Characteristics:
+
+- Root node → Document.
+- `<html>` as root element.
+- Nested hierarchy:
+  - `<head>`
+  - `<body>`
+  - Child elements (h1, p, a, etc.)
+- Text nodes are leaf nodes.
+- Attributes (e.g., href) attached to elements.
+
+Tree representation allows:
+
+- Traversal.
+- Modification.
+- Node insertion.
+- Node deletion.
+- Style manipulation.
+
+#### Why DOM Matters
+DOM enables:
+
+- Programmatic manipulation.
+- Dynamic content updates.
+- Styling control via CSS.
+- Interactive behavior via JavaScript.
+
+Tree-based structure allows:
+
+- Use of standard tree algorithms.
+- Efficient updates.
+- Parent-child relationship management.
+
+#### HTML5 APIs and Extended Capabilities
+
+HTML5 introduced APIs for:
+
+- Canvas (drawing graphics).
+- Offline applications.
+- Web storage (persistent local storage).
+- Drag and drop.
+- Multimedia embedding.
+
+These APIs standardize browser behavior.
+
+Manipulating DOM typically done via:
+- JavaScript.
+
+Styling DOM done via:
+- CSS.
+
+HTML defines structure.
+CSS defines appearance.
+JavaScript defines behavior.
