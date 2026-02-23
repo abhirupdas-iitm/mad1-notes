@@ -911,3 +911,219 @@ Separation of concerns:
 3. `&COPY` must be used so that it prints the copyright symbol only. (Question: 14)
 4. `<ul type="square">` will create an unordered list with bullet type **solid square**. (Question: 15)
 ---
+## Lecture 6
+
+### Applying CSS, Responsive Design, and Introduction to JavaScript
+##### Description: - Understanding how CSS is applied (inline, internal, external), the cascade mechanism, responsive design across devices, CSS frameworks like Bootstrap, and the distinction between HTML/CSS and JavaScript.
+
+#### Ways to Apply CSS
+There are three main ways to apply CSS:
+
+1. Inline CSS  
+2. Internal CSS  
+3. External CSS  
+
+#### Inline CSS
+Style is added directly inside a tag using the `style` attribute.
+
+Example:
+
+<h1 style="color: blue; text-align: center;">Hello</h1>
+
+Effect:
+- Overrides default browser styling.
+- Only affects that specific element.
+- Cascades on top of existing styles.
+
+Properties not specified (like font-size or boldness for h1) remain inherited from defaults.
+
+Drawback:
+- Not reusable.
+- Hard to maintain.
+- Repetition required across multiple elements.
+
+#### Internal CSS
+Defined inside a `<style>` tag within the `<head>` section.
+
+Example structure:
+
+<head>
+  <style>
+    body {
+      background-color: linen;
+    }
+    h1 {
+      color: maroon;
+      margin-left: 40px;
+    }
+  </style>
+</head>
+
+Characteristics:
+- Applies to entire document.
+- Centralized styling.
+- Cleaner than inline.
+- Still limited to one HTML file.
+
+Better maintainability:
+Change once → affects all matching tags.
+
+#### External CSS (Best Practice)
+CSS placed in a separate `.css` file.
+
+Example:
+
+<link rel="stylesheet" href="styles.css">
+
+Advantages:
+- Reusable across multiple pages.
+- Better organization.
+- Improves caching.
+- Cleaner HTML.
+- Industry standard.
+
+This enables large-scale consistency.
+#### Cascading Mechanism
+Why “Cascading”?
+
+Because multiple style layers can exist:
+
+- Browser default styles
+- External CSS
+- Internal CSS
+- Inline CSS
+
+Hierarchy (simplified priority):
+
+Inline > Internal > External > Browser defaults
+
+If a property is missing at a higher level,
+it cascades down to the next available definition.
+
+This layered model makes styling modular and extensible.
+
+#### Responsive Design
+Modern web pages must adapt to:
+
+- Desktop
+- Tablet
+- Phone
+- Landscape mode
+- Portrait mode
+
+Responsive design means:
+
+Same HTML  
+Different CSS behavior  
+Based on screen size
+
+CSS can:
+
+- Rearrange layout
+- Stack elements vertically
+- Resize fonts
+- Hide/show sections
+- Modify navigation style
+
+Example transitions:
+- Desktop: multi-column layout
+- Tablet: simplified layout
+- Mobile: stacked vertical layout
+
+HTML remains unchanged.
+CSS adapts presentation.
+
+This is possible because structure and style are separated.
+
+#### Why This Matters
+If styling were embedded in HTML:
+- Responsive design would be nearly impossible.
+- Maintenance would be chaotic.
+- Device adaptation would require rewriting structure.
+
+Separation enables:
+- Reusability
+- Scalability
+- Maintainability
+- Cross-device compatibility
+
+#### CSS Frameworks
+Example: Bootstrap
+
+Bootstrap:
+- CSS framework
+- Provides predefined components
+- Responsive by default
+- Mobile-first design
+- Includes styling for:
+  - Buttons
+  - Navigation bars
+  - Forms
+  - Layout grids
+
+Benefit:
+You don’t design everything from scratch.
+You reuse well-designed templates.
+
+Core idea:
+CSS promotes reuse at scale.
+
+#### HTML & CSS Are NOT Programming Languages
+HTML:
+- Structure
+- Markup
+- Declarative
+
+CSS:
+- Styling rules
+- Declarative
+- Not meant for control flow
+
+They do not:
+- Run loops
+- Process input logically
+- Execute algorithms
+
+They define how content is structured and displayed.
+
+#### Introduction to JavaScript
+JavaScript:
+- Programming language
+- Executed inside browser
+- Manipulates DOM
+- Adds dynamic behavior
+
+Examples:
+- Form validation
+- Dynamic content updates
+- Interactive UI
+- DOM modification
+- Event handling
+
+JavaScript can:
+- Modify structure (DOM)
+- Modify styles dynamically
+- React to user input
+- Fetch data from server
+
+Modern web apps heavily rely on it.
+
+But:
+
+HTML → Structure  
+CSS → Presentation  
+JavaScript → Behavior  
+
+That’s the architecture.
+
+#### Architectural Separation
+Frontend layers:
+
+1. HTML → Content & Semantics  
+2. CSS → Visual Presentation  
+3. JavaScript → Dynamic Behavior  
+
+Separation of concerns:
+Each layer solves a different problem.
+
+This separation is foundational to modern web application design.
