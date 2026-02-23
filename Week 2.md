@@ -1132,6 +1132,6 @@ This separation is foundational to modern web application design.
 
 1. The correct syntax for adding a checkbox in an HTML document is `<input type=“checkbox” />`. (Question: 2)
 2. `alt` is used to display a message if the image specified in the `<img>` tag does not load. (Question: 7)
-3. `&COPY` must be used so that it prints the copyright symbol only. (Question: 14)
+3. `&COPY` must be used so that it prints the copyright symbol only. (Question
 4. `<ul type="square">` will create an unordered list with bullet type **solid square**. (Question: 15)
 ---
