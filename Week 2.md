@@ -903,3 +903,11 @@ Separation of concerns:
 - Structural layer
 - Presentation layer
 - Behavioral layer
+
+### Notes to be taken for `Activity Question 5`
+
+1. The correct syntax for adding a checkbox in an HTML document is `<input type=“checkbox” />`. (Question: 2)
+2. `alt` is used to display a message if the image specified in the `<img>` tag does not load. (Question: 7)
+3. `&COPY` must be used so that it prints the copyright symbol only. (Question: 14)
+4. `<ul type="square">` will create an unordered list with bullet type **solid square**. (Question: 15)
+---
