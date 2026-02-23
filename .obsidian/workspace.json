@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "284f762293b4c257",
@@ -185,6 +186,7 @@
   },
   "active": "bade8bcf309c1032",
   "lastOpenFiles": [
+    "Pasted image 20260223231506.png",
     "Week 1.md",
     "Week 2.md",
     "MAD1 Theory (Modern Application Development).md"
