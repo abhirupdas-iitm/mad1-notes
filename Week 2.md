@@ -713,3 +713,193 @@ JavaScript defines behavior.
 3. `&COPY` must be used so that it prints the copyright symbol only. (Question: 14)
 4. `<ul type="square">` will create an unordered list with bullet type **solid square**. (Question: 15)
 ---
+## Lecture 5
+
+### Styling and Cascading Style Sheets (CSS)
+##### Description: - Understanding the distinction between markup and styling, the concept of themes, the role of CSS, and how browsers apply default styles through the cascade mechanism.
+
+#### Markup vs Styling
+Markup:
+- Defines structure.
+- Defines meaning (semantics).
+- Example:
+  - `<h1>` = heading.
+  - `<p>` = paragraph.
+  - `<a>` = link.
+
+Styling:
+- Defines appearance.
+- Controls:
+  - Font
+  - Size
+  - Color
+  - Background
+  - Spacing
+  - Alignment
+
+Key idea:
+Markup does not specify how something should look.
+Styling determines visual representation.
+
+Example:
+Word “Hello” marked as `<h1>` could be displayed as:
+- 24pt bold.
+- Larger bold with different font.
+- Bold + italic + colored + background.
+
+Markup stays constant.
+Style changes.
+
+#### Themes
+Theme = a consistent visual style applied to the same underlying markup.
+
+Examples:
+- Dark mode vs Light mode.
+- Different OS themes.
+- Phone UI themes.
+
+Underlying structure remains unchanged.
+Only styling layer changes.
+
+This separation enables:
+- Easy redesign.
+- Visual consistency.
+- Device adaptation.
+
+#### Style Sheets
+Style sheet:
+- A separate collection of styling rules.
+- Specifies how tags should appear.
+- Independent of HTML structure.
+
+Instead of writing styling inside markup:
+- Define rules separately.
+- Apply to document.
+
+This leads to CSS.
+
+#### Cascading Style Sheets (CSS)
+CSS = Cascading Style Sheets.
+
+Purpose:
+- Separate presentation from structure.
+- Allow multiple style definitions.
+- Resolve conflicts using precedence rules.
+
+Why "Cascading"?
+
+- Multiple style sheets may apply.
+- Styles can overlap.
+- Later definitions override earlier ones.
+- More specific rules override general ones.
+
+The cascade determines final appearance.
+
+#### Browser Default Styles
+Even if you write no CSS:
+- Browser applies built-in default styles.
+
+Examples:
+
+For `<h1>`:
+- Display: block
+- Larger font size
+- Bold font-weight
+- Margins before and after
+
+For `<a>`:
+- Color: blue (default)
+- Text-decoration: underline
+- Cursor: pointer on hover
+
+These are browser defaults.
+They are not in your HTML.
+They are internal CSS rules.
+
+#### Developer Tools and Style Inspection
+Modern browsers provide:
+- Developer interface.
+- DOM inspector.
+- Style viewer.
+
+You can:
+- Click an element.
+- See applied styles.
+- See:
+  - Font size
+  - Margins
+  - Display type
+  - Color
+  - Inherited properties
+
+This shows:
+- Default styles
+- User-defined styles
+- Overridden styles
+
+Important concept:
+Every element on a webpage has computed styles.
+
+#### Block vs Inline Display
+Example:
+
+`<h1>`:
+- Display: block
+- Takes full width.
+- Next element appears on next line.
+
+`<a>` (link):
+- Display: inline
+- Appears within text flow.
+
+Block elements:
+- Occupy full width.
+- Stack vertically.
+
+Inline elements:
+- Flow within line.
+- Do not force line break.
+
+Display type is controlled by CSS.
+
+#### Style Properties Examples
+Common properties:
+
+- font-size
+- font-weight
+- color
+- background-color
+- margin
+- text-decoration
+- cursor
+
+Example interpretations:
+
+- font-size: 2em → twice base font size.
+- font-weight: bold → thicker text.
+- text-decoration: underline → line under text.
+- cursor: pointer → clickable behavior.
+
+CSS defines visual behavior.
+
+#### Why Separation Matters
+If styling were embedded in markup:
+- Hard to change entire site theme.
+- Difficult to maintain.
+- Poor scalability.
+
+With CSS:
+- Change one style sheet.
+- Entire site updates.
+- Cleaner HTML.
+- Better maintainability.
+
+Markup = structure + meaning.
+CSS = appearance.
+DOM = in-memory structure.
+JavaScript = behavior.
+
+Separation of concerns:
+- Structural layer
+- Presentation layer
+- Behavioral layer
