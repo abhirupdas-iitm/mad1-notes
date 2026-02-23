@@ -305,3 +305,173 @@ UTF-8 is the de facto web standard.
 1. 2<sup>16</sup> characters can be encoded in UCS-2. (Question: 1)
 2. If a document has 1000 characters. It will require 32000 bits to encode the entire document in UCS-4. (Question: 5)
 ---
+## Lecture 3
+
+### Markup: Content vs Presentation vs Semantics
+##### Description: - Understanding what markup truly means, the difference between raw content and presentation, and the distinction between presentational, procedural, and descriptive (semantic) markup.
+
+#### What is Markup?
+- Markup = embedding cues inside text to control how it is displayed.
+- It originated from physically marking documents with editorial instructions.
+- Goal:
+  - Improve readability
+  - Improve structure
+  - Improve clarity of meaning
+
+Example:
+- Title made larger and centered.
+- Heading made bold and larger.
+- Paragraph breaks inserted.
+- Content unchanged.
+- Only presentation modified.
+
+Core principle:
+- Markup modifies presentation without changing content.
+
+#### Raw Content vs Structured Content
+Raw text:
+- Continuous flow.
+- Hard to identify:
+  - Title
+  - Headings
+  - Paragraph boundaries
+  - Logical sections
+
+Structured (marked-up) text:
+- Title clearly separated.
+- Headings distinct.
+- Paragraphs logically grouped.
+
+Markup adds structure and interpretability.
+
+Even punctuation (capital letters, periods) is primitive markup — it helps humans interpret structure.
+
+#### Historical Context of Markup
+- Concept existed since 1970s (e.g., LaTeX).
+- 1987 ACM paper discussed markup in scholarly documents.
+- Important for:
+  - Scientific papers
+  - Abstracts
+  - Sections
+  - Conclusions
+
+Machines need structural cues to:
+- Search documents
+- Extract summaries
+- Identify key sections
+
+Markup enables machine-readable structure.
+
+#### Types of Markup
+##### Presentational Markup
+
+- Focus: How it looks.
+- Example:
+  - Bold
+  - Italic
+  - Font size
+  - Centered text
+
+Related concept:
+- WYSIWYG (What You See Is What You Get)
+
+Characteristics:
+- Direct formatting control.
+- Editor-specific encoding (e.g., MS Word).
+- Raw document bytes not human-readable.
+- Embeds display instructions directly.
+
+Limitation:
+- Difficult to extract meaning.
+- Tightly coupled to presentation.
+
+##### Procedural Markup
+
+- Focus: Instructions on how to display.
+- Example:
+  - Switch font to Arial.
+  - Set font size to 24pt.
+  - Center text.
+  - Insert blank lines.
+
+Characteristics:
+- Step-by-step rendering instructions.
+- Interpreter executes commands.
+- Less intelligent rendering engine required.
+
+Limitation:
+- Highly verbose.
+- Strongly tied to presentation.
+- Hard to adapt for future display formats.
+
+##### Descriptive (Semantic) Markup
+- Focus: What the content means.
+- Examples:
+  - This is a title.
+  - This is a heading.
+  - This is a paragraph.
+  - This is emphasis.
+
+Key idea:
+- Meaning is specified.
+- Rendering is left to the tool.
+
+Advantages:
+- Separates meaning from appearance.
+- Easier searching and indexing.
+- Future-proof.
+- Machine-readable structure.
+- Flexible display across devices.
+
+Example:
+- Mark something as `<title>`.
+- Browser decides:
+  - Font size
+  - Alignment
+  - Styling
+
+#### Content vs Presentation
+Content:
+- Meaning
+- Structure
+- Logical organization
+- Semantics
+
+Presentation:
+- Font
+- Color
+- Size
+- Layout
+
+Descriptive markup prioritizes semantics over visual appearance.
+
+#### Practical Observations
+WYSIWYG tools (e.g., MS Word, Google Docs):
+- Presentation-driven.
+- Often generate messy HTML.
+- Hard to interpret meaning from exported code.
+
+Semantic systems (LaTeX, HTML, XML, SGML):
+- Meaning-focused.
+- Not purely WYSIWYG.
+- Require more discipline.
+- Cleaner structural logic.
+
+#### Why Semantics Matter
+If title is marked semantically:
+- Easy to search titles.
+- Easy to index.
+- Easy to restyle entire document.
+- Easy to adapt for mobile, print, accessibility.
+
+If emphasis is semantic:
+- Can render as:
+  - Bold
+  - Italic
+  - Color
+  - Screen reader emphasis
+
+Presentation becomes flexible.
+
+Semantics = Meaning.
+Markup encodes meaning, not just appearance.
