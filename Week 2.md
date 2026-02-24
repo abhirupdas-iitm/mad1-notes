@@ -478,6 +478,8 @@ Presentation becomes flexible.
 Semantics = Meaning.
 Markup encodes meaning, not just appearance.
 
+**Key Idea:**  
+The most powerful form of markup is semantic markup — it separates meaning from presentation, making documents machine-readable, adaptable, and future-proof.
 ### Notes to be taken for `Activity Question 3`
 
 1. HTML is not an example of procedural markup. (Question: 2)
