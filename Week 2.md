@@ -300,6 +300,8 @@ Benefits:
 
 UTF-8 is the de facto web standard.
 
+**Key Idea:**  
+UTF-8 solves the core engineering trade-off between universality and efficiency by using variable-length prefix encoding — preserving ASCII compatibility while supporting global character sets.
 ### Notes to be taken for `Activity Question 2`
 
 1. 2<sup>16</sup> characters can be encoded in UCS-2. (Question: 1)
@@ -907,10 +909,8 @@ Separation of concerns:
 
 ### Notes to be taken for `Activity Question 5`
 
-1. The correct syntax for adding a checkbox in an HTML document is `<input type=“checkbox” />`. (Question: 2)
-2. `alt` is used to display a message if the image specified in the `<img>` tag does not load. (Question: 7)
-3. `&COPY` must be used so that it prints the copyright symbol only. (Question: 14)
-4. `<ul type="square">` will create an unordered list with bullet type **solid square**. (Question: 15)
+1. The correct syntax to give equal margin (from left and right) to a block element along the x-axis is `margin: auto;`. (Question: 2)
+2.  A website that has the ability to adapt to the screens of different sizes is called a *Responsive* website. (Question: 6)
 ---
 ## Lecture 6
 
