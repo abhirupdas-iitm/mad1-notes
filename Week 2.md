@@ -1134,6 +1134,8 @@ Each layer solves a different problem.
 
 This separation is foundational to modern web application design.
 
+**Key Idea:**  
+CSS enables layered, reusable, and responsive styling independent of HTML structure, while JavaScript introduces programmable behavior — completing the separation between structure, presentation, and logic.
 ### Notes to be taken for `Activity Question 6`
 
 1. The correct syntax for adding a checkbox in an HTML document is `<input type=“checkbox” />`. (Question: 2)
