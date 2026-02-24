@@ -1138,8 +1138,6 @@ This separation is foundational to modern web application design.
 CSS enables layered, reusable, and responsive styling independent of HTML structure, while JavaScript introduces programmable behavior — completing the separation between structure, presentation, and logic.
 ### Notes to be taken for `Activity Question 6`
 
-1. The correct syntax for adding a checkbox in an HTML document is `<input type=“checkbox” />`. (Question: 2)
-2. `alt` is used to display a message if the image specified in the `<img>` tag does not load. (Question: 7)
-3. `&COPY` must be used so that it prints the copyright symbol only. (Question
-4. `<ul type="square">` will create an unordered list with bullet type **solid square**. (Question: 15)
+1. Border is a CSS shorthand property. (Question: 1)
+2. The colour of the text "IIT Madras" will be in Yellow and not Green because it is CSS where the last encountered/most recent one is given priority. (Question: 5)
 ---
