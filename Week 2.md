@@ -689,7 +689,6 @@ Tree-based structure allows:
 - Parent-child relationship management.
 
 #### HTML5 APIs and Extended Capabilities
-
 HTML5 introduced APIs for:
 
 - Canvas (drawing graphics).
@@ -710,6 +709,8 @@ HTML defines structure.
 CSS defines appearance.
 JavaScript defines behavior.
 
+**Key Idea:**  
+HTML provides semantic structure that browsers parse into a DOM tree, enabling dynamic manipulation, styling, accessibility, and standardized web application behavior.
 ### Notes to be taken for `Activity Question 4`
 
 1. The correct syntax for adding a checkbox in an HTML document is `<input type=“checkbox” />`. (Question: 2)
