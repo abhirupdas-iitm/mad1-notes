@@ -910,6 +910,8 @@ Separation of concerns:
 - Presentation layer
 - Behavioral layer
 
+**Key Idea:**  
+CSS separates visual presentation from HTML structure, and through cascading rules and browser defaults, determines the final computed style of every element on a webpage.
 ### Notes to be taken for `Activity Question 5`
 
 1. The correct syntax to give equal margin (from left and right) to a block element along the x-axis is `margin: auto;`. (Question: 2)
