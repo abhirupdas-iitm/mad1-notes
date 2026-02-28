@@ -993,3 +993,7 @@ Design process steps:
 
 Key Idea:
 - Effective UI design balances usability, aesthetics, accessibility, and engineering principles.
+
+### Notes to be taken for `Activity Question 3`
+1. Fully dynamic, as a view, is not the most efficient in terms of loading a server. (Question: 4)
+---
