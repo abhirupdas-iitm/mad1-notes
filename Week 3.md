@@ -642,3 +642,8 @@ json
   "marks": 78
 }
 ```
+
+### Notes to be taken for `Activity Question 2`
+(Nothing, all questions correctly answered!)
+
+---
