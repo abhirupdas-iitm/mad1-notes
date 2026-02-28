@@ -329,3 +329,9 @@ Controller:
 Key Idea:
 - MVC separates data, presentation, and control logic.
 - This separation enables scalable and maintainable applications.
+
+### Notes to be taken for `Activity Question 1`
+
+1. Smalltalk-80 is a dynamically typed language. (Question: 2)
+2. The component of the MVC model which is responsible for the interaction of the user with the web application, is *not controller*, but *view*. (Question: 4)
+---
