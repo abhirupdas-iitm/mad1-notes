@@ -1327,3 +1327,8 @@ Key usability principles:
 
 Key Idea:
 - Effective UI design prioritizes usability, simplicity, consistency, and user empowerment.
+
+### Notes to be taken for `Activity Question 4`
+(Nothing, all questions correctly answered!)
+
+---
