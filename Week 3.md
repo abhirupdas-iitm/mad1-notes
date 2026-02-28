@@ -1658,3 +1658,15 @@ Tools for wireframes include:
 
 Key Idea:
 - Wireframes enable effective planning of View design before implementation.
+
+### Notes to be taken for `Activity Question 5`
+1. The following Jinja templates correctly implements a simple if-else statement: (Question: 3)
+   ```
+{% if name %}  
+<h1>Hello, {{name}}!</h1>  
+{% else %}  
+<h1>What is your name?</h1>  
+{% endif %}
+   ```
+2. User Interface Design relates to the interaction between the machine and the user. (Question:5)
+---
