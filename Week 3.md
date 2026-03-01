@@ -2216,3 +2216,7 @@ Follow standards
 Core conclusion:
 
 Accessibility is a fundamental requirement in view design. Proper application of accessibility principles, combined with structured view generation tools and clean UI design, ensures applications are usable, maintainable, and inclusive for all users.
+
+### Notes to be taken for `Activity Question 7`
+1. ‘Accessibility’ is an important component of View which handles various forms of disability and impairment of the user. (Question: 4)
+---
