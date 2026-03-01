@@ -1835,3 +1835,384 @@ return "<p>"+s+"</p>"
 print(p("This is paragraph tag"))
 ```
 ---
+## Lecture 7
+### Accessibility, WCAG Principles, and Aesthetic Considerations in Views
+##### Description: Understanding accessibility as a core requirement of views, including accessibility challenges, W3C Web Content Accessibility Guidelines (WCAG), principles such as perceivable, operable, understandable, and robust systems, along with the relationship between accessibility and aesthetics in modern user interface design.
+
+#### Importance of Accessibility
+Accessibility refers to the ability of people with disabilities or impairments to use websites and applications effectively.
+
+Reason accessibility is important:
+
+- Not all users have normal vision, hearing, or motor abilities
+- Websites must serve the widest possible audience
+- Accessibility ensures inclusivity
+
+Examples of impairments:
+
+Visual impairments:
+- Complete blindness
+- Low vision
+- Poor contrast perception
+- Need for larger fonts
+
+Speech impairments:
+- Cannot speak clearly
+- Cannot use voice interaction systems
+
+Motor impairments:
+- Cannot use mouse precisely
+- Difficulty using touch interfaces
+
+Hearing impairments:
+- Cannot hear audio content
+
+Key Insight:
+Accessibility ensures information remains usable even if presentation cannot be fully perceived.
+
+#### Core Accessibility Questions
+When designing applications, ask:
+
+- Can users with impairments access this application?
+- What prevents accessibility?
+- How can accessibility be improved?
+
+Goal:
+Maximize usability for all users.
+
+#### W3C and Accessibility Guidelines
+W3C (World Wide Web Consortium) provides accessibility recommendations.
+
+Website:
+w3.org
+
+They define:
+Web Content Accessibility Guidelines (WCAG)
+
+These guidelines define principles and techniques for accessible web design.
+
+Important note:
+W3C provides recommendations, not strict laws, but they define industry standards.
+
+#### Accessibility Components
+Accessibility depends on multiple components:
+
+1. Webpage content
+- HTML structure
+- Images
+- Multimedia
+- Text
+
+2. User agent (browser)
+- Desktop browser
+- Mobile browser
+- Screen reader
+- Speech-based browser
+
+3. Authoring tools
+- Templates
+- HTML generators
+- Development tools
+
+Key Insight:
+Accessibility is a system-wide property, not just page content.
+
+#### Principle 1: Perceivable
+Definition:
+Content must be perceivable by users.
+
+Guidelines:
+
+Provide text alternatives for non-text content.
+
+Examples:
+- Images must have text descriptions
+- Videos must have captions
+- Audio must have transcripts
+
+Reason:
+Screen readers rely on text descriptions.
+
+Example:
+Instead of only showing image of graph, also include description:
+
+"This graph shows marks following bell curve with mean 70."
+
+Avoid putting important text inside images.
+
+Reason:
+Screen readers cannot extract text from images easily.
+
+Provide adaptable content:
+
+Content must work in multiple forms:
+
+- Visual
+- Audio
+- Text
+
+Ensure readability:
+
+Use:
+
+- Clear fonts
+- Proper contrast
+- Readable sizes
+
+#### Principle 2: Operable
+Definition:
+User must be able to interact with interface.
+
+Important rules:
+
+Make all functionality available via keyboard.
+
+Reason:
+Some users cannot use mouse.
+
+Example of bad design:
+Dropdown menu only accessible via mouse hover.
+
+Example of good design:
+Dropdown accessible via keyboard tab and enter.
+
+Give users enough time.
+
+Bad practice:
+Flashing messages that disappear quickly.
+
+Good practice:
+Persistent messages with close button.
+
+Avoid flashing content.
+
+Reason:
+Flashing can trigger seizures in photosensitive users.
+
+Provide clear navigation.
+
+Examples:
+- Navigation menus
+- Logical page structure
+- Clear links
+
+Support multiple input methods:
+
+Examples:
+- Keyboard
+- Mouse
+- Joystick
+- Assistive devices
+
+#### Principle 3: Understandable
+Definition:
+Content and interface must be understandable.
+
+Guidelines:
+
+Use readable fonts.
+
+Use clear language.
+
+Avoid complex or confusing wording.
+
+Ensure predictable behavior.
+
+Example:
+
+Clicking button labeled "Submit" should submit form.
+
+Bad design:
+Button performs unexpected action.
+
+Prevent input errors.
+
+Example:
+
+If number required, restrict input to numbers only.
+
+This prevents user mistakes.
+
+#### Principle 4: Robust
+Definition:
+Content must work reliably across systems and future technologies.
+
+Guidelines:
+
+Follow standards.
+
+Use valid HTML.
+
+Avoid browser-specific hacks.
+
+Reason:
+Ensures compatibility across:
+
+- Browsers
+- Devices
+- Screen readers
+- Future systems
+
+Key Insight:
+Standard-compliant design ensures long-term accessibility.
+
+#### Accessibility Techniques
+Accessibility can be improved using metadata and labels.
+
+Example:
+
+Provide descriptive labels for controls.
+
+These labels help assistive technologies understand elements.
+
+Example:
+Button label helps screen reader say:
+
+"Submit form button"
+
+instead of
+
+"Button"
+
+W3C also provides accessibility evaluation tools.
+
+These tools analyze websites and report accessibility issues.
+
+#### Accessibility and User Agents
+Modern browsing includes:
+
+Desktop browsers  
+Mobile browsers  
+Speech browsers  
+Screen readers  
+
+Example:
+Speech browser reads webpage aloud.
+
+Proper HTML structure improves speech navigation.
+
+Examples:
+
+- Heading tags help navigation
+- Navigation tags help structure understanding
+
+#### Accessibility and Resolution
+Older websites required fixed resolution.
+
+Example:
+"Best viewed at 800x600 resolution"
+
+Modern design must adapt to:
+
+- Mobile devices
+- Different screen sizes
+- Different resolutions
+
+This is called responsive design.
+
+#### Aesthetic Considerations
+Aesthetics refers to visual appearance.
+
+Examples:
+- Colors
+- Icons
+- Fonts
+- Layout
+
+Good aesthetics improves user experience.
+
+#### Evolution of Interface Design
+Example: Apple iPhone icons evolution.
+
+Old designs:
+
+- Complex
+- Gradients
+- Decorative elements
+
+Modern designs:
+
+- Simple
+- Clean
+- Minimalist
+- High resolution vector graphics
+
+Reason:
+Minimalist design improves clarity and usability.
+
+#### Simplicity Principle
+Modern UI trend:
+
+- Simple layout
+- Minimal decoration
+- Clear structure
+
+Reason:
+Improves usability and reduces distraction.
+
+#### Subjectivity of Aesthetics
+Aesthetic preferences change over time.
+
+What looked good in 2007 may not look good today.
+
+Reason:
+
+- Technology evolves
+- User expectations evolve
+- Display quality improves
+
+Key Insight:
+Follow modern design conventions.
+
+#### Accessibility vs Aesthetics
+Important principle:
+
+Accessibility is essential.  
+Aesthetics is desirable.
+
+Reason:
+
+Beautiful but inaccessible website is unusable.
+
+Accessible but simple website is still usable.
+
+Accessibility must be prioritized.
+
+#### Role of Tools in View Generation
+Modern applications use tools such as:
+
+- Templates
+- HTML generators
+- CSS frameworks
+
+Benefits:
+
+- Consistency
+- Maintainability
+- Scalability
+
+Tools help build large applications efficiently.
+
+## Final Summary of Views
+Definition:
+View is any output from application presented to human or machine.
+
+Examples:
+
+- HTML page
+- Image
+- JSON
+- Graph
+- Text
+
+Key design principles:
+
+Follow UI guidelines  
+Ensure accessibility  
+Use templates and tools  
+Maintain simplicity  
+Follow standards  
+
+Core conclusion:
+
+Accessibility is a fundamental requirement in view design. Proper application of accessibility principles, combined with structured view generation tools and clean UI design, ensures applications are usable, maintainable, and inclusive for all users.
