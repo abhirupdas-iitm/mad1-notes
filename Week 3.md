@@ -1825,3 +1825,13 @@ Tools used:
   
 Key Idea:  
 Views represent application data for users or machines and are implemented using structured HTML generation and templates.
+
+### Notes to be taken for `Activity Question 6`
+1. The output of a template can be generated in the form of HTML, JSON and XML. (Question: 2)
+2. The following is the correct Python syntax that generates a `<p>` tag. (Question: 3)
+```
+def p(s):
+return "<p>"+s+"</p>"
+print(p("This is paragraph tag"))
+```
+---
