@@ -1670,3 +1670,158 @@ Key Idea:
    ```
 2. User Interface Design relates to the interaction between the machine and the user. (Question:5)
 ---
+## Lecture 6
+### HTML Generation and Templates  
+##### Description: Methods of implementing views by generating HTML using programmatic approaches such as print statements and libraries like PyHTML, as well as using template systems including Python string templates and the Jinja2 templating engine used with Flask to generate scalable, maintainable dynamic views.
+
+#### Basic HTML Generation Using Print  
+ 
+Example:  
+  
+`print("<h1>Hello</h1>")`  
+ 
+Problem:  
+- Error-prone  
+- Difficult to maintain  
+  
+#### Programmatic HTML Generation  
+Example:  
+  
+```
+def h1(text):  
+    return "<h1>" + text + "</h1>"
+```  
+  
+Usage:  
+  
+print(h1("Hello"))  
+
+#### PyHTML Library  
+Example structure:  
+  
+```
+import pyhtml as h  
+t = h.html(  
+    h.head(  
+        h.title("Test Page")  
+    ),  
+    h.body(  
+        h.h1("Hello World")  
+    )  
+)  
+print(t.render())  
+```  
+Benefits:  
+- Automatically generates valid HTML  
+- Proper tag structure    
+
+#### Dynamic Table Generation Example  
+Example:  
+```
+  
+def f_table(ctx):  
+    return (  
+        tr(  
+            td(cell) for cell in row  
+        )  
+        for row in ctx['table']  
+    )  
+```
+   
+#### Templates  
+  Templates contain:  
+  
+- Fixed text  
+- Variable placeholders  
+  
+Example using Python Template:  
+
+```
+from string import Template  
+  
+t = Template("$name is the $job of $company")  
+  
+print(t.substitute(  
+    name="Tim Cook",  
+    job="CEO",  
+    company="Apple"  
+))  
+```  
+Output:  
+  
+Tim Cook is the CEO of Apple  
+
+#### Jinja2 Templates  
+ Example:  
+  
+```
+from jinja2 import Template  
+  
+t = Template("Hello {{ name }}")  
+  
+print(t.render(name="World"))
+```  
+Output:  
+
+Hello World  
+  
+#### Jinja Loop Example  
+Template:  
+  
+```
+{% for n in range(1,10) %}  
+{{ n }}  
+{% endfor %}  
+```
+  
+Output:  
+  
+1 2 3 4 5 6 7 8 9  
+   
+#### Advantages of Templates  
+Benefits:  
+  
+- Easy maintenance  
+- Separation of logic and presentation  
+- Reusability  
+- Scalability  
+
+#### Flask and Jinja  
+Flask uses Jinja2 for templates.  
+  
+Workflow:  
+  
+- Flask loads template  
+- Inserts data  
+- Generates HTML  
+- Sends to browser  
+ 
+#### Core Summary  
+MVC separates application into:  
+  
+Model:  
+- Data  
+  
+View:  
+- Presentation  
+  
+Controller:  
+- Interaction logic  
+  
+UI Design principles:  
+  
+- Simplicity  
+- Efficiency  
+- Accessibility  
+- Consistency  
+- Minimalism  
+  
+Tools used:  
+  
+- Wireframes  
+- Programmatic HTML  
+- Templates  
+- Jinja2  
+  
+Key Idea:  
+Views represent application data for users or machines and are implemented using structured HTML generation and templates.
