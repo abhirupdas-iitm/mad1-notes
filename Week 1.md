@@ -932,4 +932,4 @@ The web is a device- and OS-agnostic platform built on HTTP for transport and HT
 1. The view in MVC architecture is responsible for both `displaying the data` and **`receiving the data from the user`**. (Question: 6)
 2. The valid IPv4 addresses are a set of 4 digits separated by 3 `.`s which are between 0 and 255. (Question: 10)
 ---
-[[Extra Notes of Week 1 from supplementary content of Week 1]]
+[[Extra Notes from supplementary content of Week 1]]

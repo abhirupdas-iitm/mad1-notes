@@ -1141,3 +1141,4 @@ CSS enables layered, reusable, and responsive styling independent of HTML struct
 1. Border is a CSS shorthand property. (Question: 1)
 2. The colour of the text "IIT Madras" will be in Yellow and not Green because it is CSS where the last encountered/most recent one is given priority. (Question: 5)
 ---
+[[Extra Notes from supplementary content of Week 2]]
