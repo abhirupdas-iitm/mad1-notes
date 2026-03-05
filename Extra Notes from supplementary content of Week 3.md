@@ -185,3 +185,241 @@ Command line arguments allow Python programs to become more flexible by acceptin
 
 ---
 ---
+## Week 3 – Extra Lecture 1  
+### Python Templates and Introduction to Jinja2
+#### Description
+This lecture introduces template generation using Python. It first explains basic string formatting in Python, then introduces Jinja2, a powerful templating engine used to dynamically generate documents such as HTML files. The lecture also demonstrates how to create a virtual environment, install external libraries, and render templates using Jinja2.
+
+---
+### 1. Project Setup
+Before starting, the following tools are required:
+- Web browser (Chrome/Firefox)
+- Text editor (e.g., gedit)
+- Terminal
+- File browser
+- Python 3 installed
+#### Creating a Working Folder
+Create a folder for the experiment:
+```bash
+mkdir experiment2
+cd experiment2
+```
+Create a Python file:
+```bash
+touch app.py
+```
+Open the file in an editor:
+```bash
+gedit app.py
+```
+### 2. Basic Python Script Structure
+A typical Python script contains a main function and a condition to execute it only when the script runs directly.
+Example:
+```python
+def main():
+    print("hello")
+
+if __name__ == "__main__":
+    main()
+```
+Explanation:
+- `__name__` represents the current module name.
+- When the file is executed directly, `__name__ == "__main__"`.
+- This ensures the script runs only when executed from the command line.
+Run the program:
+```bash
+python3 app.py
+```
+Output:
+```
+hello
+```
+### 3. Python String Templates Using format()
+Python allows simple templating using the format() method.
+Example template:
+```python
+template_doc = "hello {name}"
+print(template_doc.format(name="Thej"))
+```
+Output:
+```
+hello Thej
+```
+Here:
+- `{name}` is a placeholder.
+- `format()` replaces it with the provided value.
+### 4. Positional Formatting
+Instead of named placeholders, values can also be inserted by position.
+Example:
+```python
+template_doc = "hello {}"
+print(template_doc.format("Thej"))
+```
+Output:
+```
+hello Thej
+```
+Named placeholders are usually preferred because they make templates easier to understand.
+### 5. Formatting Numbers
+Python formatting allows control over number appearance.
+Example:
+```python
+template_doc = "p={p}, n={n}"
+print(template_doc.format(p=5, n=-7))
+```
+Output:
+```
+p=5, n=-7
+```
+### 6. Displaying Explicit Signs
+By default, only negative numbers show a sign.  
+To show signs for both positive and negative numbers:
+```python
+template_doc = "p={p:+}, n={n:+}"
+print(template_doc.format(p=5, n=-7))
+```
+Output:
+```
+p=+5, n=-7
+```
+The `+` is a format specifier.
+### 7. Converting Number Formats
+Python formatting can display numbers in different bases.
+Example:
+```python
+template_doc = "Decimal: {value:d}, Hex: {value:x}"
+print(template_doc.format(value=10))
+```
+Output:
+```
+Decimal: 10, Hex: a
+```
+Explanation:
+- `:d` → decimal
+- `:x` → hexadecimal
+### 8. Python f-Strings
+Python also supports formatted string literals (f-strings).
+Example:
+```python
+name = "Thej"
+print(f"hello {name}")
+```
+f-strings are often more readable and efficient for inline formatting.
+### 9. Need for Templating Engines
+Basic string formatting works well for small messages or logs.
+However, when generating large documents (such as HTML pages), managing templates inside strings becomes difficult.
+For such cases, dedicated templating engines are used.
+Example engines:
+- Jinja2
+- Django Templates
+- Mako
+This lecture introduces Jinja2.
+### 10. What is Jinja2?
+Jinja2 is a:
+- Fast
+- Expressive
+- Extensible
+templating engine for Python.
+Features:
+- Separates content from code
+- Allows Python-like logic inside templates
+- Commonly used in frameworks such as Flask
+Templates contain placeholders that are replaced during rendering.
+### 11. Creating a Virtual Environment
+Since Jinja2 is an external package, it should be installed inside a virtual environment.
+Create a virtual environment:
+```bash
+python3 -m venv experiment2-env
+```
+Activate the environment:
+```bash
+source experiment2-env/bin/activate
+```
+Verify Python version:
+```bash
+python --version
+```
+### 12. Installing Jinja2
+Install Jinja2 using pip:
+```bash
+pip install Jinja2
+```
+This installs Jinja2 along with required dependencies.
+### 13. Managing Dependencies with requirements.txt
+To record installed packages:
+```bash
+pip freeze > requirements.txt
+```
+Example requirements.txt:
+```
+Jinja2==3.0.1
+MarkupSafe==2.0.1
+```
+This file helps recreate the same environment later using:
+```bash
+pip install -r requirements.txt
+```
+### 14. Using Jinja2 Templates
+First import the Template class:
+```python
+from jinja2 import Template
+```
+Create a template string:
+```python
+template_string = "hello {{ name }}"
+```
+Notice:
+- Jinja2 placeholders use double curly braces `{{ }}`.
+### 15. Creating a Template Object
+Initialize the template:
+```python
+template = Template(template_string)
+```
+This creates a Template object.
+### 16. Rendering the Template
+Render the template by providing values.
+Example:
+```python
+print(template.render(name="Thej"))
+```
+Output:
+```
+hello Thej
+```
+Steps performed:
+1. Template created
+2. Variables passed to `render()`
+3. Final document generated
+### 17. Complete Example
+```python
+from jinja2 import Template
+
+def main():
+    template_string = "hello {{ name }}"
+    template = Template(template_string)
+
+    output = template.render(name="Thej")
+    print(output)
+
+if __name__ == "__main__":
+    main()
+```
+Output:
+```
+hello Thej
+```
+### Summary
+This lecture covered:
+- Basic Python string formatting
+- Format specifiers for numbers
+- Introduction to f-strings
+- Limitations of simple formatting
+- Introduction to Jinja2 templating
+- Creating virtual environments
+- Installing packages with pip
+- Managing dependencies with requirements.txt
+- Rendering templates using Jinja2
+Jinja2 provides a flexible system for generating dynamic documents such as HTML pages in web applications.
+
+---
+---
