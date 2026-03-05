@@ -406,3 +406,236 @@ External stylesheets are the **standard practice in modern web development** bec
 
 ---
 ---
+### Week 2 Extra Lecture 3
+#### CSS Selectors for Styling HTML Documents
+##### Description: Explains how CSS selectors are used to target specific elements within an HTML document for styling. Covers tag selectors, class selectors, ID selectors, relationship selectors (descendant and child), pseudo-class selectors, pseudo-element selectors, and attribute selectors.
+### Purpose of CSS Selectors
+CSS selectors allow developers to **identify specific elements within an HTML document** and apply styles to them.
+Instead of styling every element individually, selectors provide a way to **target groups of elements efficiently**.
+Selectors are the core mechanism that connects CSS styling rules to HTML elements.
+### Example Setup for Experiments
+A simple HTML file (`test.html`) is created to experiment with selectors.
+Basic structure of the file:
+- HTML root
+- Head section with style definitions
+- Body containing a **form**
+- The form contains:
+  - Paragraph labels
+  - Input fields
+  - Div sections
+Initially, the page appears plain when opened in a browser.
+CSS selectors are then applied to modify the appearance of different parts of the page.
+### 1. Tag Selectors
+Tag selectors apply styling to **all instances of a particular HTML tag**.
+Example idea:
+```
+p {  
+font-size: 20px;  
+}
+```
+Effect:
+- Every paragraph element (`<p>`) in the document receives the specified style.
+- In the example page, all paragraph labels become larger.
+This method is useful when the same styling should apply to **all occurrences of a tag**.
+### 2. Class Selectors
+Class selectors allow styling only elements that belong to a **specific class**.
+Class selectors start with a **dot (`.`)**.
+Example concept:
+```
+.name_para {  
+font-size: 20px;  
+}
+```
+To apply this style, the HTML element must include the class attribute.
+Example idea:
+`<p class="name_para">`
+
+Advantages of class selectors:
+- The same class can be applied to **multiple elements**
+- Not restricted to a specific tag
+- Reusable across different parts of the document
+For example, the same class could be applied to paragraphs, divs, or other elements.
+### 3. ID Selectors
+ID selectors apply styling to **one specific element** identified by its unique ID.
+ID selectors begin with **`#`**.
+Example concept:
+```
+#personal {  
+color: blue;  
+}
+```
+If a div has the attribute:
+`id="personal"`
+then all elements inside that div inherit the styling defined for that ID.
+Key characteristics:
+- IDs should be **unique within a document**
+- Used for styling or referencing specific sections
+Example behavior:
+If the `#personal` div contains text, paragraphs, or other elements, the style affects all content inside it.
+### 4. Relationship Selectors
+Relationship selectors style elements based on their **position in the HTML hierarchy**.
+Two main relationships exist:
+#### Descendant Relationship
+A descendant is **any element inside another element**, regardless of depth.
+Example:
+```
+form input {  
+background-color: yellow;  
+}
+```
+Meaning:
+- Select every `<input>` element inside a `<form>`
+This includes inputs nested within multiple levels of elements.
+Example hierarchy:
+body  
+└── form  
+    └── div  
+        └── input
+The input is still a descendant of the form.
+#### Child Relationship
+A child selector targets **only direct children** of an element.
+Symbol used:
+`>`
+Example concept:
+```
+form > input {  
+background-color: yellow;  
+}
+```
+Meaning:
+- Select only input elements that are **direct children of the form**
+- Inputs inside nested `divs` will **not be selected**
+Difference summary:
+
+| Selector     | Meaning              |
+| ------------ | -------------------- |
+| form input   | All descendants      |
+| form > input | Only direct children |
+### 5. Pseudo-Class Selectors
+Pseudo-class selectors apply styles based on **element states or structural conditions**.
+They use a **single colon (`:`)**.
+Example types:
+- hover
+- visited
+- nth-child
+#### Hover Example
+Pseudo-class for mouse interaction:
+:hover
+Example concept:
+```
+form input:hover {  
+background-color: red;  
+}
+```
+Effect:
+- Input field turns red **when the mouse hovers over it**
+Without hovering, the input remains unchanged.
+This selector responds to **user interaction events**.
+#### Structural Pseudo-Class: nth-child
+Structural pseudo-classes target elements based on **their position within a parent**.
+Example concept:
+```
+tr:nth-child(even) {  
+background-color: lightgray;  
+}
+```
+Meaning:
+- Select table rows (`tr`)
+- Apply styling to **even-numbered rows**
+This technique creates alternating row colors in tables.
+Example result:
+Row 1 → normal  
+Row 2 → gray  
+Row 3 → normal  
+Row 4 → gray
+This improves table readability.
+### 6. Pseudo-Element Selectors
+Pseudo-element selectors style **specific parts of an element's content**.
+They use **double colons (`::`)**.
+Example concept:
+```
+p::first-letter {  
+color: red;  
+font-size: 20px;  
+}
+```
+Meaning:
+- Target the **first letter of each paragraph**
+- Apply the specified styles
+
+This technique is commonly used in:
+- magazines
+- articles
+- blog layouts
+where the first letter of a paragraph is emphasized.
+#### Other Examples of Pseudo-Elements
+Common pseudo-elements include:
+- `::first-line`
+- `::before`
+- `::after`
+- `::selection`
+These allow styling specific portions of content.
+### 7. Attribute Selectors
+Attribute selectors style elements based on the **presence or value of attributes**.
+Example HTML attribute:
+`<input type="text">`
+Here:
+- `type` → attribute
+- `text` → attribute value
+#### Attribute Value Selector
+Example concept:
+```
+input[x="y"] {  
+background-color: red;  
+}
+```
+Meaning:
+- Select all `<input>` elements
+- Only if attribute `x` has value `y`
+Example:
+`<input x="y">`
+will be styled.
+If the attribute value changes (e.g., `x="z"`), the style will not apply.
+#### Example Behavior
+Suppose two inputs contain:
+x="y"
+These will be styled.
+If another input contains:
+x="z"
+the style will not affect it.
+Attribute selectors allow highly precise styling.
+### Cascading Nature of CSS
+CSS rules cascade according to specificity and hierarchy.
+General rules:
+- More specific selectors override general ones
+- Later rules override earlier ones when specificity is equal
+Example priority order (simplified):
+Tag selector  
+→ Class selector  
+→ ID selector
+This layered behavior is why CSS is called **Cascading Style Sheets**.
+### Summary of Selector Types
+
+| Selector Type           | Example          | Purpose                                 |
+| ----------------------- | ---------------- | --------------------------------------- |
+| Tag selector            | `p`              | Style all elements of a tag             |
+| Class selector          | `.name_para`     | Style elements with a specific class    |
+| ID selector             | `#personal`      | Style a unique element                  |
+| Descendant selector     | `form input`     | Style nested elements                   |
+| Child selector          | `form > input`   | Style direct children only              |
+| Pseudo-class selector   | `:hover`         | Style based on element state            |
+| Pseudo-element selector | `::first-letter` | Style part of element content           |
+| Attribute selector      | `input[x="y"]`   | Style elements with specific attributes |
+### Key Takeaways
+CSS selectors provide powerful mechanisms for targeting elements within HTML documents.
+Important categories include:
+- Tag-based selectors
+- Class and ID selectors
+- Relationship selectors
+- Pseudo-class selectors
+- Pseudo-element selectors
+- Attribute selectors
+Understanding selectors is essential for building **structured, maintainable, and flexible CSS styling systems**.
+
+---
+---
