@@ -423,3 +423,284 @@ Jinja2 provides a flexible system for generating dynamic documents such as HTML 
 
 ---
 ---
+## Week 3 – Extra Lecture 2  
+### Generating Dynamic HTML using Jinja2 Templates
+#### Description
+This lecture demonstrates how **Jinja2 templates can be used to dynamically generate HTML documents** from Python data structures. It explains how to pass dictionary data into templates, iterate through lists of records, generate HTML tables dynamically, and save the rendered output as an HTML file.
+
+---
+### 1. Problem Statement
+Suppose we have a dataset of **Jnanpith Award winners** stored in Python.
+Example data:
+```python
+janapith_data = {
+    "year": 1965,
+    "awardees": "G. Sankara Kurup",
+    "language": "Malayalam"
+}
+```
+Goal:
+Generate an **HTML document containing a table** showing this information.
+### 2. Creating an HTML Template
+A basic HTML template might look like this:
+```html
+<html>
+<head>
+<title>Jnanpith Awardees</title>
+</head>
+
+<body>
+
+<h1>Awardees</h1>
+
+<table border="1">
+<tr>
+<th>Year</th>
+<th>Awardee</th>
+<th>Language</th>
+</tr>
+
+<tr>
+<td>{{ janapith_data["year"] }}</td>
+<td>{{ janapith_data["awardees"] }}</td>
+<td>{{ janapith_data["language"] }}</td>
+</tr>
+
+</table>
+
+</body>
+</html>
+```
+Explanation:
+- `{{ }}` are **Jinja2 placeholders**
+- They are replaced with actual values during template rendering.
+### 3. Passing Data to the Template
+In Python, the data is passed during rendering.
+Example:
+```python
+content = template.render(janapith_data=janapith_data)
+```
+When rendered, the template substitutes the values.
+Example generated HTML:
+```html
+<tr>
+<td>1965</td>
+<td>G. Sankara Kurup</td>
+<td>Malayalam</td>
+</tr>
+```
+### 4. Handling Multiple Rows of Data
+Real datasets usually contain multiple entries.
+Example dataset:
+```python
+janapith_data = [
+{
+"year": 1965,
+"awardees": "G. Sankara Kurup",
+"language": "Malayalam"
+},
+{
+"year": 1966,
+"awardees": "Tarashankar Bandyopadhyay",
+"language": "Bengali"
+},
+{
+"year": 1967,
+"awardees": "Kuppali Venkatappa Puttappa",
+"language": "Kannada"
+}
+]
+```
+Now the data is a **list of dictionaries**.
+The template must iterate through this list.
+### 5. Using Jinja2 Loops
+Jinja2 supports loops similar to Python.
+Example:
+```html
+{% for janapith in janapith_data %}
+
+<tr>
+<td>{{ janapith["year"] }}</td>
+<td>{{ janapith["awardees"] }}</td>
+<td>{{ janapith["language"] }}</td>
+</tr>
+
+{% endfor %}
+```
+Explanation:
+- `{% %}` represents **Jinja2 control statements**
+- `{% for %}` starts a loop
+- `{% endfor %}` ends the loop
+Each dictionary entry generates one table row.
+### 6. Complete Template Example
+```html
+<html>
+
+<head>
+<title>Jnanpith Awardees</title>
+</head>
+
+<body>
+
+<h1>Awardees</h1>
+
+<table border="1">
+
+<tr>
+<th>Year</th>
+<th>Awardee</th>
+<th>Language</th>
+</tr>
+
+{% for janapith in janapith_data %}
+
+<tr>
+<td>{{ janapith["year"] }}</td>
+<td>{{ janapith["awardees"] }}</td>
+<td>{{ janapith["language"] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
+```
+### 7. Rendering the Template in Python
+Python code:
+```python
+from jinja2 import Template
+
+template = Template(template_string)
+
+content = template.render(janapith_data=janapith_data)
+
+print(content)
+```
+The template dynamically generates multiple table rows based on the dataset.
+### 8. Writing the HTML Output to a File
+Instead of printing the HTML, we can save it to a file.
+Example:
+```python
+file = open("janapith.html", "w")
+
+file.write(content)
+
+file.close()
+```
+This generates an HTML file containing the rendered table.
+### 9. Viewing the Generated HTML
+After running the script:
+```bash
+python app.py
+```
+A file named **janapith.html** will be created.
+Opening the file in a browser displays the generated table.
+Example structure:
+```
+Year    Awardee                         Language
+1965    G. Sankara Kurup                Malayalam
+1966    Tarashankar Bandyopadhyay       Bengali
+1967    K. V. Puttappa                  Kannada
+```
+### 10. Separating Templates from Code
+Best practice is to store templates in **separate files** rather than inside Python code.
+Example template file:
+```
+janapith.html.jinja2
+```
+This file contains the HTML template.
+### 11. Reading Template Files in Python
+Python can load the template from the file.
+Example:
+```python
+template_file = open("janapith.html.jinja2")
+
+template_content = template_file.read()
+
+template_file.close()
+```
+The template content is then passed to Jinja2.
+### 12. Creating the Template Object
+```python
+template = Template(template_content)
+```
+### 13. Rendering the Template
+```python
+content = template.render(janapith_data=janapith_data)
+```
+### 14. Saving the Generated HTML
+```python
+file = open("janapith.html", "w")
+
+file.write(content)
+
+file.close()
+```
+### 15. Full Workflow
+The full process consists of three steps:
+#### Step 1 – Read Template File
+Load the template into a variable.
+#### Step 2 – Render Template
+Pass data into the template and generate HTML.
+#### Step 3 – Save Output
+Write the rendered content into an HTML file.
+### 16. Project Structure
+A simple project structure looks like this:
+```
+project_folder/
+
+app.py
+janapith.html.jinja2
+requirements.txt
+experiment2-env/
+```
+Explanation:
+- **app.py** → Python application
+- **janapith.html.jinja2** → HTML template
+- **requirements.txt** → dependency list
+- **experiment2-env** → virtual environment
+### 17. Dynamic Data Updates
+Adding new records automatically updates the table.
+Example new entry:
+```python
+{
+"year": 1968,
+"awardees": "Example Name",
+"language": "Example Language"
+}
+```
+After running the script again, the table will include the new row.
+Similarly, removing rows from the dataset reduces table entries.
+### 18. Features of Jinja2
+Jinja2 provides powerful templating capabilities.
+Examples include:
+- Conditional statements (`if`, `else`)
+- Loops (`for`)
+- Macros
+- Template inheritance
+- Template inclusion
+- Expressions
+- Loop controls
+These features make it easy to generate complex documents dynamically.
+### 19. Jinja2 Documentation
+More information can be found on the official Jinja2 documentation site.
+The documentation explains:
+- Template inheritance
+- Filters
+- Control structures
+- Advanced templating techniques
+### Summary
+This lecture covered:
+- Using Jinja2 to generate HTML dynamically
+- Passing dictionary data to templates
+- Rendering lists of data using loops
+- Writing rendered templates to HTML files
+- Separating templates from application code
+- Organizing project structure
+- Advantages of dynamic templating
+Jinja2 enables Python programs to generate complex documents such as **HTML pages, configuration files, or reports** efficiently.
+
+---
+---
