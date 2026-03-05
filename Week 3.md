@@ -2220,3 +2220,4 @@ Accessibility is a fundamental requirement in view design. Proper application of
 ### Notes to be taken for `Activity Question 7`
 1. ‘Accessibility’ is an important component of View which handles various forms of disability and impairment of the user. (Question: 4)
 ---
+[[Extra Notes from supplementary content of Week 3]]
