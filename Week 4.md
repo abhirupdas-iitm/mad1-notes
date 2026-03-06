@@ -275,6 +275,393 @@ Key ideas:
 These ideas form the foundation for the upcoming lectures on **data storage mechanisms and relational databases**.
 
 ### Notes to be taken for `Activity Question 1`
-1. PostgreSQL is also a relational database management systems (RDBMS). (Question: 1)
+1. Microsoft Access is also a relational database management systems (RDBMS). (Question: 1)
 2. One of the main disadvantages of spreadsheets compared to RDBMS is a lack of the concept of an atomic operation. (Question: 3)
 ---
+## Lecture 2
+### Mechanisms for Persistent Storage
+##### Description: This lecture explores different mechanisms for storing application data persistently. It discusses Python data structures for representing relationships, introduces the concept of keys and identifiers, examines serialization methods such as pickle and CSV/TSV, and compares spreadsheets, relational databases (SQL), and NoSQL databases for managing structured and semi-structured data.
+
+### 1. Need for Persistent Storage
+Applications must store information in such a way that it can be **retrieved later**, even if:
+- the program stops
+- the server restarts
+- the system crashes
+Therefore we need **persistent storage mechanisms**.
+Before thinking about saving data to disk, we first need to consider **how the data is represented in memory**.
+
+### 2. Representing Data in Python
+Data in applications can initially be represented using **Python data structures**.
+
+Example representation:
+```
+students = ["Alice", "Bob", "Charlie"]
+courses = ["Introduction to EE", "Applied Mechanics", "Calculus"]
+```
+
+```
+relationships = [
+("Alice", "Introduction to EE"),
+("Bob", "Calculus"),
+("Alice", "Calculus"),
+("Charlie", "Applied Mechanics")
+]
+```
+Each tuple represents a relationship:
+```
+(Student Name, Course Name)
+```
+Example:
+```
+("Alice", "Introduction to EE")
+```
+means:
+Alice has taken the course Introduction to EE.
+
+### 3. Problems With Direct Name-Based Relationships
+Using full names directly creates several issues.
+### Typing Errors
+Long names increase the chance of mistakes.
+Example:
+```
+"Introduction to EE"
+"Introduction to Ee"
+```
+Even small differences cause inconsistencies.
+
+#### Duplicate Names
+Two people may share the same name.
+Example:
+```
+Alice
+Alice
+```
+The system cannot determine which student is being referenced.
+
+#### Poor Scalability
+Repeatedly storing long strings consumes more storage and increases the probability of human error.
+
+### 4. Using Keys Instead of Names
+A better approach is to use **unique identifiers (keys)**.
+
+Example:
+```
+students = {
+0 : "Alice",
+1 : "Bob",
+2 : "Charlie"
+}
+
+courses = {
+0 : "Introduction to EE",
+1 : "Applied Mechanics",
+2 : "Calculus"
+}
+
+relationships = [
+(0,0),
+(1,2),
+(0,2),
+(2,1)
+]
+```
+Meaning:
+```
+(0,0) → Alice took Introduction to EE
+(1,2) → Bob took Calculus
+```
+
+### 5. Benefits of Keys
+Using keys provides several advantages.
+#### Reduced Typing Errors
+Numbers are easier to enter correctly than long names.
+
+#### Guaranteed Uniqueness
+Keys are designed to be unique.
+Even if two people have the same name:
+```
+Alice → ID 10
+Alice → ID 24
+```
+the system can distinguish them.
+
+#### Efficient Storage
+Relationships can now be stored compactly using small numeric values.
+
+### 6. Dictionaries as Key-Value Storage
+Python dictionaries provide a natural way to represent key-value mappings.
+Example:
+```
+students = {
+0 : "Alice",
+1 : "Bob",
+2 : "Charlie"
+}
+```
+A dictionary can be viewed as:
+```
+key → value
+```
+This allows direct lookup.
+Example:
+```
+students[0] → "Alice"
+```
+
+### 7. Using Classes to Structure Data
+Instead of simple dictionaries, Python classes can provide better structure.
+Example concept:
+class Student:
+- name
+- id
+The class constructor initializes a student object.
+Example idea:
+```
+class Student:
+
+    idnext = 0
+
+    def __init__(self, name):
+        self.name = name
+        self.id = Student.idnext
+        Student.idnext += 1
+```
+This creates **automatic unique IDs**.
+
+### 8. Class Variables vs Instance Variables
+In the previous example:
+```
+idnext
+```
+is a **class variable**.
+Meaning:
+- shared by all instances of the class
+- not specific to one student
+Example:
+Student creation sequence:
+```
+Student 1 → id = 0  
+Student 2 → id = 1  
+Student 3 → id = 2  
+```
+The class variable keeps track of the next available ID.
+
+### 9. Limitations of Program-Level ID Generation
+Generating IDs within the program has limitations.
+If multiple programs run simultaneously:
+- they may generate the same ID
+- data conflicts may occur
+For this reason, **databases usually handle ID generation automatically**.
+
+### 10. Advantages of Class-Based Data Models
+Using classes allows additional functionality.
+Examples:
+#### Getter Functions
+Functions that retrieve stored values.
+Example:
+```
+get_full_name()
+```
+
+#### Setter Functions
+Functions that modify stored values.
+Example:
+```
+set_profile_photo()
+```
+
+#### Derived Values
+Some values can be computed instead of stored.
+Example:
+```
+full_name = first_name + last_name
+```
+
+### 11. Extending Objects With New Fields
+One advantage of classes is flexibility.
+Suppose we want to store **hostel information** for a student.
+We simply extend the class constructor:
+```
+Student(name, hostel)
+```
+and assign:
+```
+self.hostel = hostel
+```
+Older parts of the system can still work.
+New objects simply include the additional field.
+
+### 12. Problem: Memory Storage is Temporary
+Python data structures exist **only in memory**.
+If:
+- the program stops
+- the server restarts
+all stored information disappears.
+Therefore data must be **saved to disk**.
+
+### 13. Object Serialization
+Python provides tools to convert data structures into storable formats.
+One such tool is the **pickle module**.
+Serialization means:
+```
+Object in memory → byte representation → stored on disk
+```
+Later:
+```
+Stored data → reconstructed object
+```
+The object can be restored exactly as it was.
+
+### 14. CSV and TSV File Formats
+Another method for storing tabular data is text-based formats.
+#### CSV
+Comma Separated Values
+Example:
+```
+Alice,Introduction to EE
+Bob,Calculus
+```
+
+#### TSV
+Tab Separated Values
+Example:
+```
+Alice    Introduction to EE
+Bob      Calculus
+```
+TSV avoids issues caused by commas appearing in text fields.
+
+### 15. Spreadsheets and Tabular Storage
+Spreadsheets represent data in tables.
+Each sheet corresponds to a **table**.
+Rows represent records.
+Columns represent attributes.
+Spreadsheets can often be **exported as CSV files**.
+However, CSV has limitations:
+- cannot store relationships between sheets
+- limited formatting capabilities
+- no advanced data logic
+
+### 16. Limitations of Spreadsheets
+Spreadsheets are convenient but have drawbacks.
+#### Difficult Cross-Referencing
+Looking up values across multiple sheets can become complicated.
+Example:
+- students sheet
+- courses sheet
+- enrollment sheet
+Finding relationships requires complex formulas.
+
+#### Lack of Advanced Operations
+Spreadsheets do not support advanced database features.
+Examples:
+- stored procedures
+- optimized queries
+- structured relationships
+
+#### No Atomic Operations
+Databases guarantee **atomic operations**.
+Meaning:
+A group of changes either:
+```
+completes fully
+OR
+does not occur at all
+```
+This prevents partial updates.
+Example problem:
+Deleting a student but failing to delete related entries.
+Spreadsheets do not guarantee such consistency.
+
+### 17. Relational Databases
+To address spreadsheet limitations, **relational databases** are used.
+Relational databases store data in **tables**.
+Each table contains:
+- columns (fields)
+- rows (records)
+Relationships between tables are defined using **keys**.
+SQL (Structured Query Language) is the standard language used to interact with relational databases.
+SQL was originally developed at **IBM in the 1970s**.
+
+### 18. Structure of Relational Databases
+Relational databases require a **schema**.
+Schema defines:
+- table structure
+- column names
+- data types
+Example table schema:
+Students
+`| ID | Name | Hostel |`
+Every row must follow the same schema.
+
+### 19. Limitations of Strict Schemas
+Structured schemas can sometimes become restrictive.
+Example scenario:
+Students may belong to different categories.
+```
+Hosteller → needs mess information  
+Day scholar → needs local address  
+Exchange student → needs foreign university
+```
+A rigid schema requires columns for all possible fields.
+This leads to many empty columns.
+
+### 20. NoSQL Databases
+NoSQL databases solve this issue by supporting **semi-structured data**.
+Features:
+- flexible schema
+- different records may contain different fields
+- easier to store heterogeneous data
+
+Example:
+Student A:
+```
+name
+roll number
+mess facility
+```
+Student B:
+```
+name
+roll number
+local address
+```
+Student C:
+```
+name
+roll number
+foreign university
+```
+
+### 21. Advantages of NoSQL
+NoSQL systems provide:
+- flexible data models
+- easier schema changes
+- ability to store arbitrary data
+Examples of NoSQL databases:
+- MongoDB
+- CouchDB
+
+### 22. Trade-offs of NoSQL
+Flexibility comes with trade-offs.
+Compared to relational databases:
+- validation may be weaker
+- queries may be slower
+- data consistency may be harder to enforce
+
+Therefore developers must choose carefully between:
+- **structured relational databases**
+- **flexible NoSQL databases**
+
+### Summary
+This lecture explored various mechanisms for storing application data persistently.
+Key ideas:
+- Python data structures can represent relationships in memory
+- Keys and identifiers help avoid duplication and errors
+- Classes allow structured object representations
+- Data must be serialized to survive program termination
+- CSV and TSV formats store tabular data
+- Spreadsheets have limitations for complex data relationships
+- Relational databases provide structured storage using SQL
+- NoSQL databases support flexible, semi-structured data
+These concepts lay the groundwork for understanding **database-backed models in modern web applications**.
