@@ -274,3 +274,7 @@ Key ideas:
 - Spreadsheets provide a simple conceptual model for structured data
 These ideas form the foundation for the upcoming lectures on **data storage mechanisms and relational databases**.
 
+### Notes to be taken for `Activity Question 1`
+1. PostgreSQL is also a relational database management systems (RDBMS). (Question: 1)
+2. One of the main disadvantages of spreadsheets compared to RDBMS is a lack of the concept of an atomic operation. (Question: 3)
+---
