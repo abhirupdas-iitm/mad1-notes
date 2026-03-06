@@ -665,3 +665,8 @@ Key ideas:
 - Relational databases provide structured storage using SQL
 - NoSQL databases support flexible, semi-structured data
 These concepts lay the groundwork for understanding **database-backed models in modern web applications**.
+
+### Notes to be taken for `Activity Question 2`
+Nothing! Got them all correct!
+
+---
