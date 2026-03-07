@@ -670,3 +670,289 @@ These concepts lay the groundwork for understanding **database-backed models in 
 Nothing! Got them all correct!
 
 ---
+## Lecture 3
+### Relationships in Databases and ER Diagrams
+##### Description: This lecture explains how databases represent relationships between different types of data. It introduces common relationship types such as one-to-one, one-to-many, and many-to-many, and explains how Entity-Relationship (ER) diagrams and Crow’s Foot notation are used to visually model database structures and relationships.
+
+### 1. Purpose of Databases
+The primary purpose of a database is to **store data**.
+However, the real strength of databases lies in their ability to **represent relationships between different pieces of data**.
+For example, in the Gradebook system:
+- students exist
+- courses exist
+- relationships exist between students and courses
+A database must efficiently capture these relationships.
+
+### 2. Tabular Representation of Data
+Databases typically store data in **tables**.
+A table consists of:
+- **columns** → represent attributes
+- **rows** → represent individual records
+Example: Course Table
+
+| CourseID | CourseName                             |
+| -------- | -------------------------------------- |
+| EE1001   | Introduction to Electrical Engineering |
+| AM1100   | Engineering Mechanics                  |
+Properties:
+- CourseID acts as a **unique identifier**
+- CourseName describes the course
+
+### 3. Student Table Example
+Similarly, student information can be stored in another table.
+
+| Name      | IDNumber |
+| --------- | -------- |
+| Student A | MAD001   |
+| Student B | MAD002   |
+Important characteristics:
+- IDNumber is unique
+- Names may repeat
+Therefore the **IDNumber becomes the primary identifier**.
+
+### 4. Relationship Table (Joining Data)
+To represent which students take which courses, a **relationship table** is used.
+Example:
+
+| StudentID | CourseID | Marks |
+| --------- | -------- | ----- |
+| MAD001    | BT1010   | 78    |
+| MAD002    | EE1001   | 65    |
+Interpretation:
+Student **MAD001** enrolled in **BT1010** and obtained **78 marks**.
+This table connects the **students table** and the **courses table**.
+
+### 5. Important Clarification About “Join”
+The lecture mentions the word **joining tables**, but this should not be confused with SQL joins.
+Two meanings exist:
+Conceptual join:
+- representing relationships using another table
+SQL join:
+- combining tables dynamically during queries
+Both involve relationships but operate differently.
+
+### 6. Types of Relationships
+Databases support several types of relationships between entities.
+The three main types are:
+1. One-to-One
+2. One-to-Many
+3. Many-to-Many
+
+### 7. One-to-One Relationship
+A **one-to-one relationship** means:
+Each entity in table A corresponds to exactly one entity in table B.
+Example:
+Student ↔ Roll Number
+
+Properties:
+- each student has one roll number
+- each roll number identifies exactly one student
+Another example:
+Email ↔ Message ID
+Each email message has a **unique message identifier**.
+
+### 8. Example: Email Systems
+Email clients like:
+- Outlook
+- Thunderbird
+store emails with a **unique message ID**.
+Properties:
+- every email has exactly one ID
+- each ID refers to exactly one email
+This forms a **one-to-one mapping**.
+
+### 9. One-to-Many Relationship
+In a **one-to-many relationship**:
+One entity corresponds to many entities in another table.
+
+Example:
+Hostel ↔ Students
+- one hostel contains many students
+- each student belongs to one hostel
+
+Thus:
+Hostel → many students  
+Student → one hostel
+
+### 10. Folder-Email Example
+Another example appears in email systems.
+Emails can be stored in folders.
+Example folders:
+- Work
+- Courses
+- Family
+- Games
+
+Properties:
+- one folder contains many emails
+- each email belongs to exactly one folder
+This represents a **one-to-many relationship**.
+
+### 11. Many-to-Many Relationship
+A **many-to-many relationship** occurs when both entities can have multiple connections.
+Example: Students and Courses
+Properties:
+- one student can take many courses
+- one course can have many students
+
+Therefore:
+Students ↔ Courses
+Many on both sides.
+
+### 12. Gmail Label Example
+
+Gmail uses **labels instead of folders**.
+Properties:
+- one email can have multiple labels
+- one label can be applied to many emails
+
+Example:
+An email may have labels:
+- Work
+- Project
+- Home
+This creates a **many-to-many relationship**.
+
+### 13. Importance of Relationship Modeling
+
+Databases become powerful when they can:
+- store entities
+- represent relationships between entities
+- allow efficient querying of those relationships
+Without relationship modeling, databases would simply store isolated tables.
+
+### 14. Entity-Relationship (ER) Diagrams
+To visualize database structures, **ER diagrams** are used.
+ER diagrams show:
+- entities
+- attributes
+- relationships between entities
+These diagrams provide a clear overview of database structure.
+
+### 15. Crow’s Foot Notation
+One popular ER diagram style is **Crow’s Foot notation**.
+It represents relationship types visually.
+Symbols:
+Single line → one
+Three branching lines → many
+The three-branch symbol resembles a bird’s foot, which is why it is called **Crow’s Foot**.
+
+### 16. Relationship Indicators
+Crow’s Foot notation also indicates optionality.
+Symbols may represent:
+```
+Exactly one  
+Zero or one  
+One or many  
+Zero or many
+```
+These indicators clarify relationship constraints.
+
+### 17. Example: E-commerce System
+Consider an e-commerce system similar to Amazon.
+Entities:
+```
+Customer  
+Order  
+Shipment
+```
+Each entity represents a different table.
+
+### 18. Customer Entity
+xample fields:
+```
+customer_id → Primary Key  
+customer_name
+```
+Primary Key (PK):
+- uniquely identifies each row
+- cannot be NULL
+- typically an integer
+Primary keys ensure each record can be uniquely referenced.
+
+### 19. Order Entity
+Example fields:
+```
+order_id → Primary Key  
+order_date  
+customer_id → Foreign Key
+```
+Foreign Key (FK):
+A field referencing another table’s primary key.
+In this case:
+customer_id refers to the **Customer table**.
+
+### 20. Customer-Order Relationship
+Crow’s Foot notation shows:
+One order → exactly one customer
+Meaning:
+Every order must belong to a customer.
+However:
+One customer → zero or many orders.
+A customer might:
+- place many orders
+- place no orders at all
+
+### 21. Shipment Entity
+Another entity is **Shipment**.
+Example fields:
+```
+shipment_id → Primary Key  
+order_id → Foreign Key
+```
+This connects shipments to orders.
+
+### 22. Order-Shipment Relationship
+Relationship rules:
+One shipment → exactly one order
+But:
+One order → zero or many shipments
+Example scenario:
+A customer orders 10 books.
+Possible shipping outcomes:
+`1 shipment (all items shipped together)`
+OR
+multiple shipments:
+```
+2 books today  
+3 books tomorrow  
+5 books later
+```
+
+### 23. Advantages of ER Diagrams
+ER diagrams provide several benefits.
+They:
+- visually summarize database structure
+- show relationships clearly
+- help design database schemas
+- assist communication between developers
+Many tools can even convert ER diagrams into database schemas automatically.
+
+### 24. Tools for Creating ER Diagrams
+One recommended tool is:
+`app.diagrams.net`
+Features:
+- open-source
+- supports ER diagram templates
+- easy drag-and-drop interface
+
+However, many other tools can also be used, such as:
+- PowerPoint
+- Visio
+- draw.io
+- diagramming software
+
+### 25. Summary
+This lecture introduced how databases represent relationships between data.
+Key ideas:
+- databases store tabular data
+- relationships connect different tables
+- three major relationship types exist:
+  - one-to-one
+  - one-to-many
+  - many-to-many
+- ER diagrams visualize these relationships
+- Crow’s Foot notation represents cardinality and optionality
+- primary keys uniquely identify records
+- foreign keys link tables together
+These concepts form the basis for designing relational database schemas used in modern applications.
