@@ -1269,3 +1269,4 @@ Understanding SQL and relational data models is essential for building scalable 
 1. The correct way to give single line comment in SQL is `--this is my comment`. (Question: 1)
 2. Truncate command only deletes the data, but the schema/structure is preserved. (Question: 3)
 ---
+[[Extra Notes from supplementary content of Week 4]]
