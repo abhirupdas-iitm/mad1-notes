@@ -956,3 +956,8 @@ Key ideas:
 - primary keys uniquely identify records
 - foreign keys link tables together
 These concepts form the basis for designing relational database schemas used in modern applications.
+
+### Notes to be taken for `Activity Question 3`
+1. In DBMS, the condition where several pieces of the same data occur in different tables and contradict each other is called Data Inconsistency. (Question: 5)
+2. The Auto Increment field provides a unique number, that is generated automatically whenever a new record is inserted in the database or the table. (Question: 7)
+---
