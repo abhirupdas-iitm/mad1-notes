@@ -961,3 +961,306 @@ These concepts form the basis for designing relational database schemas used in 
 1. In DBMS, the condition where several pieces of the same data occur in different tables and contradict each other is called Data Inconsistency. (Question: 5)
 2. The Auto Increment field provides a unique number, that is generated automatically whenever a new record is inserted in the database or the table. (Question: 7)
 ---
+## Lecture 4
+### Introduction to SQL (Structured Query Language)
+##### Description: This lecture introduces SQL, the language used to interact with relational databases. It explains how data is organized in relational databases, the roles of primary and foreign keys, and how SQL queries retrieve information. It also demonstrates concepts such as joins, filtering, and Cartesian products, and concludes with a summary of how models fit into the MVC architecture.
+
+### 1. Why SQL is Important
+Relational databases store data in structured tables.
+However, simply storing data is not enough.
+The real purpose of a database is to **retrieve and manipulate data efficiently**.
+This is where **SQL (Structured Query Language)** is used.
+SQL allows us to:
+- search data
+- filter records
+- combine multiple tables
+- retrieve specific information
+
+### 2. Role of SQL in Application Development
+In application development:
+- databases store the data
+- SQL retrieves the data
+
+In this course, we will often use **framework wrappers** around SQL rather than writing raw SQL directly.
+However, understanding SQL is still useful because it explains:
+- how queries work internally
+- how databases process data
+
+### 3. Relational Databases
+Relational databases were developed in the **1970s at IBM**.
+They are based on the idea of **tabular data**.
+A relational database consists of tables.
+Each table contains:
+```
+Rows → records  
+Columns → fields
+```
+Example:
+Students table
+
+| ID     | Name  |
+| ------ | ----- |
+| MAD001 | Alice |
+| MAD002 | Bob   |
+Here:
+- rows represent individual students
+- columns represent attributes
+
+### 4. Terminology in Relational Databases
+Different terms are used to describe database structures.
+
+| Database Term | Meaning               |
+| ------------- | --------------------- |
+| Row           | Record                |
+| Column        | Field                 |
+| Table         | Collection of records |
+
+### 5. Primary Keys
+Each table must contain a **primary key**.
+A primary key:
+- uniquely identifies a row
+- ensures that no two rows are identical
+- allows fast lookup
+Example:
+Student table
+
+| ID     | Name  |
+| ------ | ----- |
+| MAD001 | Alice |
+Here:
+`ID` is the primary key.
+
+### 6. Why Primary Keys Improve Performance
+Primary keys make searching faster.
+Without a primary key:
+The system must search through all rows.
+With a primary key:
+The system can directly locate the row using indexing.
+
+Example:
+Searching by name requires string matching.
+Searching by numeric ID is much faster.
+
+### 7. Foreign Keys
+Foreign keys connect **two tables**.
+A foreign key is a field in one table that refers to the primary key of another table.
+Example:
+Orders table
+
+| order_id | customer_id |
+|---|---|
+Here:
+`customer_id` is a foreign key referencing the **customer table**.
+Foreign keys allow relationships between tables.
+
+### 8. Purpose of SQL Queries
+Databases become powerful when we can query data.
+Examples of queries:
+Find all students whose names begin with A
+Find all courses offered in 2021
+Find all students who joined in 2018
+Find all EE department students graduating this year
+These queries allow extracting meaningful information from stored data.
+
+### 9. Indexing
+Databases often create **indexes** on fields.
+Indexes improve search speed.
+Common indexed fields:
+- primary keys
+- frequently searched columns
+Indexing allows efficient lookup even in very large databases.
+
+### 10. SQL Syntax
+SQL is designed to resemble English.
+Example structure:
+```
+SELECT column  
+FROM table  
+WHERE condition
+```
+Example:
+```
+SELECT name  
+FROM students  
+WHERE name LIKE 'A%'
+```
+This query finds students whose names start with A.
+
+### 11. SQL Joins
+SQL joins combine data from multiple tables.
+Joins are used when related data exists across different tables.
+Example:
+Students table  
+Hostels table
+If the student table contains:
+`hostel_id` we can join it with the hostel table.
+
+### 12. Example Tables
+Students table
+
+| Name | IDNumber | HostelID |
+|---|---|---|
+Hostels table
+
+| HostelID | HostelName | Capacity |
+|---|---|---|
+Each student references a hostel through **HostelID**.
+
+### 13. Inner Join Example
+Goal:
+Find the hostel name for each student.
+
+SQL query:
+```
+SELECT students.name, hostels.name  
+FROM students  
+INNER JOIN hostels  
+ON students.hostelID = hostels.ID
+```
+Explanation:
+1. Two tables are joined
+2. The join condition matches hostel IDs
+3. The result displays student names with hostel names
+
+### 14. Result of the Join
+Output might look like:
+
+| Student | Hostel  |
+| ------- | ------- |
+| Alice   | Cauvery |
+| Bob     | Krishna |
+The database matches hostel IDs and retrieves hostel names.
+
+### 15. SQL Joins and Performance
+Joins are powerful but can be expensive.
+Complex joins may slow down queries if:
+- tables are large
+- multiple joins are chained together
+Therefore query design must be done carefully.
+
+### 16. Cartesian Product
+Another database concept is the **Cartesian product**.
+If:
+```
+Table A has N rows  
+Table B has M rows
+```
+The Cartesian product produces:
+`N × M combinations`
+Example:
+3 students  
+4 courses
+Result:
+12 combinations.
+
+This can create extremely large datasets.
+Therefore Cartesian products must be used carefully.
+
+### 17. Example Query Problem
+Consider this question:
+Find all students who are taking **Calculus**.
+Data structure:
+```
+Students table  
+Courses table  
+StudentCourses relationship table
+```
+
+### 18. Steps Required to Answer the Query
+1. Find the course ID for Calculus
+2. Find entries in the StudentCourses table with that course ID
+3. Retrieve the corresponding student IDs
+4. Use those IDs to retrieve student names
+SQL allows all these steps to be written in a **single query**.
+
+### 19. Example SQL Query
+```
+SELECT s.name  
+FROM students s  
+JOIN student_courses sc ON s.IDNumber = sc.studentID  
+JOIN courses c ON sc.courseID = c.IDNumber  
+WHERE c.name = 'Calculus'
+```
+Explanation:
+1. Filter courses where name = Calculus
+2. Match course ID with student_courses table
+3. Match student IDs with students table
+4. Output student names
+
+### 20. Power of SQL Queries
+SQL can express complex queries concisely.
+Operations that might require multiple programming steps can often be written as **one SQL statement**.
+This makes databases extremely powerful tools for data processing.
+
+### 21. Summary of the Model Component
+The **model** in MVC represents application data.
+Key properties of models:
+- store application data
+- support persistent storage
+- allow structured data representation
+- support queries for retrieving information
+
+### 22. Storage Mechanisms
+Several mechanisms can store persistent data:
+CSV files  
+Spreadsheets  
+Relational databases (SQL)  
+NoSQL databases
+Internally, applications may represent data using:
+```
+arrays  
+dictionaries  
+classes
+```
+
+### 23. Entities and Relationships
+Data models are built around:
+Entities → objects such as students or courses
+Relationships → connections between entities
+Example:
+Students ↔ Courses
+Understanding these relationships is central to database design.
+
+### 24. Separation of Model and View
+A critical concept in MVC is **separation of concerns**.
+The model deals only with:
+- storing data
+- retrieving data
+
+It does **not handle presentation**.
+No HTML or UI logic exists inside the model.
+
+### 25. Interaction Between MVC Components
+In MVC:
+View → displays data  
+Controller → handles user input  
+Model → stores and retrieves data
+
+Workflow:
+1. View sends user action to controller
+2. Controller updates the model
+3. Model updates stored data
+4. View queries the model for updated information
+
+### 26. Benefits of Model Separation
+Separating models from views provides flexibility.
+The same database can support:
+- web applications
+- desktop applications
+- mobile applications
+The underlying storage system can also change:
+MySQL → SQLite → NoSQL
+without affecting the rest of the application.
+
+### Summary
+This lecture introduced SQL and its role in relational databases.
+Key ideas:
+- relational databases store tabular data
+- SQL retrieves and manipulates data
+- primary keys uniquely identify records
+- foreign keys link related tables
+- joins combine information from multiple tables
+- SQL queries allow complex data retrieval
+- models store and manage persistent application data
+- MVC architecture separates data storage from presentation
+Understanding SQL and relational data models is essential for building scalable modern applications.
