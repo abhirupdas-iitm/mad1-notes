@@ -268,3 +268,241 @@ Controllers are about:
 - enabling interaction in an application
 MVC should be used as:
 - **a way of thinking, not a rulebook**
+
+### Notes to be taken for `Activity Question 1`
+1. d
+---
+## Week 5 Lecture 2
+### Requests, Responses, and the Basis of Web Interaction
+##### Description: This lecture explains how web applications operate using the request-response model. It connects this model with MVC, explains how URLs encode information, and shows how user interactions translate into controller actions. It also introduces the motivation for identifying common patterns in applications, leading toward CRUD operations.
+
+### 1. Why Requests and Responses Matter
+To understand MVC in web applications, we must understand:
+- **Request–Response Cycle**
+
+Web applications are NOT continuous programs.  
+They work through:
+- Client → sends request  
+- Server → sends response  
+This is the **core foundation of the web**.
+
+### 2. Dynamic Web Pages
+Earlier web:
+- Static HTML pages
+- Server simply returned files
+
+Modern web:
+- Pages are **dynamically generated**
+- Clicking a link can:
+  - load a new page
+  - trigger backend logic
+  - modify data
+- Clicking a link = **triggering behavior**, not just loading a page
+
+### 3. Understanding the View in Web Context
+- View = **page shown to user**
+- Includes:
+  - content
+  - layout
+  - navigation elements
+
+Example layout:
+- Header (title, navigation)
+- Sidebar (links)
+- Main content area
+- View is still just **presentation**
+
+### 4. Role of URLs
+A URL contains structured information.
+Example structure:
+```
+domain / path / resource
+```
+
+Components:
+- **Domain** → server location
+- **Path** → what is being requested
+- **Resource details** → specific data
+
+### 5. How a Request Works
+When user clicks a link:
+1. Browser extracts URL
+2. Resolves domain → IP address
+3. Sends request to server
+4. Server processes request
+5. Server returns response
+
+- User does NOT care:
+- which machine handled request
+- how backend is structured
+
+### 6. URLs Encode Meaning
+Example interpretation:
+
+- `/course` → request course data
+- `/assessment` → request quiz/assignment
+- `/unit` → specific module inside course
+- URL = **instruction to server**
+
+### 7. Controllers in Action (Real Meaning)
+When user clicks:
+- It triggers a **controller**
+- Controller decides:
+  - which model to access
+  - what data to fetch/update
+  - which view to render
+
+- Controller = decision-maker
+
+### 8. Example Flow
+Click on “Assignment 0”:
+1. URL changes
+2. Request sent to server
+3. Controller triggered
+4. Controller:
+   - fetches assignment data from model
+   - selects appropriate view
+5. Response sent back
+6. User sees assignment page
+
+### 9. Requests Are Everywhere
+Every interaction:
+- clicking link
+- pressing button
+- selecting option
+- generates a request
+
+### 10. Types of HTTP Requests
+#### 10.1 GET Request
+- Used for **retrieving data**
+- Triggered by:
+  - clicking links
+  - entering URLs
+- Basic operation of web
+#### 10.2 POST Request
+- Used for **sending data to server**
+- Example:
+  - form submission
+Why POST?
+- cleaner than encoding data in URL
+- supports multiple data fields
+- safer encoding
+
+### 11. Difference: URL vs Page
+Important distinction:
+- You request a **URL**, not necessarily a page
+- URL may:
+  - return a page
+  - perform backend action
+  - return data only
+
+### 12. Forms and Data Submission
+Example:
+User fills form:
+- name
+- details
+Clicks submit → POST request sent
+Server:
+- extracts data
+- processes it
+- returns response
+
+### 13. Web is Fully Request-Driven
+Key principle:
+- EVERYTHING is a request-response cycle
+- No continuous execution
+- No persistent interaction by default
+
+### 14. Any URL Can Be Requested
+Examples:
+
+- lectures
+- assignments
+- quizzes
+- profile info
+- shopping cart
+
+- All are just **different endpoints**
+
+### 15. Searching for Common Patterns
+Now comes an important shift:
+Different systems:
+- education platform
+- e-commerce site
+- social media
+But all perform similar operations.
+
+### 16. Example: Gradebook System
+Entities:
+- Students
+- Courses
+- Student-Course relationships
+
+Stored as:
+- tables
+- structured data
+
+### 17. Typical User Operations
+
+User may want to:
+- create student
+- create course
+- assign student to course
+- enter/update marks
+- view summaries
+- delete/archive data
+
+### 18. Recognizing the Pattern
+All these actions fall into a **small set of core operations**
+- This leads to:
+
+### 19. CRUD (Coming Next)
+CRUD stands for:
+- Create
+- Read
+- Update
+- Delete
+These represent:
+- **fundamental operations on data**
+
+### 20. Connection to Controllers
+Controllers:
+- receive request
+- map it to an action
+- perform CRUD-like operations
+- return appropriate view
+
+### 21. Big Picture Flow
+```
+User Action (click / form)
+        ↓
+HTTP Request (GET / POST)
+        ↓
+Controller
+        ↓
+Model (data operations)
+        ↓
+View (rendered output)
+        ↓
+HTTP Response
+        ↓
+User sees result
+```
+
+### 22. Core Takeaways
+- Web apps run on **request-response model**
+- URLs carry **meaning and instructions**
+- Controllers are triggered by **requests**
+- GET → retrieve data
+- POST → send data
+- All applications share **common patterns**
+- These patterns lead to **CRUD abstraction**
+
+### 23. Key Insight
+Even though applications look different:
+- Course platform
+- Shopping app
+- Social network
+- Internally, they all perform similar operations
+This realization is what leads to:
+- **standardization of backend logic (CRUD + Controllers)**
