@@ -270,7 +270,7 @@ MVC should be used as:
 - **a way of thinking, not a rulebook**
 
 ### Notes to be taken for `Activity Question 1`
-1. d
+1. The controller updates the view directly in response to input from the users of the app. (Question: 4)
 ---
 ## Week 5 Lecture 2
 ### Requests, Responses, and the Basis of Web Interaction
