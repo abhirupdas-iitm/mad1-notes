@@ -959,6 +959,9 @@ MVC is not about strict rules.
 Controllers are simply:
 **the bridge between user actions and system behavior**
 
+### Notes to be taken for `Activity Question 4`
+1. URN is a subset of URI and URI is a superset of URN and URL. (Question: 1)
+2. For the Laravel PHP framework, *POST* is used to store an image in the database. (Question: 4)
 ---
 ## Week 5 Lecture 5
 ### Controllers in Practice: Routing, HTTP Mapping, and Flask Implementation
