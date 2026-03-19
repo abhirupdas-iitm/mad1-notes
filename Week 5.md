@@ -506,6 +506,9 @@ Even though applications look different:
 - Internally, they all perform similar operations
 This realization is what leads to:
 - **standardization of backend logic (CRUD + Controllers)**
+
+### Notes to be taken for `Activity Question 2`
+1. Trygve Reenskaug formulated the Model-view-controller pattern. (Question: 3)
 ---
 ## Week 5 Lecture 3
 ### CRUD and the Data Lifecycle in Applications
