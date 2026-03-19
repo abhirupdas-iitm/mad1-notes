@@ -1217,4 +1217,6 @@ A well-designed system:
 - predictable behavior  
 That’s what makes a web app robust.
 
+### Notes to be taken for `Activity Question 5`
+1. 5000 is the default port of Flask. (Question: 3)
 ---
