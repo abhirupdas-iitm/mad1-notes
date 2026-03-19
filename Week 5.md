@@ -954,3 +954,258 @@ Controllers are simply:
 **the bridge between user actions and system behavior**
 
 ---
+## Week 5 Lecture 5
+### Controllers in Practice: Routing, HTTP Mapping, and Flask Implementation
+##### Description: This lecture explains how controllers are actually implemented in web applications using routing. It covers stateless client-server architecture, HTTP request structure, Flask routing via decorators, dynamic URL mapping, and best practices for secure and clean application design.
+
+### 1. Controllers in Practice → Routes
+So far:
+- controllers = actions  
+- actions = server operations  
+Now the key question:
+**How are controllers actually implemented?**
+Answer: **Routes**
+
+### 2. Stateless Nature of Web Applications
+Web apps follow:
+**Client–Server Model**
+#### 2.1 What does "Stateless" mean?
+- Server does NOT remember client state  
+- Every request is independent  
+#### 2.2 Example
+- You open a page  
+- Connection drops  
+- Server has NO idea:
+  - what page you were on  
+  - what you were doing  
+Next request = completely new interaction
+#### 2.3 Design Implication
+Server must:
+- respond without assumptions  
+- handle incomplete workflows gracefully  
+#### 2.4 Bad Design Example
+- user fills half form  
+- refresh breaks system  
+Not acceptable  
+#### 2.5 Good Design
+- system recovers cleanly  
+- user can restart safely  
+
+### 3. HTTP Protocol Basics
+All communication happens via:
+**HTTP (text-based protocol)**
+#### 3.1 Structure of a Request
+```
+<HTTP VERB> + <URL>
+```
+#### 3.2 Meaning of Components
+##### Verb → WHAT action
+- GET → fetch  
+- POST → submit  
+- etc.
+##### URL → WHERE action
+- identifies resource  
+- provides context  
+#### 3.3 Key Insight
+Web apps = mapping:
+```
+(verb + URL) → action
+```
+
+### 4. Need for Routing
+We must map:
+URL → Controller (function)
+#### 4.1 Core Idea
+```
+Request → Route → Function → Response
+```
+
+### 5. Flask Routing Mechanism
+Flask uses:
+**Decorators**
+
+### 6. Python Decorators (Concept)
+A decorator:
+- wraps a function  
+- adds extra functionality  
+#### 6.1 Conceptual View
+```
+@decorator
+def function():
+    ...
+```
+Means:
+```
+function = decorator(function)
+```
+#### 6.2 Purpose
+- modify behavior  
+- add logic before/after function  
+
+### 7. Flask Route Decorator
+Example:
+```
+@app.route("/")
+def home():
+    return "Hello World"
+```
+#### 7.1 What Happens Internally
+Flask builds mapping:
+```
+"/" → home()
+```
+#### 7.2 Execution Flow
+```
+GET / → home() → "Hello World"
+```
+
+### 8. Route Mapping in Flask
+Flask creates a **routing table**:
+
+| URL | Function |
+|-----|----------|
+| /   | home()   |
+
+### 9. Method-Based Routing
+Example:
+```
+@app.route("/", methods=["GET"])
+def index():
+    ...
+```
+#### 9.1 Important Behavior
+- Only GET allowed  
+- POST → error  
+#### 9.2 Why?
+Security + clarity
+
+### 10. Multiple Routes
+Example:
+```
+@app.route("/create", methods=["POST"])
+def store():
+    ...
+```
+Mapping:
+```
+POST /create → store()
+```
+
+### 11. Dynamic Routing (Very Important)
+Example:
+```
+@app.route("/<int:user_id>")
+def show(user_id):
+    ...
+```
+#### 11.1 Meaning
+- URL contains variable  
+- Flask extracts value  
+#### 11.2 Example
+```
+GET /42 → show(42)
+```
+
+### 12. Advanced Routing
+Example:
+```
+@app.route("/<int:user_id>/edit", methods=["POST"])
+def update(user_id):
+    ...
+```
+#### 12.1 Behavior
+```
+POST /42/edit → update(42)
+```
+
+### 13. Same Route, Different Methods
+Example:
+```
+GET /<id> → show()
+DELETE /<id> → destroy()
+```
+#### 13.1 Meaning
+Same URL → different action based on method
+
+### 14. Routing Summary
+Routing defines:
+**Which function runs for which request**
+
+### 15. Security Considerations
+- Critical point
+#### 15.1 Dangerous Case
+```
+GET /delete → deletes everything
+```
+❌ Very bad
+#### 15.2 Required Safeguards
+- authentication  
+- tokens  
+- validation  
+#### 15.3 Goal
+Prevent unauthorized actions
+
+### 16. Controllers = Routed Functions
+In Flask:
+- Controller = Python function  
+- Route = entry point  
+
+### 17. Mapping Summary
+```
+URL + Method → Route → Function → Model → View → Response
+```
+
+### 18. Flask and MVC
+Important clarification:
+Flask is NOT strictly MVC
+#### 18.1 Why?
+- no enforced structure  
+- flexible design  
+#### 18.2 But can implement MVC ideas
+- models → SQLAlchemy  
+- views → templates  
+- controllers → routes/functions  
+
+### 19. Separation of Concerns (Again)
+Very important:
+- model → data  
+- view → presentation  
+- controller → logic  
+
+### 20. Why Separation Matters
+- prevents bad data modification  
+- improves maintainability  
+- ensures consistency  
+
+### 21. Power of Flask
+Flask is:
+- simple  
+- flexible  
+- lightweight  
+#### 21.1 Advantages
+- minimal restrictions  
+- supports clean design  
+- scalable with proper structure  
+
+### 22. Final Takeaways
+- Controllers implemented via **routes**
+- Web is **stateless**
+- Routing maps:
+
+  ```
+  request → function
+  ```
+- Flask uses **decorators** for routing  
+- Supports **dynamic URLs**  
+- Must ensure **security**  
+- MVC = mindset, not strict rule  
+
+### 23. Final Insight
+A well-designed system:
+- clean routing  
+- clear separation  
+- secure actions  
+- predictable behavior  
+That’s what makes a web app robust.
+
+---
