@@ -725,6 +725,9 @@ No matter how complex an application is:
 - deleting data  
 Everything else builds on top of this.
 
+### Notes to be taken for `Activity Question 3`
+1. Security archive logs can be considered as a ‘write-heavy’ operation. (Question: 3)
+2. The MVC design pattern was originally designed for GUI applications. (Question: 5)
 ---
 ## Week 5 Lecture 4
 ### What Exactly is a Controller? Actions, Controllers, and API Design
