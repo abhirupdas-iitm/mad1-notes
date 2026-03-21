@@ -330,3 +330,181 @@ Example:
 - Core principle:
   - **Separation of concerns**
 ---
+### Week 6 Lecture 3  
+#### REST in Practice – APIs, Real-World Examples, and Documentation  
+##### Description: Explains how REST is implemented in real systems using APIs. Covers practical examples like Wikipedia API, how requests and responses work using tools like curl, JSON responses, API documentation structure, schemas, parameters, and error handling.
+
+### 1. From Theory to Practice (REST Implementation)
+- REST is not just theoretical → used in real systems  
+- Used for:
+  - CRUD operations (data management)
+  - System-level actions (e.g., reboot VM)
+  - Control systems (e.g., smart city lights)
+- Core idea:
+  - REST defines how data/state is transferred
+  - Controller + View decide how it is presented
+
+### 2. REST Beyond CRUD
+- REST is NOT limited to database operations  
+Examples:
+- Cloud APIs:
+  - Create VM
+  - Reboot VM
+- Smart systems:
+  - Turn lights ON/OFF
+  - Check system state  
+- Insight:
+  - REST = general-purpose interaction system
+  - Not just data manipulation
+
+### 3. Why APIs Are Needed
+- Direct DB access:
+  - Unsafe
+  - Not scalable
+  - Not available to users  
+- API provides:
+  - Controlled access
+  - Structured communication
+  - Automation capability
+
+### 4. Example: Wikipedia REST API
+- Public API  
+- Allows:
+  - Searching pages
+  - Fetching history
+  - Extracting structured data
+
+### 5. API Request Structure
+`Example URL: https://en.wikipedia.org/w/rest.php/v1/search/page?q=earth&limit=1  `
+Breakdown:
+- Domain → en.wikipedia.org  
+- REST endpoint → /w/rest.php  
+- Version → /v1  
+- Resource → /search/page  
+- Parameters:
+  - q=earth  
+  - limit=1  
+
+### 6. API Versioning
+- Example: v1  
+- Purpose:
+  - Prevent breaking existing systems  
+  - Allow upgrades safely  
+- Rule:
+  - Breaking change ⇒ new version  
+
+### 7. Using curl
+- Command-line HTTP client  
+Example: curl `<URL>`
+- Default method: GET  
+- Sends request → receives response  
+
+### 8. JSON Response Example
+Example response:
+```
+{  
+  "pages": [  
+    {  
+      "id": 9228,  
+      "title": "Earth",  
+      "excerpt": "...",  
+      "description": "Third planet from the Sun",  
+      "thumbnail": {...}  
+    }  
+  ]  
+}
+```
+
+### 9. Understanding JSON Response
+- pages → array  
+- each element → object  
+Fields:
+- id → unique identifier  
+- title → readable name  
+- excerpt → partial HTML content  
+- description → metadata  
+- thumbnail → image info  
+
+### 10. JSON as Data Structure
+- Equivalent to Python dictionary  
+- Supports:
+  - nested objects  
+  - arrays  
+  - key-value pairs  
+- Advantage:
+  - easy parsing  
+  - structured access  
+
+### 11. Page History API
+- Returns revision data  
+Each revision:
+- id  
+- timestamp  
+- size  
+- author  
+- comment  
+
+### 12. API Use Cases
+- Build scripts to:
+  - track edits  
+  - analyze changes  
+  - monitor contributors  
+- Advantage:
+  - no need to parse HTML manually  
+
+### 13. Responsible API Usage
+- APIs = public resources  
+Rules:
+- limit request rate  
+- avoid spamming  
+- avoid automation abuse  
+- Risk:
+  - IP blocking  
+
+### 14. API Documentation Structure
+#### 14.1 Schema
+- defines data structure  
+Examples:
+- id → integer  
+- title → string  
+- description → string/null  
+#### 14.2 Route
+- endpoint path  
+Example: /search/page  
+#### 14.3 Method
+- HTTP method  
+Example:
+- GET  
+#### 14.4 Response Format
+- usually JSON  
+- defines output structure  
+#### 14.5 Example Usage
+`Example: ?q=jupiter&limit=20`  
+#### 14.6 Parameters
+- Required:
+  - q → query  
+- Optional:
+  - limit → number of results  
+#### 14.7 Response Codes
+- 200 → success  
+- 200 (empty) → success, no data  
+- 400 → bad request  
+- 500 → server error  
+
+### 15. Error Handling
+- Missing input → 400  
+- Invalid values → 400  
+- Server failure → 500  
+
+### 16. Key Takeaways
+- REST APIs enable structured communication  
+- JSON is standard response format  
+- APIs define:
+  - routes  
+  - methods  
+  - parameters  
+  - responses  
+- documentation is critical  
+- core idea:
+  → REST = standardized client-server communication  
+---
