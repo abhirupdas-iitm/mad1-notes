@@ -12,7 +12,7 @@
   - Web architecture
   - REST concepts
   - API examples
-  - OpenAPI specification
+  - `OpenAPI` specification
 
 ### 2. Web as a Distributed Architecture
 - Web applications are inherently **distributed systems**
@@ -314,7 +314,7 @@ Example:
   - Configuration
   - Documentation
 - Common in:
-  - OpenAPI specs
+  - `OpenAPI` specs
 
 ### 14. Key Takeaways
 - REST:
@@ -666,9 +666,9 @@ Example:
 - Core idea:
   → API = controlled, structured remote interaction with a server
 ---
-### Week 5 Extra Lecture 5  
-#### API Standardization and OpenAPI Specification (OAS)  
-##### Description: Explains the need for standardized API documentation, introduces machine-readable API descriptions, discusses limitations of traditional documentation, and presents OpenAPI Specification (OAS) and Swagger as solutions.
+### Week 6 Lecture 5  
+#### API Standardization and `OpenAPI` Specification (OAS)  
+##### Description: Explains the need for standardized API documentation, introduces machine-readable API descriptions, discusses limitations of traditional documentation, and presents `OpenAPI` Specification (OAS) and Swagger as solutions.
 
 ### 1. Need for Standardizing APIs
 - APIs provide:
@@ -750,7 +750,7 @@ Example:
   - Not full programs  
   - But structured enough for machines  
 
-### 8. OpenAPI Specification (OAS)
+### 8. `OpenAPI` Specification (OAS)
 - Definition:
   → Standard for describing REST APIs  
 - Key properties:
@@ -800,8 +800,229 @@ Example:
   - Useful but insufficient  
 - Machine-readable formats:
   → Solve scalability and clarity issues  
-- OpenAPI (OAS):
+- `OpenAPI` (OAS):
   → Industry-standard way to define APIs  
 - Core idea:
   → API = structured, stable, machine-understandable interface between client and server
+---
+### Week 6 Lecture 6  
+#### `OpenAPI` Specification (OAS) in Practice (YAML Structure & Design Philosophy)
+##### Description: Explains how `OpenAPI` specifications are written using YAML, details the structure of an `OpenAPI` document (paths, operations, responses, schemas), and highlights design-first principles, automation, and best practices for scalable API development.
+
+### 1. `OpenAPI` Specification File Format
+- `OpenAPI` specs are typically written in:
+  - YAML (most common)
+  - JSON (alternative)
+- Key requirement:
+  → Must be **structured and machine-readable**
+- Purpose:
+  → Remove ambiguity  
+  → Enable automation  
+
+### 2. Basic YAML Structure (Minimal Example)
+- Core fields:
+  - ``OpenAPI`` → version (e.g., 3.1.0)  
+  - `info` → metadata  
+    - title  
+    - version  
+  - `paths` → endpoints (can be empty initially)
+- Example meaning:
+  - Valid API spec  
+  - But useless if no endpoints defined  
+
+### 3. Core Components of `OpenAPI` Document
+#### 3.1 Top-Level Structure
+- Required:
+  - ``OpenAPI``
+  - `info`
+  - `paths`
+#### 3.2 Paths
+- Represents:
+  → API endpoints (URLs)
+- Example:
+  - `/board`
+  - `/users/{id}`
+#### 3.3 Endpoint Definition
+- Endpoint =  
+  → URL + HTTP operation (GET, POST, etc.)
+- Each path contains:
+  - One or more operations  
+#### 3.4 Operations
+Each operation includes:
+- Summary  
+- Description  
+- Parameters  
+- Request body  
+- Responses  
+
+### 4. Example: Tic Tac Toe API Concept
+- API defines:
+  - Create game  
+  - Make move  
+  - Get board state  
+  - Check winner  
+- Important:
+  → API defines **functionality only**  
+  → NOT UI or rendering  
+
+### 5. GET Operation Example
+Under `/board`:
+- GET operation:
+  - Summary: get board state  
+  - Description: detailed explanation  
+#### 5.1 Responses
+- Defined using HTTP codes:
+  - `200` → Success  
+  - `404` → Not found  
+- Each response includes:
+  - Description  
+  - Content  
+
+### 6. Content Types in Responses
+- API can return multiple formats:
+  - `application/json`  
+  - `text/html`  
+- Meaning:
+  → Client chooses preferred format  
+
+### 7. Role of Controller in API Flow
+- Model:
+  → returns raw data  
+- Controller:
+  → selects appropriate format (JSON / HTML)  
+- View:
+  → renders output  
+
+### 8. Schema Definition
+- Used to define structure of response data  
+Example:
+- Simple:
+  - type: integer  
+  - range constraints  
+- Complex:
+  - type: object  
+  - properties:
+    - product_name → string  
+    - product_price → number  
+
+### 9. Path Parameters
+Example:
+- `/users/{id}`
+- Meaning:
+  - `id` is required  
+  - Must be provided  
+- Missing parameter:
+  → Error response  
+
+### 10. Request Body Specification
+- Used mainly in:
+  - POST  
+  - PUT  
+- Structure:
+  - Defined using schema  
+- Example:
+  - JSON object  
+  - integer input  
+  - structured payload  
+
+### 11. Full API Flow Structure
+Hierarchy:
+- `OpenAPI`  
+  → Paths  
+    → Endpoint  
+      → Operation  
+        → Responses  
+          → Content  
+            → Schema  
+
+### 12. Automation Benefits
+From YAML spec:
+- Generate:
+  - Boilerplate backend code  
+  - API handlers  
+  - Documentation pages  
+- Developer writes:
+  → only business logic  
+
+### 13. Swagger’s Role
+- Combines:
+  - Documentation  
+  - Code generation  
+- Output:
+  - Interactive API docs  
+  - Ready-to-use endpoints  
+
+### 14. Drawback of YAML
+- Hard to write manually  
+- Error-prone  
+- Requires strict formatting  
+
+### 15. Design-First Approach
+- Key principle:
+  → Design API BEFORE writing code  
+- Benefits:
+  - Cleaner architecture  
+  - Fewer bugs  
+  - Better scalability  
+
+### 16. Importance of Design vs Coding
+- Good design:
+  → saves debugging time  
+- Poor design:
+  → leads to long debugging cycles  
+
+### 17. Single Source of Truth
+- Definition:
+  → One authoritative representation  
+Two approaches:
+1. Spec-first:
+   - YAML = source of truth  
+   - Code generated from spec  
+1. Code-first:
+   - Code = source  
+   - Docs generated from code  
+- Avoid:
+  → divergence between code and documentation  
+
+### 18. Version Control for API Specs
+- Use:
+  - Git  
+- Track:
+  - Changes  
+  - Features  
+  - Contributors  
+
+### 19. Public APIs and Ecosystem Growth
+- Benefits of public APIs:
+  - External usage  
+  - Innovation  
+  - Ecosystem expansion  
+Examples:
+- Wikipedia  
+- CoWIN  
+- GitHub  
+- Google Cloud  
+
+### 20. Tools and Best Practices
+- Do NOT write everything manually  
+Use:
+- Editors  
+- API tools  
+- Generators  
+- Ensure:
+  - Consistency  
+  - Maintainability  
+  - Scalability  
+
+### 21. Final Takeaways
+- `OpenAPI` = structured API definition  
+- YAML enables:
+  - Machine readability  
+  - Automation  
+- Key ideas:
+  - Design-first  
+  - Single source of truth  
+  - Separation of concerns  
+- Goal:
+  → Build scalable, maintainable, and robust APIs
 ---
