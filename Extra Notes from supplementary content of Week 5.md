@@ -812,3 +812,291 @@ return render_template(
 - Represents:
   > 🔴 Data → Query → Filter → Render → User Interaction Loop
 ---
+### Week 5 Extra Lecture 5  
+#### Structuring a Scalable Flask Project (Project Layout, Config, and Deployment)  
+##### Description: Explains how to organize a Flask project into modules for scalability. Covers project structure, configuration management, environment variables, static/templates handling, and local vs deployment setup.
+
+### 1. Why Project Structure Matters
+#### 1.1 Problem with Single File Flask Apps
+- Earlier approach:
+  - Everything in `main.py`
+  - Includes:
+    - App setup
+    - Models
+    - Controllers
+    - DB config
+#### 1.2 Issues
+- Hard to read
+- Hard to maintain
+- Difficult to scale
+#### 1.3 Solution
+- Break into **modules + packages**
+- Follow **separation of concerns**
+
+### 2. Project Structure Overview
+```
+project/
+│
+├── main.py
+├── requirements.txt
+├── application/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── controllers.py
+│   ├── models.py
+│   ├── database.py
+│
+├── templates/
+├── static/
+│   ├── css/
+│   ├── js/
+│
+├── db/
+│   └── testdb.sqlite3
+```
+
+### 3. Role of Each Component
+#### 3.1 `main.py`
+- Entry point
+- Responsibilities:
+  - Create app
+  - Load config
+  - Initialize DB
+  - Run server
+#### 3.2 `application/` Package
+- Core logic lives here
+##### a) `models.py`
+- Contains all database models
+- Extracted from earlier single-file app
+##### b) `database.py`
+- Initializes SQLAlchemy
+```python
+db = SQLAlchemy()
+```
+##### c) `controllers.py`
+- Contains routes + logic
+- Can be split further:
+  - `article_controllers.py`
+  - `user_controllers.py`
+##### d) `config.py`
+- Handles environment-specific settings
+
+### 4. Configuration Management
+#### 4.1 Base Config Class
+```python
+class Config:
+    DEBUG = False
+```
+#### 4.2 Local Development Config
+```python
+class LocalDevelopmentConfig(Config):
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = ...
+```
+#### 4.3 Production Config
+```python
+class ProductionConfig(Config):
+    DEBUG = False
+    SQLALCHEMY_DATABASE_URI = ...
+```
+
+### 5. Environment-Based Configuration
+#### 5.1 Reading Environment Variable
+```python
+env = os.getenv("ENV", "development")
+```
+#### 5.2 Behavior
+- If ENV not set → defaults to `development`
+- If ENV = production → use production config
+#### 5.3 Why This Matters
+- Same code works in:
+  - Local
+  - Staging
+  - Production
+
+### 6. Handling Sensitive Data
+#### 6.1 Problem
+❌ Hardcoding passwords:
+```python
+PASSWORD = "mysecret"
+```
+#### 6.2 Correct Approach
+```python
+PASSWORD = os.getenv("DB_PASSWORD")
+```
+#### 6.3 Benefits
+- Security
+- No accidental leaks
+- Safe for version control
+
+### 7. Templates Organization
+#### 7.1 Default Folder
+```
+templates/
+```
+#### 7.2 Best Practice
+- Use subfolders if needed:
+```
+templates/
+  ├── articles/
+  ├── users/
+```
+
+### 8. Static Files Handling
+#### 8.1 Default Static Folder
+```
+static/
+```
+#### 8.2 Types of Files
+- CSS
+- JS
+- Images
+#### 8.3 Example Structure
+```
+static/
+  ├── css/style.css
+  ├── js/validation.js
+```
+#### 8.4 Using Static Files in Template
+```html
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+```
+#### 8.5 Example JS Include
+```html
+<script src="{{ url_for('static', filename='js/custom_validation.js') }}"></script>
+```
+
+### 9. Requirements File
+#### 9.1 Purpose
+- Define dependencies
+#### 9.2 Example
+```
+Flask==2.x.x
+Flask-SQLAlchemy==3.x.x
+```
+#### 9.3 Why Pin Versions?
+- Avoid unexpected bugs
+- Ensure consistency across systems
+
+---
+
+### 10. Virtual Environment Setup
+#### 10.1 Create Environment
+```bash
+python -m venv .env
+```
+#### 10.2 Activate
+```bash
+source .env/bin/activate
+```
+#### 10.3 Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 11. Running the Application
+#### 11.1 Set Environment
+```bash
+export ENV=development
+```
+#### 11.2 Run
+```bash
+python main.py
+```
+#### 11.3 Output
+- Runs on:
+```
+http://localhost:8080
+```
+
+### 12. Flask Development Server Warning
+- Built-in server:
+  - Not for production
+- Production requires:
+  - Gunicorn / uWSGI (not covered here)
+
+### 13. Deployment on Replit
+#### 13.1 Steps
+- Create Python repl
+- Install:
+  - Flask
+  - Flask-SQLAlchemy
+#### 13.2 Add Environment Variable
+- Key: `ENV`
+- Value: `development`
+#### 13.3 Upload Files
+- Project structure same as local
+- Include:
+  - templates
+  - static
+  - db
+#### 13.4 Run
+- Click **Run**
+- App launches automatically
+
+### 14. Database Configuration
+#### 14.1 SQLite URI Construction
+```python
+sqlite:///db/testdb.sqlite3
+```
+#### 14.2 Dynamic Path
+- Use directory + filename
+- Construct via config
+
+### 15. Scaling the Project
+#### 15.1 Extend Models
+- Add new tables:
+  - Tags
+  - Categories
+#### 15.2 Extend Controllers
+- Add routes:
+  - `/articles/tag/<tag>`
+  - `/users/<id>`
+#### 15.3 Modular Expansion
+- Split controllers
+- Use Blueprints (advanced)
+
+### 16. Blueprints (Advanced Concept)
+- Flask feature for:
+  - Modular routing
+- Useful for:
+  - Large applications
+- Not covered deeply here
+
+### 17. Automation Scripts (Optional)
+#### 17.1 Setup Script
+- Automates:
+  - venv creation
+  - dependency install
+#### 17.2 Run Script
+- Automates:
+  - env setup
+  - running app
+
+### 18. Key Design Principles
+#### 18.1 Separation of Concerns
+- Models → data
+- Controllers → logic
+- Templates → view
+#### 18.2 Maintainability
+- Easier debugging
+- Easier collaboration
+#### 18.3 Scalability
+- Supports growth
+- Clean architecture
+
+### 19. Final Insight
+- Flask does NOT enforce structure  
+- You must design it thoughtfully  
+> 🔵 Clean structure = scalable system  
+> 🔴 Messy structure = technical debt
+
+### 20. Summary Flow
+1. Create modular structure  
+2. Define config classes  
+3. Use environment variables  
+4. Organize templates + static  
+5. Setup DB + models  
+6. Run via main.py  
+7. Scale gradually  
+---
