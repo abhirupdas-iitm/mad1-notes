@@ -508,3 +508,161 @@ Example:
 - core idea:
   → REST = standardized client-server communication  
 ---
+### Week 6 Lecture 4  
+#### Real-World REST APIs – CoWIN Case Study and Authentication  
+##### Description: Demonstrates real-world REST API usage using the CoWIN platform. Covers public vs authenticated APIs, request construction using curl, headers, parameters, JSON responses, API usage ethics, and authentication mechanisms like tokens and API keys.
+
+### 1. Real-World REST API Example – CoWIN
+- CoWIN platform:
+  - Used for vaccine registration and availability  
+  - Built using RESTful APIs  
+- Why APIs are needed:
+  - Large-scale data handling  
+  - Separation of frontend and backend  
+  - Enables multiple applications to use same backend  
+- Scale:
+  - Designed for massive population (millions of users)
+
+### 2. Types of APIs in CoWIN
+- Unauthenticated APIs:
+  - Used for:
+    - Searching vaccine availability  
+    - Fetching public data  
+- Authenticated APIs:
+  - Used for:
+    - Booking appointments  
+    - Downloading certificates  
+
+### 3. API Documentation Components
+- Production server → actual live API  
+- API categories:
+  - Authentication  
+  - Metadata  
+  - Appointment availability  
+  - Certificate download  
+- Schema:
+  - Defines structure of returned data  
+  - Example fields:
+    - center name  
+    - address  
+    - pincode  
+    - capacity  
+
+### 4. Example: Availability API
+- Endpoint:
+  - Versioned → v2  
+  - Route → appointment/sessions/public/findByPin  
+- Required parameters:
+  - pincode  
+  - date  
+
+### 5. Using curl for API Requests
+Basic request:  
+`curl -X GET <URL>`  
+- -X GET → specifies HTTP method (default GET)  
+- -H → adds headers  
+Example headers:
+- Accept: application/json  
+- Accept-Language: en  
+
+### 6. Missing Parameters Error
+- If required parameters not provided:
+  - API returns error  
+Example:
+- Missing pin-code/date → "input parameter missing"
+
+### 7. Correct API Request Example
+- Add query parameters:  
+`?pincode=600001&date=04-08-2021`  
+- Result:
+  - Returns JSON data  
+
+### 8. API Response Structure
+- Returns:
+  - Array of sessions  
+Each session contains:
+- center_id  
+- name of hospital  
+- address  
+- district  
+- capacity  
+- dose1 capacity  
+- dose2 capacity  
+
+### 9. Using API Data
+- Can build scripts to:
+  - Track availability  
+  - Automate queries  
+IMPORTANT:
+- Do NOT overload API  
+- Respect usage limits  
+
+### 10. Responsible API Usage
+- APIs serve real-world systems (healthcare here)
+Rules:
+- Avoid excessive requests  
+- Avoid automation abuse  
+- Prefer non-production servers for testing  
+- Risk:
+  - Service disruption  
+  - Ethical issues  
+
+### 11. Headers and User-Agent
+- Some APIs require:
+  - User-Agent header  
+Purpose:
+- Identify client  
+- Prevent bot abuse  
+
+### 12. Authenticated API Example
+- Example:
+  - Download vaccination certificate  
+- Without authentication:
+  - Response → "unauthenticated access"
+
+### 13. Why Authentication is Needed
+- Protect sensitive data  
+- Restrict access to valid users  
+- Prevent misuse  
+
+### 14. Authentication Methods
+#### 14.1 Token-Based Authentication
+- User logs in (e.g., OTP)  
+- Server returns unique token  
+- Token used in future requests  
+- Key property:
+  - Hard to guess  
+#### 14.2 API Keys
+- Unique key assigned to user  
+- Used in requests  
+Examples:
+- GitHub  
+- Cloud APIs  
+
+### 15. Authentication Flow
+1. User logs in  
+2. Server generates token  
+3. Client sends token with each request  
+4. Server validates token  
+
+### 16. API as Remote Function Call
+- API request = trigger action on remote server  
+Example:
+- Call endpoint → server executes logic  
+- Returns response  
+
+### 17. Key Takeaways
+- REST APIs power real-world systems (e.g., `CoWIN`)  
+- APIs can be:
+  - Public  
+  - Authenticated  
+- Requests include:
+  - URL  
+  - parameters  
+  - headers  
+- Authentication ensures:
+  - security  
+  - controlled access  
+- Core idea:
+  → API = controlled, structured remote interaction with a server
+---
