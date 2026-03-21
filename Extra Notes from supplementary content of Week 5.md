@@ -407,3 +407,205 @@ Understanding these concepts prepares you to:
 - Build database-driven applications  
 - Integrate with web frameworks  
 ---
+### Week 5 Extra Lecture 3
+#### Flask + SQLAlchemy Integration (Building a Dynamic Web App)  
+##### Description: Demonstrates integrating SQLAlchemy with Flask using Flask-SQLAlchemy. Covers project setup, database configuration, models, querying data, and rendering dynamic content using templates.
+
+### 1. Development Environment Setup
+#### 1.1 Required Tools
+- Browser (Chrome / Firefox)
+- IDE / Editor:
+  - VS Code / VSCodium / PyCharm / Sublime / Geany / Thonny
+  - OR Online IDE (Replit)
+- Terminal
+- File Explorer
+#### 1.2 Project Structure
+- Create project folder:
+  ```
+  experiment-flask-sqlalchemy
+  ```
+- Files:
+  - `main.py`
+  - `requirements.txt`
+  - `testdb.sqlite3` (existing database)
+
+### 2. Virtual Environment Setup
+#### 2.1 Create Virtual Environment
+```bash
+python3 -m venv .experiment-env
+```
+#### 2.2 Activate Environment
+```bash
+source .experiment-env/bin/activate
+```
+#### 2.3 Verify Environment
+```bash
+python --version
+which python
+```
+
+### 3. Installing Dependencies
+#### 3.1 requirements.txt
+```
+flask
+flask_sqlalchemy
+```
+#### 3.2 Install Packages
+```bash
+pip install -r requirements.txt
+```
+#### 3.3 Verify Installation
+```bash
+pip freeze
+```
+
+### 4. Flask + SQLAlchemy Configuration
+#### 4.1 Import Required Modules
+```python
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+import os
+```
+#### 4.2 Create Flask Application
+```python
+app = Flask(__name__)
+```
+#### 4.3 Configure Database URI
+- Get current directory:
+```python
+current_dir = os.path.abspath(os.path.dirname(__file__))
+```
+- Set database path:
+```python
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(current_dir, "testdb.sqlite3")
+```
+#### 4.4 Initialize Database
+```python
+db = SQLAlchemy()
+db.init_app(app)
+app.app_context().push()
+```
+
+### 5. Models using Flask-SQLAlchemy
+#### 5.1 Key Difference from SQLAlchemy
+- All components accessed via `db`
+
+| Standard SQLAlchemy | Flask-SQLAlchemy |
+| ------------------- | ---------------- |
+| Column              | db.Column        |
+| Integer             | db.Integer       |
+| ForeignKey          | db.ForeignKey    |
+#### 5.2 Insight
+- Flask-SQLAlchemy is a **wrapper over SQLAlchemy**
+- Simplifies integration with Flask apps
+
+### 6. Running the Application
+```python
+if __name__ == "__main__":
+    app.run(debug=True, port=8080)
+```
+
+### 7. Basic Route Setup
+#### 7.1 Hello World Route
+```python
+@app.route("/")
+def home():
+    return render_template("home.html")
+```
+
+### 8. Templates Setup
+#### 8.1 Create Templates Folder
+```
+templates/
+```
+#### 8.2 Create Template File
+```
+home.html
+```
+
+### 9. Moving to Dynamic Content
+#### 9.1 Goal
+- Replace static content with **database-driven content**
+#### 9.2 Fetch Data from Database
+```python
+articles = Article.query.all()
+```
+#### 9.3 Pass Data to Template
+```python
+return render_template("articles.html", articles=articles)
+```
+#### 9.4 Debug Output
+```html
+{{ articles }}
+```
+- Returns list of database rows (objects)
+
+### 10. Rendering Data using Jinja
+#### 10.1 Loop Through Data
+```html
+{% for article in articles %}
+    {{ article }}
+{% endfor %}
+```
+
+### 11. UI Design using Bootstrap
+#### 11.1 Add Bootstrap CDN
+- Include in `<head>` section
+#### 11.2 Layout Structure
+##### Container
+```html
+<div class="container">
+```
+#### 11.3 Page Sections
+##### Header Section
+- Use Bootstrap **jumbotron**
+##### Main Layout
+```html
+<div class="row">
+    <div class="col-8">
+        Main Content (Articles)
+    </div>
+    <div class="col-4">
+        Sidebar
+    </div>
+</div>
+```
+#### 11.4 Grid System
+- Total width = 12
+- Example:
+  - Main content = 8
+  - Sidebar = 4
+
+### 12. Application Flow
+1. User sends request to `/`
+2. Flask route (controller) is triggered
+3. Database queried:
+   ```python
+   Article.query.all()
+   ```
+4. Data passed to template
+5. Template renders HTML using Jinja
+6. Response sent to browser
+
+### 13. MVC Mapping
+
+| Component  | Role                     |
+| ---------- | ------------------------ |
+| Model      | Database (Article table) |
+| View       | HTML template            |
+| Controller | Flask route function     |
+
+### 14. Key Takeaways
+- Flask-SQLAlchemy simplifies ORM usage
+- Routes act as controllers
+- Templates handle presentation (views)
+- Models represent database structure
+- Enables full dynamic web application flow
+
+### 15. Final Insight
+- This lecture connects:
+  - Flask basics
+  - SQLAlchemy ORM
+  - MVC architecture
+- Represents a **complete request → database → response pipeline**
+---
