@@ -609,3 +609,206 @@ return render_template("articles.html", articles=articles)
   - MVC architecture
 - Represents a **complete request → database → response pipeline**
 ---
+### Week 5 Extra Lecture 4  
+#### Rendering Dynamic Content, Relationships, and Filtering in Flask-SQLAlchemy  
+##### Description: Focuses on displaying database content using Jinja templates, handling relationships (articles ↔ authors), formatting output, and implementing filtered queries with dynamic routing.
+
+### 1. Rendering Articles Dynamically
+#### 1.1 Iterating Over Articles
+- Articles are passed from Flask:
+```python
+articles = Article.query.all()
+```
+- Use Jinja loop:
+```html
+{% for article in articles %}
+    {{ article.title }}
+    {{ article.content }}
+{% endfor %}
+```
+#### 1.2 Problem
+- Output appears in a single line
+- No structure or readability
+
+### 2. Structuring Content using HTML
+#### 2.1 Wrapping Each Article
+```html
+<div>
+    <h2>{{ article.title }}</h2>
+    <div>
+        {{ article.content }}
+    </div>
+</div>
+```
+#### 2.2 Benefits
+- Better readability
+- Easier styling later
+- Logical separation of content
+
+### 3. Displaying Article Authors (Relationships)
+#### 3.1 Understanding Relationship
+- Each article has:
+  - **Multiple authors (list of users)**
+#### 3.2 Iterating Over Authors
+```html
+<p>
+    written by
+    {% for author in article.authors %}
+        {{ author.username }}
+    {% endfor %}
+</p>
+```
+
+### 4. Formatting Author List
+#### 4.1 Problem
+- Names appear without separation
+#### 4.2 Naive Approach
+```html
+{{ author.username }},
+```
+- Adds comma even after last author ❌
+#### 4.3 Correct Approach (Jinja Loop Condition)
+```html
+{% for author in article.authors %}
+    {{ author.username }}{% if not loop.last %}, {% endif %}
+{% endfor %}
+```
+#### 4.4 Key Concept
+- `loop.last` → True for last element
+- Avoids trailing comma
+
+### 5. Improving UI Readability
+#### 5.1 Enhancements
+- Add spacing between articles
+- Use separate divs
+- Format text properly
+#### 5.2 Optional Styling Ideas
+- Background color for article blocks
+- Padding and margins
+- Typography improvements
+
+### 6. Adding Meaningful Content
+- Replace dummy text with real content
+- Add:
+  - Titles
+  - Paragraphs
+- Ensures layout behaves properly
+
+### 7. Adding Dynamic Filtering (Articles by Author)
+#### 7.1 Goal
+- Click author name → show only their articles
+
+### 8. Creating New Route
+#### 8.1 Route Definition
+```python
+@app.route("/articles/<username>")
+def articles_by_author(username):
+```
+#### 8.2 Filtering Query
+```python
+articles = Article.query.filter(
+    Article.authors.any(username=username)
+).all()
+```
+#### 8.3 Key Concept
+- `.any()` → checks relationship
+- Filters articles where:
+  - Any author has given username
+
+### 9. Rendering Filtered Results
+#### 9.1 Use Separate Template
+```python
+return render_template("author_articles.html", articles=articles)
+```
+#### 9.2 Why Separate Template?
+- Simpler structure
+- Clear separation of concerns
+- Avoids complexity
+
+### 10. Making Author Names Clickable
+#### 10.1 Convert to Link
+```html
+<a href="/articles/{{ author.username }}">
+    {{ author.username }}
+</a>
+```
+#### 10.2 Result
+- Clicking username → triggers route
+- Displays filtered articles
+
+### 11. Passing Additional Data to Template
+#### 11.1 Pass Username
+```python
+return render_template(
+    "author_articles.html",
+    articles=articles,
+    username=username
+)
+```
+#### 11.2 Use in Template
+```html
+<h2>Articles by {{ username }}</h2>
+```
+
+### 12. Final Application Flow
+1. User visits homepage
+2. Articles displayed
+3. User clicks author name
+4. Request sent:
+   ```
+   /articles/<username>
+   ```
+5. Flask route triggered
+6. Database filtered query executed
+7. Filtered articles returned
+8. Template renders results
+
+### 13. Key Concepts Covered
+#### 13.1 Jinja Templating
+- Loops (`for`)
+- Conditions (`if`)
+- Loop metadata (`loop.last`)
+#### 13.2 ORM Relationships
+- One-to-many / many-to-many handling
+- Access related objects via attributes
+#### 13.3 Dynamic Routing
+- URL parameters (`<username>`)
+- Passed into controller function
+#### 13.4 Query Filtering
+- `.filter()`
+- `.any()` for relationships
+
+### 14. Deployment on Replit
+#### 14.1 Setup Steps
+1. Create new Python repl
+2. Install packages:
+   - Flask
+   - Flask-SQLAlchemy
+#### 14.2 Differences from Local Setup
+
+| Local Setup      | Replit Setup      |
+| ---------------- | ----------------- |
+| requirements.txt | Packages tab      |
+| pip              | poetry (internal) |
+#### 14.3 Upload Database
+- Upload `testdb.sqlite3`
+- Ensure correct path handling
+#### 14.4 Run Application
+- Click **Run**
+- Access via generated URL
+
+### 15. Key Takeaways
+- Jinja enables dynamic rendering
+- Relationships allow complex data linking
+- Filtering enables dynamic views
+- Routing connects user actions to logic
+- Flask + SQLAlchemy = full-stack capability
+
+### 16. Final Insight
+- This lecture completes:
+  - **Dynamic rendering**
+  - **Relationship handling**
+  - **User-driven filtering**
+- Represents:
+  > 🔴 Data → Query → Filter → Render → User Interaction Loop
+---
