@@ -516,6 +516,7 @@ Example:
   → REST = standardized client-server communication  
 
 ### Notes to be taken for `Activity Question 3`
+1. URI is used to identify any resource on the internet using location, name, or both. (Question: 2)
 ---
 ### Week 6 Lecture 4  
 #### Real-World REST APIs – `CoWIN` Case Study and Authentication  
