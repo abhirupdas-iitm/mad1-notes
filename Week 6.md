@@ -334,6 +334,8 @@ Example:
   - **Separation of concerns**
 
 ### Notes to be taken for `Activity Question 2`
+1. The information on cache is solely controlled by the server. (Question: 1)
+2. POST is not always idempotent. (Question: 4)
 ---
 ### Week 6 Lecture 3  
 #### REST in Practice – APIs, Real-World Examples, and Documentation  
