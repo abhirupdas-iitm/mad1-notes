@@ -820,6 +820,7 @@ Example:
   → API = structured, stable, machine-understandable interface between client and server
 
 ### Notes to be taken for `Activity Question 5`
+1. `excerpt` but not `method` can be a part of an API schema. (Question: 3)
 ---
 ### Week 6 Lecture 6  
 #### `OpenAPI` Specification (OAS) in Practice (YAML Structure & Design Philosophy)
