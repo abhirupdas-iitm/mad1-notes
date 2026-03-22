@@ -677,6 +677,8 @@ Example:
   → API = controlled, structured remote interaction with a server
 
 ### Notes to be taken for `Activity Question 4`
+1. Only client will initiate the request. Server only responds to the request. It cannot initiate the request. (Question: 3)
+2. PUT is *not* allowed in HTML forms. (Question: 4)
 ---
 ### Week 6 Lecture 5  
 #### API Standardization and `OpenAPI` Specification (OAS)  
