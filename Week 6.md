@@ -136,6 +136,9 @@
   - Code-on-demand (optional)
 - Goal:
   - Design systems suited for the **real-world web environment**
+
+### Notes to be taken for `Activity Question 1`
+1. REST is *not* an API. (Question: 5)
 ---
 ### Week 6 Lecture 2  
 #### REST – Deep Dive, HTTP Methods, Idempotency, and Data Encoding  
@@ -329,6 +332,8 @@ Example:
   - Standard data format
 - Core principle:
   - **Separation of concerns**
+
+### Notes to be taken for `Activity Question 2`
 ---
 ### Week 6 Lecture 3  
 #### REST in Practice – APIs, Real-World Examples, and Documentation  
@@ -507,9 +512,11 @@ Example:
 - documentation is critical  
 - core idea:
   → REST = standardized client-server communication  
+
+### Notes to be taken for `Activity Question 3`
 ---
 ### Week 6 Lecture 4  
-#### Real-World REST APIs – CoWIN Case Study and Authentication  
+#### Real-World REST APIs – `CoWIN` Case Study and Authentication  
 ##### Description: Demonstrates real-world REST API usage using the CoWIN platform. Covers public vs authenticated APIs, request construction using curl, headers, parameters, JSON responses, API usage ethics, and authentication mechanisms like tokens and API keys.
 
 ### 1. Real-World REST API Example – CoWIN
@@ -665,6 +672,8 @@ Example:
   - controlled access  
 - Core idea:
   → API = controlled, structured remote interaction with a server
+
+### Notes to be taken for `Activity Question 4`
 ---
 ### Week 6 Lecture 5  
 #### API Standardization and `OpenAPI` Specification (OAS)  
@@ -804,6 +813,8 @@ Example:
   → Industry-standard way to define APIs  
 - Core idea:
   → API = structured, stable, machine-understandable interface between client and server
+
+### Notes to be taken for `Activity Question 5`
 ---
 ### Week 6 Lecture 6  
 #### `OpenAPI` Specification (OAS) in Practice (YAML Structure & Design Philosophy)
@@ -1025,4 +1036,6 @@ Use:
   - Separation of concerns  
 - Goal:
   → Build scalable, maintainable, and robust APIs
+
+### Notes to be taken for `Activity Question 6`
 ---

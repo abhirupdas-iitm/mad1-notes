@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "284f762293b4c257",
@@ -185,9 +186,9 @@
   },
   "active": "c6ed5522be682f34",
   "lastOpenFiles": [
+    "Week 5.md",
     "Week 6.md",
     "Extra Notes from supplementary content of Week 5.md",
-    "Week 5.md",
     "Week 4.md",
     "Extra Notes from supplementary content of Week 4.md",
     "Extra Notes from supplementary content of Week 2.md",
