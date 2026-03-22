@@ -1044,4 +1044,5 @@ Use:
   → Build scalable, maintainable, and robust APIs
 
 ### Notes to be taken for `Activity Question 6`
+1. The OpenAPI Specification (OAS) was originally developed as Swagger. (Question: 1)
 ---
