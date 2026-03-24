@@ -1046,3 +1046,4 @@ Use:
 ### Notes to be taken for `Activity Question 6`
 1. The OpenAPI Specification (OAS) was originally developed as Swagger. (Question: 1)
 ---
+[[Extra Notes from supplementary content of Week 6]]
