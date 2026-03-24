@@ -549,3 +549,266 @@ Common codes:
 - Marshalling ensures clean responses  
 - Follow API contract strictly  
 ---
+### Week 6 Extra Lecture 3  
+#### Implementing PUT and DELETE APIs with Validation and Dependencies  
+##### Description: Covers implementation of PUT (update) and DELETE operations in a REST API using Flask-RESTful and SQLAlchemy. Includes dependency checks, validation logic, database updates, and handling real-world constraints like foreign key relationships.
+
+### 1. Overview of Remaining CRUD Operations
+Previously implemented:
+- GET → Read  
+- POST → Create  
+
+Remaining:
+- PUT → Update  
+- DELETE → Remove  
+
+Both require:
+- Validation  
+- Database interaction  
+- Error handling  
+
+### 2. DELETE Operation Logic
+Goal:
+- Delete a user  
+
+But with constraints:
+- Cannot delete if dependencies exist  
+
+Example:
+- User has articles → cannot delete  
+
+### 3. Handling Dependencies
+Two approaches:
+
+#### 1. Database-Level Handling
+- Attempt delete  
+- Catch database exception  
+
+#### 2. Application-Level Handling (preferred here)
+- Check dependencies before deletion  
+- Prevent invalid operation  
+
+Used approach:
+- Query related data first  
+
+### 4. DELETE Workflow
+Steps:
+1. Check if user exists  
+2. Check if user has related articles  
+3. If yes → throw error  
+4. If no → delete user  
+5. Return status  
+
+### 5. Checking User Existence
+Query:
+- Fetch user by username  
+
+If not found:
+- Throw 404 error  
+
+Same logic as GET  
+
+### 6. Checking Related Articles
+Query:
+- Search articles by user  
+
+If any article exists:
+- Do not delete  
+
+Error:
+- Business validation error  
+
+Example:
+- BE1005 → cannot delete user  
+
+### 7. Business Rule Enforcement
+Rule:
+- A user with articles cannot be deleted  
+
+Reason:
+- Maintain data consistency  
+- Prevent orphan records  
+
+Alternative designs:
+- Cascade delete (delete articles too)  
+- Force delete (not recommended)  
+
+### 8. DELETE Implementation
+Steps:
+- `db.session.delete(user)`  
+- `db.session.commit()`  
+
+Response:
+- Status code `200`  
+- Empty body  
+
+### 9. Debugging DELETE Issues
+Common issues:
+- Server not restarted  
+- Query errors  
+- Incorrect object handling  
+
+Example error:
+- "BaseQuery has no length"  
+
+Fix:
+- Use `.first()` instead of checking length  
+
+### 10. Testing DELETE API
+Cases:
+
+#### Case 1: User has articles
+- Expect error  
+
+#### Case 2: User has no articles
+- Delete successfully  
+- Return `200`  
+
+### 11. PUT Operation Overview
+Goal:
+- Update user details  
+
+Common updates:
+- Email  
+- Other fields  
+
+Not updating:
+- Username (treated as identifier)  
+
+### 12. PUT Workflow
+Steps:
+1. Parse input  
+2. Validate input  
+3. Check duplicates  
+4. Check user existence  
+5. Update database  
+6. Return updated object  
+
+### 13. Parsing Input for PUT
+Use:
+- Request parser  
+
+Fields:
+- Email only  
+
+Reason:
+- Controlled update  
+
+### 14. Input Validation in PUT
+Checks:
+- Email exists  
+- Email format valid  
+
+If invalid:
+- Throw business error  
+
+### 15. Duplicate Email Check
+Goal:
+- Prevent duplicate email  
+
+Query:
+- Check if another user has same email  
+
+If exists:
+- Throw error  
+
+Example:
+- BE1006 → duplicate email  
+
+### 16. Checking User Existence
+Query:
+- Find user by username  
+
+If not found:
+- Throw NotFoundError  
+
+### 17. Updating User Data
+Steps:
+- Modify object:
+  - `user.email = new_email`  
+- Save:
+  - `db.session.add(user)`  
+  - `db.session.commit()`  
+
+### 18. Returning Response for PUT
+Return:
+- Updated user object  
+
+Use:
+- Marshalling  
+
+Ensures:
+- Consistent output format  
+
+### 19. PUT Response Example
+Output:
+- user_id  
+- username  
+- updated email  
+
+Formatted using:
+- `@marshal_with`  
+
+### 20. Testing PUT API
+Test cases:
+
+#### Case 1: Missing email
+- Error  
+
+#### Case 2: Invalid email
+- Error  
+
+#### Case 3: Duplicate email
+- Error  
+
+#### Case 4: Non-existent user
+- Error  
+
+#### Case 5: Valid update
+- Success  
+- Returns updated object  
+
+### 21. Validation Importance
+Validation ensures:
+- Data correctness  
+- System stability  
+
+Types:
+- Input validation  
+- Business validation  
+
+### 22. Error Handling Consistency
+All errors should:
+- Follow same structure  
+- Include:
+  - error_code  
+  - error_message  
+
+Ensures:
+- Predictable API behavior  
+
+### 23. API Design Considerations
+- Follow documentation strictly  
+- Handle edge cases  
+- Prevent invalid operations  
+- Maintain consistency  
+
+### 24. Extensibility
+Possible extensions:
+- Add more validations  
+- Add logging  
+- Add authentication  
+- Add role-based access  
+
+### 25. Real-World Considerations
+- Foreign key constraints  
+- Data integrity  
+- Transaction safety  
+
+### 26. Key Takeaways
+- DELETE requires dependency checks  
+- PUT requires careful validation  
+- Always check existence before update/delete  
+- Maintain consistency with API design  
+- Business rules are critical in real systems  
+---
