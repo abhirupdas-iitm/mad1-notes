@@ -251,3 +251,301 @@ Typical flow:
 - Tools simplify writing, testing, and visualization  
 - Essential for scalable API development  
 ---
+### Week 6 Extra Lecture 2  
+#### Building a RESTful API using Flask + SQLAlchemy  
+##### Description: Covers building a REST API using Flask-RESTful. Includes API design using documentation, routing, request handling, CRUD implementation, validation, error handling, marshalling responses, and database integration with SQLAlchemy.
+
+### 1. Introduction to RESTful API Development
+REST API = Interface for communication between client and server using HTTP.  
+Uses standard HTTP methods:
+- GET → retrieve data  
+- POST → create data  
+- PUT → update data  
+- DELETE → remove data  
+
+APIs are usually designed **before implementation** using documentation.
+
+### 2. Importance of API Documentation
+Always start with API documentation:
+- Defines endpoints  
+- Specifies input format  
+- Specifies output format  
+- Defines error responses  
+
+Example:
+- `/api/user/<username>` → GET, PUT, DELETE  
+- `/api/user` → POST  
+
+Prevents:
+- Wrong implementation  
+- Miscommunication between teams  
+
+### 3. Project Setup
+Tools required:
+- Browser  
+- Text editor / IDE  
+- Terminal  
+- API testing tool (e.g., Insomnia)  
+
+Environment setup:
+- Virtual environment  
+- `requirements.txt` updated  
+
+Install:
+- `flask-restful`  
+
+Run project:
+- `local_setup.sh` → setup environment  
+- `local_run.sh` → start server  
+
+### 4. Flask-RESTful Framework
+Flask-RESTful simplifies API creation.
+
+Key components:
+- `Resource` → represents an API endpoint  
+- `Api` → binds API with Flask app  
+
+Initialization:
+- Import `Api`, `Resource`  
+- `api = Api(app)`  
+
+### 5. Creating API Module
+Create new file:
+`api.py`
+
+Structure:
+- Each model → one API class  
+Example:
+`UserAPI`
+
+### 6. Resource Class Structure
+Each API class extends `Resource`.
+
+Basic methods:
+- `get()`  
+- `post()`  
+- `put()`  
+- `delete()`  
+
+Each method handles corresponding HTTP request.
+
+### 7. Routing (URL Mapping)
+Routes map URLs → API classes.
+
+Example:
+- `/api/user`  
+- `/api/user/<string:username>`  
+
+Mapping:
+- Done in main app  
+- Uses `api.add_resource()`  
+
+Behavior:
+- URL parameter → passed as function argument  
+
+### 8. Request Handling Flow
+Flow:
+1. Client sends request  
+2. Route matches URL  
+3. Corresponding method executes  
+4. Database interaction happens  
+5. Response returned  
+
+### 9. Testing API Endpoints
+Use API tools (Insomnia/Postman):
+- Send requests  
+- Verify responses  
+- Debug mapping  
+
+Initial testing:
+- Return dummy values  
+- Confirm routing works  
+
+### 10. Implementing GET (Read Operation)
+Goal:
+- Fetch user by username  
+
+Steps:
+1. Receive username  
+2. Query database  
+3. Return user data  
+4. Handle "not found"  
+
+Query:
+- `db.session.query(User).filter(...).first()`  
+
+If user exists:
+- Return JSON  
+
+If not:
+- Return 404  
+
+### 11. Returning JSON Response
+Basic approach:
+- Manually create dictionary  
+
+Problem:
+- Hard to maintain  
+- No formatting control  
+
+Solution:
+- Use **marshalling**
+
+### 12. Marshalling (Response Formatting)
+Marshalling standardizes output.
+
+Define fields:
+- `user_id` → Integer  
+- `username` → String  
+- `email` → String  
+
+Use:
+- `@marshal_with(fields)`  
+
+Benefits:
+- Clean output  
+- Easy formatting  
+- Flexible structure  
+
+### 13. Error Handling Strategy
+Types of errors:
+- 404 → Not found  
+- 400 → Bad request  
+- 500 → Internal server error  
+
+Avoid:
+- Returning empty JSON blindly  
+
+Use:
+- Structured error responses  
+
+### 14. Custom Exception Handling
+Create custom exceptions:
+- Extend `HTTPException`  
+
+Example:
+- `NotFoundError`  
+
+Purpose:
+- Standardized error handling  
+- Clean responses  
+
+### 15. Business Validation Errors
+Used for input validation.
+
+Example:
+- Missing username  
+- Missing email  
+- Invalid email  
+- Duplicate user  
+
+Error structure:
+- `error_code`  
+- `error_message`  
+
+Example:
+- BE1001 → username required  
+- BE1002 → email required  
+
+### 16. Implementing POST (Create Operation)
+Goal:
+- Create new user  
+
+Steps:
+1. Parse input  
+2. Validate fields  
+3. Check duplicates  
+4. Insert into database  
+5. Commit transaction  
+6. Return response  
+
+### 17. Parsing Request Data
+Use:
+- Request parser OR JSON  
+
+Extract:
+- `username`  
+- `email`  
+
+If missing:
+- Throw validation error  
+
+### 18. Input Validation
+Checks:
+- Username present  
+- Email present  
+- Email format  
+
+Simple validation:
+- Check for `@`  
+
+If invalid:
+- Raise error  
+
+### 19. Duplicate Check
+Query database:
+- Check username OR email  
+
+If exists:
+- Throw duplicate error  
+
+Ensures:
+- Data integrity  
+
+### 20. Inserting Data into Database
+Steps:
+1. Create model object  
+2. Add to session  
+3. Commit  
+
+Example:
+- `db.session.add()`  
+- `db.session.commit()`  
+
+### 21. POST Response Handling
+Two approaches:
+
+#### 1. Minimal (as per documentation)
+- Return status code `201`  
+- No response body  
+
+#### 2. Full response
+- Return created object  
+- Use marshalling  
+
+Follow:
+- Documentation strictly  
+
+### 22. HTTP Status Codes
+Common codes:
+- 200 → success  
+- 201 → created  
+- 400 → bad request  
+- 404 → not found  
+- 500 → server error  
+
+### 23. API Design Principles
+- Follow documentation strictly  
+- Keep responses consistent  
+- Use standard status codes  
+- Separate validation and logic  
+
+### 24. Debugging Techniques
+- Print intermediate values  
+- Test each endpoint separately  
+- Validate inputs manually  
+
+### 25. Advantages of Flask-RESTful
+- Simplifies routing  
+- Clean class-based design  
+- Easy request handling  
+- Built-in marshalling support  
+
+### 26. Key Takeaways
+- API design starts with documentation  
+- Resource classes map to endpoints  
+- CRUD operations map to HTTP methods  
+- Validation + error handling are critical  
+- Marshalling ensures clean responses  
+- Follow API contract strictly  
+---
