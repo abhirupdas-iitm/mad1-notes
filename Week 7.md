@@ -365,7 +365,7 @@ Developers must consider:
 - Example:
   - Student table → roll number, name, department  
   - Course table → course ID, name  
-  - Relationship table → student_id, course_id  
+  - Relationship table → `student_id`, `course_id`  
 - Goal:
   - Efficiently search and retrieve data  
 
@@ -545,6 +545,9 @@ Developers must consider:
   - Design indexes accordingly  
 - Balance:
   - Speed vs storage vs complexity
+
+### Notes to be taken for `Activity Question 3`
+1. 
 ---
 ### Week 7 Lecture 4  
 #### NoSQL Databases, Data Storage Models, and ACID vs Scalability  
