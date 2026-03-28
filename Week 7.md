@@ -793,8 +793,11 @@ Developers must consider:
   - Consistency vs performance  
 - No single best database:
   - Depends on application needs
+
+### Notes to be taken for `Activity Question 4`
+1. 
 ---
-### Week 7 Lecture 4  
+### Week 7 Lecture 5 
 #### NoSQL Databases, Data Storage Models, and ACID vs Scalability  
 ##### Description: Introduces NoSQL databases, compares them with relational databases, explores different data storage models (document, key-value, column, graph, time-series), and discusses ACID properties, consistency trade-offs, and scalability.
 
