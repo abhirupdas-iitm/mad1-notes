@@ -188,3 +188,164 @@ Developers must consider:
   - Efficiency  
   - Reliability  
 ---
+### Week 7 Lecture 2  
+#### Data Search, Time Complexity, and Data Structures for Efficient Retrieval  
+##### Description: Explains how data search works using Big-O notation, compares different time complexities, and introduces data structures like arrays, binary search, trees, B-trees, and hash tables for efficient database operations.
+
+### 1. Introduction to Data Search
+- Before studying databases → understand **how search works**
+- Key goal:
+  - Efficient retrieval of data
+- Performance depends on:
+  - Data structure used  
+  - Search algorithm  
+
+### 2. Big-O Notation (O())
+- Represents **order of growth of computation time**
+- Focus:
+  - How runtime scales with input size (N)
+- Ignores:
+  - Constants  
+  - Lower-order terms  
+
+### 3. Common Time Complexities
+#### 3.1 O(1) – Constant Time
+- Time independent of input size  
+- Example:
+  - Direct access (ideal case)
+- Best possible scenario  
+- Limitation:
+  - Often unrealistic for meaningful search  
+
+#### 3.2 O(log N) – Logarithmic Time
+- Time increases slowly as N increases  
+- Example:
+  - Binary search  
+- Very efficient and practical  
+
+#### 3.3 O(N) – Linear Time
+- Time proportional to number of elements  
+- Example:
+  - Sequential search  
+- Acceptable for small datasets  
+- Not scalable for large databases  
+
+#### 3.4 O(N²), O(N³) – Polynomial Time
+- Time grows rapidly  
+- Inefficient for large datasets  
+
+#### 3.5 O(2^N) – Exponential Time
+- Extremely inefficient  
+- Doubles work with each added element  
+- Not practical for real systems  
+
+### 4. Linked List Search
+- Data stored as:
+  - Nodes connected via pointers  
+- Search process:
+  - Traverse one by one  
+- Complexity:
+  - Worst case: O(N)  
+  - Average case: O(N)  
+- Problem:
+  - Not efficient for large-scale search  
+
+### 5. Array Search (Unsorted)
+- Direct indexing possible  
+- But:
+  - Position of element unknown  
+- Requires:
+  - Sequential traversal  
+- Complexity:
+  - O(N)  
+
+### 6. Sorted Array and Binary Search
+- Key requirement:
+  - Data must be **sorted**
+- Strategy:
+  - Check middle element  
+  - Eliminate half of search space  
+- Process:
+  - N → N/2 → N/4 → ... → 1  
+- Complexity:
+  - O(log N)  
+- Advantage:
+  - Very efficient search  
+
+### 7. Limitations of Arrays
+- Fixed size  
+- Insertions:
+  - Require shifting elements  
+- Deletions:
+  - Require reorganization  
+- Not flexible for dynamic data  
+
+### 8. Binary Search Trees (BST)
+- Tree structure with properties:
+  - Left subtree < root  
+  - Right subtree > root  
+- Enables:
+  - Efficient search using comparisons  
+- Average complexity:
+  - O(log N)  
+
+### 9. Tree Balancing Issue
+- Problem:
+  - Trees can become **unbalanced**
+- Effect:
+  - Performance degrades to O(N)  
+- Solutions:
+  - AVL Trees  
+  - Red-Black Trees  
+
+### 10. B-Trees (Disk-Oriented Trees)
+- Designed for:
+  - **Disk storage systems**
+- Key features:
+  - Efficient for large data  
+  - Works with block-based storage  
+- Advantage:
+  - Reduces number of disk accesses  
+- Widely used in:
+  - Databases  
+
+### 11. Hash Tables
+- Use:
+  - Hash function → maps key → index  
+- Operation:
+  - Direct lookup using computed index  
+- Complexity:
+  - Average: O(1)  
+- Advantage:
+  - Fastest possible search  
+
+### 12. Limitations of Hashing
+- Requires:
+  - Good hash function  
+- Issues:
+  - Collisions  
+  - Not always applicable  
+- Not suitable for:
+  - Range queries  
+  - Ordered data  
+
+### 13. Key Insights for Databases
+- Efficient search is critical  
+- Choice of data structure affects:
+  - Performance  
+  - Scalability  
+- Common strategies:
+  - Sorted data → binary search  
+  - Trees → structured search  
+  - Hashing → direct access  
+
+### 14. Key Takeaways
+- Big-O helps evaluate scalability  
+- O(log N) and O(1) are ideal targets  
+- Data structures determine performance  
+- Databases rely heavily on:
+  - B-trees  
+  - Hashing  
+- Efficient design requires:
+  - Matching data structure to use case  
+---
