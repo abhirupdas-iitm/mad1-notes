@@ -1254,3 +1254,4 @@ Developers must consider:
 ### Notes to be taken for `Activity Question 6`
 1. 
 ---
+[[Extra Notes from supplementary content of Week 7]]
