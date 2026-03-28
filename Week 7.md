@@ -187,6 +187,9 @@ Developers must consider:
   - Scalability  
   - Efficiency  
   - Reliability  
+
+### Notes to be taken for `Activity Question 1`
+1. 
 ---
 ### Week 7 Lecture 2  
 #### Data Search, Time Complexity, and Data Structures for Efficient Retrieval  
