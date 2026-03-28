@@ -540,3 +540,493 @@ Developers must consider:
 - Balance:
   - Speed vs storage vs complexity
 ---
+### Week 7 Lecture 4  
+#### NoSQL Databases, Data Storage Models, and ACID vs Scalability  
+##### Description: Introduces NoSQL databases, compares them with relational databases, explores different data storage models (document, key-value, column, graph, time-series), and discusses ACID properties, consistency trade-offs, and scalability.
+
+### 1. Introduction to NoSQL
+- Traditional focus:
+  - **Relational Databases (RDBMS)**  
+- Limitation:
+  - Fixed tabular structure  
+- Alternative:
+  - **NoSQL databases**  
+
+### 2. What is SQL?
+- SQL = **Structured Query Language**  
+- Used for:
+  - Querying structured/tabular data  
+- Not tied to:
+  - Specific database  
+- Example:
+  - Used even in Google Sheets  
+
+### 3. Structure of Relational Databases
+- Data stored as:
+  - Tables  
+- Each row:
+  - Same set of columns  
+- Supports:
+  - Relationships between tables  
+
+### 4. Advantages of RDBMS
+- Structured data  
+- Efficient indexing  
+- Predictable schema  
+- Strong consistency  
+
+### 5. Limitations of RDBMS
+- Fixed schema → inflexible  
+- Example:
+  - Student:
+    - Hosteller → mess info  
+    - Day scholar → gate pass  
+- Result:
+  - Many NULL values  
+  - Inefficient storage  
+
+### 6. Need for NoSQL
+- Flexible data representation  
+- Handle:
+  - Heterogeneous data  
+- Avoid:
+  - Rigid schemas  
+
+### 7. Document Databases
+- Data stored as:
+  - JSON-like documents  
+- Each document:
+  - Can have different structure  
+- Example:
+  - Some fields present in one document but not another  
+
+### 8. Features of Document Databases
+- Flexible schema  
+- Nested data structures  
+- Efficient retrieval via indexing  
+- Example:
+  - MongoDB  
+  - Amazon DocumentDB  
+
+### 9. Advantages of Document Databases
+- No fixed schema  
+- Natural mapping to application objects  
+- Handles complex data easily  
+
+### 10. Key-Value Stores
+- Data stored as:
+  - Key → Value pairs  
+- Example:
+  - `key = "apple"` → value = "red"  
+
+### 11. Characteristics of Key-Value Stores
+- Very fast lookup  
+- Usually implemented using:
+  - Hash tables  
+- Limited queries:
+  - Only exact match  
+
+### 12. Examples of Key-Value Stores
+- Redis  
+- Memcached  
+- BerkeleyDB  
+
+### 13. Use Cases of Key-Value Stores
+- Caching  
+- Session storage  
+- Fast lookups  
+
+### 14. In-Memory Databases
+- Stored in:
+  - RAM  
+- Benefits:
+  - Extremely fast  
+- Limitation:
+  - Not persistent by default  
+
+### 15. Column-Oriented Databases
+- Store data by:
+  - Columns instead of rows  
+- Efficient for:
+  - Column-based queries  
+
+### 16. Use Case of Column Stores
+- Example:
+  - Find all users with a specific attribute  
+- Faster because:
+  - Data for that column stored together  
+
+### 17. Wide Column Stores
+- Large data per column  
+- Nested structures inside columns  
+- Used for:
+  - Big data applications  
+
+### 18. Graph Databases
+- Data represented as:
+  - Nodes + edges  
+- Focus:
+  - Relationships  
+
+### 19. Use Cases of Graph Databases
+- Social networks  
+- Recommendation systems  
+- Pathfinding  
+- Example:
+  - Neo4j  
+
+### 20. Graph Query Types
+- Shortest path  
+- Connection discovery  
+- Network traversal  
+
+### 21. Time Series Databases (TSDB)
+- Data indexed by:
+  - Time  
+- Example:
+  - Logs  
+  - Metrics  
+- Queries:
+  - Time range  
+  - Aggregations  
+
+### 22. TSDB Examples
+- InfluxDB  
+- Prometheus  
+- Grafana (visualization layer)  
+
+### 23. Why NoSQL?
+- Better scalability  
+- Flexible schemas  
+- Optimized for specific use cases  
+
+### 24. Meaning of NoSQL
+- Originally:
+  - "Not SQL"  
+- Now:
+  - **"Not Only SQL"**  
+
+### 25. SQL vs NoSQL
+- SQL:
+  - Structured  
+  - Fixed schema  
+- NoSQL:
+  - Flexible  
+  - Schema-less  
+
+### 26. ACID Properties
+- Atomicity  
+- Consistency  
+- Isolation  
+- Durability  
+
+### 27. Transactions in Databases
+- Example:
+  - Creating a user  
+- Must ensure:
+  - Complete success or no change  
+
+### 28. ACID Importance
+- Critical for:
+  - Financial systems  
+- Ensures:
+  - Data correctness  
+
+### 29. Scalability Challenges
+- Consistency:
+  - Hard to maintain at scale  
+- Multiple servers:
+  - Data replication issues  
+
+### 30. Eventual Consistency
+- Data may be:
+  - Temporarily inconsistent  
+- Eventually:
+  - Becomes consistent  
+
+### 31. Example of Eventual Consistency
+- Social media:
+  - Friend updates appear with delay  
+- Acceptable:
+  - Non-critical systems  
+
+### 32. Strong Consistency Requirement
+- Financial transactions:
+  - Must be exact  
+- No room for delay  
+
+### 33. NoSQL and ACID
+- Not mutually exclusive  
+- Some NoSQL databases:
+  - Support ACID  
+- Others:
+  - Relax constraints  
+
+### 34. Storage Considerations
+- In-memory:
+  - Fast but limited  
+- Disk:
+  - Slower but scalable  
+
+### 35. Data Structure Adaptation
+- Different storage:
+  - Requires different structures  
+- Optimization:
+  - Depends on use case  
+
+### 36. Key Takeaways
+- NoSQL ≠ No SQL  
+- Choose database based on:
+  - Data type  
+  - Query type  
+  - Scale  
+- Trade-offs:
+  - Consistency vs performance  
+- No single best database:
+  - Depends on application needs
+---
+### Week 7 Lecture 4  
+#### NoSQL Databases, Data Storage Models, and ACID vs Scalability  
+##### Description: Introduces NoSQL databases, compares them with relational databases, explores different data storage models (document, key-value, column, graph, time-series), and discusses ACID properties, consistency trade-offs, and scalability.
+
+### 1. Introduction to NoSQL
+- Traditional focus:
+  - **Relational Databases (RDBMS)**  
+- Limitation:
+  - Fixed tabular structure  
+- Alternative:
+  - **NoSQL databases**  
+
+### 2. What is SQL?
+- SQL = **Structured Query Language**  
+- Used for:
+  - Querying structured/tabular data  
+- Not tied to:
+  - Specific database  
+- Example:
+  - Used even in Google Sheets  
+
+### 3. Structure of Relational Databases
+- Data stored as:
+  - Tables  
+- Each row:
+  - Same set of columns  
+- Supports:
+  - Relationships between tables  
+
+### 4. Advantages of RDBMS
+- Structured data  
+- Efficient indexing  
+- Predictable schema  
+- Strong consistency  
+
+### 5. Limitations of RDBMS
+- Fixed schema → inflexible  
+- Example:
+  - Student:
+    - Hosteller → mess info  
+    - Day scholar → gate pass  
+- Result:
+  - Many NULL values  
+  - Inefficient storage  
+
+### 6. Need for NoSQL
+- Flexible data representation  
+- Handle:
+  - Heterogeneous data  
+- Avoid:
+  - Rigid schemas  
+
+### 7. Document Databases
+- Data stored as:
+  - JSON-like documents  
+- Each document:
+  - Can have different structure  
+- Example:
+  - Some fields present in one document but not another  
+
+### 8. Features of Document Databases
+- Flexible schema  
+- Nested data structures  
+- Efficient retrieval via indexing  
+- Example:
+  - MongoDB  
+  - Amazon DocumentDB  
+
+### 9. Advantages of Document Databases
+- No fixed schema  
+- Natural mapping to application objects  
+- Handles complex data easily  
+
+### 10. Key-Value Stores
+- Data stored as:
+  - Key → Value pairs  
+- Example:
+  - `key = "apple"` → value = "red"  
+
+### 11. Characteristics of Key-Value Stores
+- Very fast lookup  
+- Usually implemented using:
+  - Hash tables  
+- Limited queries:
+  - Only exact match  
+
+### 12. Examples of Key-Value Stores
+- Redis  
+- Memcached  
+- BerkeleyDB  
+
+### 13. Use Cases of Key-Value Stores
+- Caching  
+- Session storage  
+- Fast lookups  
+
+### 14. In-Memory Databases
+- Stored in:
+  - RAM  
+- Benefits:
+  - Extremely fast  
+- Limitation:
+  - Not persistent by default  
+
+### 15. Column-Oriented Databases
+- Store data by:
+  - Columns instead of rows  
+- Efficient for:
+  - Column-based queries  
+
+### 16. Use Case of Column Stores
+- Example:
+  - Find all users with a specific attribute  
+- Faster because:
+  - Data for that column stored together  
+
+### 17. Wide Column Stores
+- Large data per column  
+- Nested structures inside columns  
+- Used for:
+  - Big data applications  
+
+### 18. Graph Databases
+- Data represented as:
+  - Nodes + edges  
+- Focus:
+  - Relationships  
+
+### 19. Use Cases of Graph Databases
+- Social networks  
+- Recommendation systems  
+- Pathfinding  
+- Example:
+  - Neo4j  
+
+### 20. Graph Query Types
+- Shortest path  
+- Connection discovery  
+- Network traversal  
+
+### 21. Time Series Databases (TSDB)
+- Data indexed by:
+  - Time  
+- Example:
+  - Logs  
+  - Metrics  
+- Queries:
+  - Time range  
+  - Aggregations  
+
+### 22. TSDB Examples
+- InfluxDB  
+- Prometheus  
+- Grafana (visualization layer)  
+
+### 23. Why NoSQL?
+- Better scalability  
+- Flexible schemas  
+- Optimized for specific use cases  
+
+### 24. Meaning of NoSQL
+- Originally:
+  - "Not SQL"  
+- Now:
+  - **"Not Only SQL"**  
+
+### 25. SQL vs NoSQL
+- SQL:
+  - Structured  
+  - Fixed schema  
+- NoSQL:
+  - Flexible  
+  - Schema-less  
+
+### 26. ACID Properties
+- Atomicity  
+- Consistency  
+- Isolation  
+- Durability  
+
+### 27. Transactions in Databases
+- Example:
+  - Creating a user  
+- Must ensure:
+  - Complete success or no change  
+
+### 28. ACID Importance
+- Critical for:
+  - Financial systems  
+- Ensures:
+  - Data correctness  
+
+### 29. Scalability Challenges
+- Consistency:
+  - Hard to maintain at scale  
+- Multiple servers:
+  - Data replication issues  
+
+### 30. Eventual Consistency
+- Data may be:
+  - Temporarily inconsistent  
+- Eventually:
+  - Becomes consistent  
+
+### 31. Example of Eventual Consistency
+- Social media:
+  - Friend updates appear with delay  
+- Acceptable:
+  - Non-critical systems  
+
+### 32. Strong Consistency Requirement
+- Financial transactions:
+  - Must be exact  
+- No room for delay  
+
+### 33. NoSQL and ACID
+- Not mutually exclusive  
+- Some NoSQL databases:
+  - Support ACID  
+- Others:
+  - Relax constraints  
+
+### 34. Storage Considerations
+- In-memory:
+  - Fast but limited  
+- Disk:
+  - Slower but scalable  
+
+### 35. Data Structure Adaptation
+- Different storage:
+  - Requires different structures  
+- Optimization:
+  - Depends on use case  
+
+### 36. Key Takeaways
+- NoSQL ≠ No SQL  
+- Choose database based on:
+  - Data type  
+  - Query type  
+  - Scale  
+- Trade-offs:
+  - Consistency vs performance  
+- No single best database:
+  - Depends on application needs
+---
