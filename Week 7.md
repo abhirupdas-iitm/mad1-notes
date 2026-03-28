@@ -351,6 +351,9 @@ Developers must consider:
   - Hashing  
 - Efficient design requires:
   - Matching data structure to use case  
+
+### Notes to be taken for `Activity Question 2`
+1. 
 ---
 ### Week 7 Lecture 3  
 #### Database Indexing, Query Optimization, and Performance Trade-offs  
