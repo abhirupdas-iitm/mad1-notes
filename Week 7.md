@@ -1250,4 +1250,7 @@ Developers must consider:
 - Use frameworks for safety  
 - HTTPS protects communication, not logic  
 - Security is multi-layered and critical
+
+### Notes to be taken for `Activity Question 6`
+1. 
 ---
