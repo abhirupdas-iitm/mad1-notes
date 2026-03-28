@@ -349,3 +349,194 @@ Developers must consider:
 - Efficient design requires:
   - Matching data structure to use case  
 ---
+### Week 7 Lecture 3  
+#### Database Indexing, Query Optimization, and Performance Trade-offs  
+##### Description: Explains how database indexing works, importance of indexes, types of indexes (B-Tree, Hash), query optimization techniques, and how query structure impacts performance.
+
+### 1. Introduction to Database Search
+- Databases use **tabular structure**
+  - Tables → rows + columns  
+- Example:
+  - Student table → roll number, name, department  
+  - Course table → course ID, name  
+  - Relationship table → student_id, course_id  
+- Goal:
+  - Efficiently search and retrieve data  
+
+### 2. Need for Indexing
+- Data insertion order:
+  - Not sorted  
+- Searching directly:
+  - Inefficient (O(N))  
+- Solution:
+  - Use **indexes**  
+
+### 3. What is an Index?
+- Index = **sorted copy of a column**
+- Contains:
+  - Column values (sorted)  
+  - Pointers to original table rows  
+- Purpose:
+  - Faster search  
+
+### 4. How Index Improves Search
+- Search in index:
+  - O(log N) using tree structures  
+- Then:
+  - Fetch actual row from table  
+- Result:
+  - Efficient lookup  
+
+### 5. Trade-offs of Indexing
+- Too few indexes:
+  - Slow queries  
+- Too many indexes:
+  - Extra storage  
+  - Slower writes  
+- Requires:
+  - Careful design  
+
+### 6. Types of Indexes
+#### 6.1 B-Tree Index
+- Most common type  
+- Based on:
+  - Balanced tree structure  
+- Supports:
+  - Range queries  
+  - Ordered data  
+- Efficient for:
+  - Prefix-based search  
+
+#### 6.2 Hash Index
+- Uses:
+  - Hash function → direct lookup  
+- Complexity:
+  - O(1) (average case)  
+- Limitation:
+  - Only supports equality search  
+  - Cannot handle range queries  
+
+### 7. Prefix-Based Search Optimization
+- Example:
+  - `LIKE 'Patrick%'`
+- Works efficiently:
+  - Because prefix is known  
+- Process:
+  - Traverse tree using prefix  
+  - Narrow down search space  
+
+### 8. Partial Pattern Search Limitations
+- Example:
+  - `LIKE 'Pat%ck'`
+- Issue:
+  - Only partial prefix usable  
+- Result:
+  - Partial index usage  
+  - Additional scanning required  
+
+### 9. Full Wildcard Search Problem
+- Example:
+  - `LIKE '%Patrick%'`
+- Problem:
+  - No fixed prefix  
+- Result:
+  - Cannot use index  
+  - Full scan required  
+
+### 10. Column Comparison Queries
+- Example:
+  - Comparing two columns  
+- Issue:
+  - Index becomes useless  
+- Reason:
+  - No fixed reference point for search  
+
+### 11. Multi-Column Indexes
+- Combine multiple columns into one index  
+- Example:
+  - (date_of_birth, city, name)  
+
+### 12. Working of Multi-Column Index
+- Sorted in order:
+  - First column → second → third  
+- Query efficiency depends on:
+  - Matching prefix order  
+
+### 13. Multi-Column Index Usage Rules
+#### Good Usage:
+- Query uses:
+  - First column  
+  - First + second column  
+
+#### Partial Usage:
+- Uses only first column  
+
+#### Poor Usage:
+- Skips first column  
+- Uses later columns directly  
+
+### 14. AND vs OR in Queries
+- AND:
+  - Works well with indexes  
+- OR:
+  - Breaks index usage  
+- Reason:
+  - Index designed for sequential filtering  
+
+### 15. Query Optimization Responsibility
+- ORM (e.g., SQLAlchemy):
+  - Does NOT optimize queries automatically  
+- Developer must:
+  - Write efficient queries  
+  - Understand indexing  
+
+### 16. Database Optimization Tools
+- Databases provide:
+  - Query analysis tools  
+  - Index recommendations  
+- Examples:
+  - MySQL documentation  
+  - SQLite optimization  
+  - PostgreSQL advanced techniques  
+
+### 17. Impact of Indexing on Performance
+- Without index:
+  - O(N) search  
+- With index:
+  - O(log N) search  
+- Example:
+  - 1000 entries → 1000 steps vs ~10 steps  
+
+### 18. Over-Indexing Problem
+- Too many indexes:
+  - Increased storage  
+  - Slower updates  
+  - Confusion in query planner  
+
+### 19. Importance of Query Design
+- Query structure directly affects:
+  - Index usage  
+  - Performance  
+- Poor queries:
+  - Can negate indexing benefits  
+
+### 20. Normalization (Brief Mention)
+- Organizing data efficiently  
+- Avoid redundancy  
+- Improves:
+  - Consistency  
+  - Performance  
+
+### 21. Key Takeaways
+- Indexes are critical for performance  
+- B-Trees:
+  - Default and versatile  
+- Hash indexes:
+  - Fast but limited  
+- Query design matters as much as indexing  
+- Developers must:
+  - Anticipate query patterns  
+  - Design indexes accordingly  
+- Balance:
+  - Speed vs storage vs complexity
+---
