@@ -1220,3 +1220,209 @@ Developers must consider:
 - ACID vs BASE:
   - Depends on application needs
 ---
+### Week 7 Lecture 6  
+#### Database Security, SQL Injection, and HTTPS  
+##### Description: Covers database security concerns, SQL injection attacks, input validation, and the role of HTTPS in securing client-server communication.
+
+### 1. Introduction to Database Security
+- Security is critical in:
+  - Web applications  
+  - Database interactions  
+- Improper handling:
+  - Can lead to data leaks or destruction  
+
+### 2. MVC and Database Access
+- In MVC:
+  - SQL queries → handled in **model**  
+- Controller:
+  - Sends requests  
+- Model:
+  - Interacts with database  
+
+### 3. Danger of Direct SQL Usage
+- Writing raw SQL using:
+  - String concatenation  
+- Risk:
+  - Untrusted user input included directly  
+
+### 4. HTML Form Input Example
+- Inputs:
+  - Username  
+  - Password  
+- Data sent to server:
+  - Used to build SQL query  
+
+### 5. Unsafe Query Construction
+- Example:
+  - `SELECT * FROM users WHERE name="input" AND pass="input"`  
+- Problem:
+  - Input inserted without validation  
+
+### 6. SQL Injection Attack
+- Malicious input:
+  - Alters SQL query structure  
+- Example:
+  - `"" OR ""`  
+- Effect:
+  - Condition becomes always true  
+- Result:
+  - Returns all data  
+
+### 7. Severe SQL Injection Example
+- Input:
+  - `; DROP TABLE users;`  
+- Result:
+  - Executes multiple queries  
+- Outcome:
+  - Database destruction  
+
+### 8. Root Cause of SQL Injection
+- Trusting:
+  - External input  
+- Lack of:
+  - Validation and sanitization  
+
+### 9. Input Validation
+- Must ensure:
+  - Only valid data is accepted  
+- Checks include:
+  - No special characters  
+  - No SQL control symbols  
+- Examples:
+  - No `;`, `"`, `'`  
+
+### 10. Data Format Validation
+- Validate based on type:
+  - Email → must match format  
+  - Date → must be valid date  
+- Prevents:
+  - Invalid or malicious input  
+
+### 11. Validation Timing
+- Must happen:
+  - Just before database query  
+- Reason:
+  - Client-side checks can be bypassed  
+
+### 12. Bypassing Frontend Validation
+- Attackers can:
+  - Send direct HTTP requests  
+- Example tools:
+  - curl  
+- Result:
+  - Skip frontend checks entirely  
+
+### 13. Other Security Threats
+- Buffer overflows  
+- Input overflow attacks  
+- Encoding-based attacks  
+
+### 14. Character Encoding Issues
+- Different character sets:
+  - Can mimic valid characters  
+- Risk:
+  - Server misinterpretation  
+
+### 15. Consequences of Security Failures
+- Data leakage  
+- Data corruption  
+- Unauthorized modifications  
+- Financial/legal damage  
+
+### 16. SQL Injection Definition
+- Injecting malicious SQL into queries  
+- Goal:
+  - Manipulate database behavior  
+
+### 17. Prevention Strategies
+- Use:
+  - Trusted frameworks  
+- Benefits:
+  - Pre-tested security mechanisms  
+
+### 18. Framework Advantage
+- Regular updates  
+- Community-tested fixes  
+- Reduced risk of missing edge cases  
+
+### 19. HTTPS Overview
+- Secure version of HTTP  
+- Encrypts:
+  - Client-server communication  
+
+### 20. HTTP vs HTTPS
+#### HTTP:
+- Data is:
+  - Plain text  
+- Vulnerable to:
+  - Interception  
+
+#### HTTPS:
+- Data is:
+  - Encrypted  
+- Secure against:
+  - Eavesdropping  
+
+### 21. Man-in-the-Middle Risk
+- HTTP:
+  - Data can be intercepted  
+- HTTPS:
+  - Prevents interception  
+
+### 22. HTTPS Mechanism
+- Uses:
+  - SSL/TLS  
+- Encrypts:
+  - Entire communication channel  
+
+### 23. Server Certificates
+- Provided by:
+  - Trusted authorities  
+- Ensures:
+  - Authenticity of server  
+
+### 24. HTTPS Limitations
+- Does NOT:
+  - Validate input  
+  - Prevent SQL injection  
+- Only protects:
+  - Data in transit  
+
+### 25. Performance Considerations
+- HTTPS:
+  - Adds overhead  
+- Affects:
+  - Caching  
+  - Proxy efficiency  
+
+### 26. Security Layers
+- Application security  
+- Server security  
+- Network security  
+- Infrastructure security  
+
+### 27. Deployment Awareness
+- Must know:
+  - Where app is running  
+- Example:
+  - Local server vs cloud  
+
+### 28. Cloud Advantages
+- Managed platforms:
+  - Handle security patches  
+- Examples:
+  - Google App Engine  
+
+### 29. Developer Responsibility
+- Ensure:
+  - Input validation  
+- Prevent:
+  - Injection attacks  
+
+### 30. Key Takeaways
+- Never trust user input  
+- Always validate data  
+- Use frameworks for safety  
+- HTTPS protects communication, not logic  
+- Security is multi-layered and critical
+---
