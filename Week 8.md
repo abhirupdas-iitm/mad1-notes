@@ -791,3 +791,7 @@ Examples:
   - Performance  
   - Accessibility  
   - Security
+
+### Notes to be taken for `Activity Question 3`
+1. Registers are located on the CPU. (Question: 1)
+---
