@@ -363,10 +363,8 @@
   - Returning matched text segments  
 
 ### 31. Security Considerations
-- Restrict:
-  - Query scope  
-- Avoid:
-  - Arbitrary query execution  
+- Restrict: Query scope  
+- Avoid: Arbitrary query execution  
 
 ### 32. Extending Search
 - Add:
