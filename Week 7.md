@@ -189,7 +189,7 @@ Developers must consider:
   - Reliability  
 
 ### Notes to be taken for `Activity Question 1`
-1. 
+1. Registers are located on the CPU. (Question: 1)
 ---
 ### Week 7 Lecture 2  
 #### Data Search, Time Complexity, and Data Structures for Efficient Retrieval  
@@ -353,7 +353,7 @@ Developers must consider:
   - Matching data structure to use case  
 
 ### Notes to be taken for `Activity Question 2`
-1. 
+1. Nothing! Got all of them correct!
 ---
 ### Week 7 Lecture 3  
 #### Database Indexing, Query Optimization, and Performance Trade-offs  
@@ -547,7 +547,7 @@ Developers must consider:
   - Speed vs storage vs complexity
 
 ### Notes to be taken for `Activity Question 3`
-1. 
+1. In the context of MySQL, Hash Tables are used only in in-memory tables. (Question: 2)
 ---
 ### Week 7 Lecture 4  
 #### NoSQL Databases, Data Storage Models, and ACID vs Scalability  
@@ -795,7 +795,7 @@ Developers must consider:
   - Depends on application needs
 
 ### Notes to be taken for `Activity Question 4`
-1. 
+1. The document database is not used mainly for handling large volume of structured data and document databases are **not** the types of relational databases either. (Question: 4)
 ---
 ### Week 7 Lecture 5 
 #### NoSQL Databases, Data Storage Models, and ACID vs Scalability  
@@ -1043,7 +1043,7 @@ Developers must consider:
   - Depends on application needs
 
 ### Notes to be taken for `Activity Question 5`
-1. 
+1. Redundancy is often used in connection with backups. (Question: 3)
 ---
 ### Week 7 Lecture 6  
 #### Database Security, SQL Injection, and HTTPS  
@@ -1252,6 +1252,7 @@ Developers must consider:
 - Security is multi-layered and critical
 
 ### Notes to be taken for `Activity Question 6`
-1. 
+1. SRAM is *not* more cost-efficient than SSD. (Question: 1)
+2. High latency of retrieval from an Amazon glacier takes up to 40 - 50 hours. (Question: 3)
 ---
 [[Extra Notes from supplementary content of Week 7]]
