@@ -795,3 +795,258 @@ Examples:
 ### Notes to be taken for `Activity Question 3`
 1. Registers are located on the CPU. (Question: 1)
 ---
+### Week 8 Lecture 4  
+#### Client-Side Computation, Validation, and Security Implications  
+##### Description: Covers client-side validation techniques, JavaScript-based validation, CAPTCHA systems, advanced client-side computation, and associated security risks including sandboxing and denial-of-service scenarios.
+
+### 1. Client-Side Computation
+- Refers to:
+  - Processing done in the browser  
+- Enhances:
+  - Performance  
+  - User experience  
+
+### 2. Importance of Validation
+- Ensures:
+  - Correct data before processing  
+- Types:
+  - Client-side validation  
+  - Server-side validation  
+
+### 3. Server-Side Validation (Critical)
+- Must always be performed  
+- Prevents:
+  - Invalid data reaching database  
+- Final safeguard  
+
+### 4. Role of Client-Side Validation
+- Reduces:
+  - Unnecessary server requests  
+- Handles:
+  - User mistakes early  
+
+### 5. Benefits of Client-Side Validation
+- Faster feedback  
+- Better UX  
+- Reduced network traffic  
+
+### 6. Limitation of Client-Side Validation
+- Can be bypassed  
+- Not secure alone  
+
+### 7. Common Validation Examples
+- Email format  
+- Date fields  
+- Input sanitization  
+
+### 8. HTML5 Built-in Validation
+- Features:
+  - Required fields  
+  - Min/Max length  
+  - Numeric ranges  
+
+### 9. Browser-Level Validation
+- Automatically handled by:
+  - Browser  
+- Prevents:
+  - Invalid submissions  
+
+### 10. Validation Attributes
+- Examples:
+  - `required`  
+  - `minlength`  
+  - `maxlength`  
+  - `min`, `max`  
+
+### 11. Pattern Matching
+- Uses:
+  - Regular expressions  
+- Enables:
+  - Complex validation  
+
+### 12. Compatibility Concerns
+- Older browsers:
+  - May not support features  
+- Developer decision:
+  - Support vs ignore  
+
+### 13. Role of Frameworks
+- Provide:
+  - Cross-browser compatibility  
+- Trade-off:
+  - Increased complexity  
+
+### 14. JavaScript-Based Validation
+- More powerful than HTML5  
+- Allows:
+  - Custom logic  
+
+### 15. Constraint Validation API
+- Enables:
+  - Advanced validation rules  
+- Works via:
+  - JavaScript  
+
+### 16. Example Validation Flow
+- Select input field via DOM  
+- Add event listener  
+- Check validity  
+- Show custom message  
+
+### 17. Custom Error Messages
+- Improves:
+  - User clarity  
+- Overrides:
+  - Default browser messages  
+
+### 18. Event-Driven Validation
+- Triggered by:
+  - Input events  
+- Allows:
+  - Real-time validation  
+
+### 19. CAPTCHA Concept
+- Purpose:
+  - Distinguish human vs bot  
+
+### 20. Need for CAPTCHA
+- Prevent:
+  - Automated abuse  
+- Example:
+  - Ticket booking systems  
+
+### 21. CAPTCHA Mechanism
+- Tracks:
+  - Mouse movement  
+  - Typing patterns  
+
+### 22. reCAPTCHA Example
+- Simple checkbox:
+  - “I am not a robot”  
+- May escalate to:
+  - Image selection  
+
+### 23. Behavioral Analysis
+- Detects:
+  - Human-like interaction  
+
+### 24. Privacy Concerns
+- Tracks:
+  - User behavior  
+- Raises:
+  - Data concerns  
+
+### 25. Advanced Client-Side Computation
+- Includes:
+  - Complex scripts  
+  - Data processing  
+
+### 26. Crypto Mining via Browser
+- Possible using:
+  - JavaScript  
+- Uses:
+  - Client CPU  
+
+### 27. Ethical Concerns
+- Unauthorized computation:
+  - Considered malicious  
+- Can lead to:
+  - Blacklisting  
+
+### 28. JavaScript Power
+- Near-native performance  
+- Access to:
+  - CPU  
+  - GPU  
+
+### 29. Background Processing
+- Uses:
+  - Asynchronous calls  
+- User may be:
+  - Unaware  
+
+### 30. Security Implications
+- Major concern:
+  - Executing external scripts  
+
+### 31. Risk of Data Theft
+- Malicious scripts may:
+  - Access sensitive data  
+
+### 32. Sandboxing Concept
+- Restricts:
+  - JavaScript access  
+- Prevents:
+  - Unauthorized operations  
+
+### 33. Sandbox Limitations
+- Cannot access:
+  - Local files  
+  - System resources  
+
+### 34. Denial-of-Service (DoS) Attacks
+- Overloads:
+  - Server with requests  
+- Caused by:
+  - Malicious scripts  
+
+### 35. Distributed Attacks
+- Many clients:
+  - Send requests simultaneously  
+- Impact:
+  - Server crash  
+
+### 36. Client-Side Resource Abuse
+- Scripts may:
+  - Consume CPU heavily  
+- Result:
+  - System slowdown  
+
+### 37. Browser Protection Mechanisms
+- Detect:
+  - High resource usage  
+- Action:
+  - Prompt user / kill script  
+
+### 38. Malicious Script Injection
+- Replace:
+  - Popular JS files  
+- Trigger:
+  - Hidden attacks  
+
+### 39. Native Resource Access
+- Includes:
+  - Camera  
+  - Sensors  
+  - Storage  
+
+### 40. Security Restrictions
+- Access requires:
+  - User permission  
+
+### 41. Trusted Applications
+- Installed locally  
+- Gain:
+  - Extended access  
+
+### 42. Native Integration
+- Web apps can:
+  - Use OS APIs  
+- Improves:
+  - Performance  
+
+### 43. Hybrid Applications
+- Combine:
+  - Web + native capabilities  
+
+### 44. Core Takeaways
+- Client-side computation:
+  - Enhances UX  
+- Validation:
+  - Must be dual-layered  
+- JavaScript:
+  - Powerful but risky  
+- Security:
+  - Critical concern  
+- Always:
+  - Validate on server side
