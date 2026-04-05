@@ -502,3 +502,7 @@ Examples:
   - Core tool for frontend logic  
 - Balance:
   - Power vs complexity
+
+### Notes to be taken for `Activity Question 2`
+1. Registers are located on the CPU. (Question: 1)
+---
