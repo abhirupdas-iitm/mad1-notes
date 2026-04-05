@@ -506,3 +506,288 @@ Examples:
 ### Notes to be taken for `Activity Question 2`
 1. Registers are located on the CPU. (Question: 1)
 ---
+### Week 8 Lecture 3  
+#### Browser Capabilities, Client-Side Processing, and Frontend Evolution  
+##### Description: Explores browser functionality, client-side execution, JavaScript engines, accessibility, alternative frontend approaches, and emerging technologies like WebAssembly and native-like web applications.
+
+### 1. Role of the Browser
+- Browser = **client in web architecture**  
+- Primary responsibility:
+  - Render HTML content  
+
+### 2. HTML Rendering Requirements
+- Browser must:
+  - Display HTML meaningfully  
+- Does NOT need:
+  - Exact styling rules  
+- Example:
+  - `<h1>` → just indicates heading (not necessarily larger text)  
+
+### 3. Minimal Browser Capabilities
+- Render HTML  
+- Support basic interaction  
+- Handle cookies  
+
+### 4. Cookies and Sessions
+- Cookies:
+  - Stored by browser  
+- Used for:
+  - Session management  
+- Enables:
+  - Authentication  
+  - State persistence  
+
+### 5. Text-Based Browsers
+- Operate:
+  - Without GUI  
+- Features:
+  - Display HTML text  
+  - Limited form interaction  
+- Limitations:
+  - No JavaScript  
+  - Minimal styling  
+  - Limited media support  
+
+### 6. Implications for Developers
+- Must consider:
+  - Users on limited browsers  
+- Ensure:
+  - Content still accessible  
+
+### 7. Accessibility Considerations
+- Follow:
+  - W3C guidelines  
+- Avoid:
+  - Conveying meaning via color or font alone  
+- Ensure:
+  - Usability across devices  
+
+### 8. Trade-offs in Accessibility
+- Cannot:
+  - Fully support all environments  
+- Design choice:
+  - Balance functionality vs accessibility  
+
+### 9. Introduction to CSS
+- CSS = **Cascading Style Sheets**  
+- Used for:
+  - Styling webpages  
+
+### 10. Benefits of CSS Separation
+- HTML:
+  - Structure  
+- CSS:
+  - Presentation  
+- Leads to:
+  - Better design flexibility  
+
+### 11. CSS and Accessibility
+- Browsers can:
+  - Ignore CSS if needed  
+- Improves:
+  - Adaptability  
+
+### 12. Principle of Separation of Concerns
+- Each component:
+  - Handles one responsibility  
+- Example:
+  - HTML → structure  
+  - CSS → styling  
+
+### 13. Need for Interactivity
+- Static pages:
+  - Not sufficient  
+- Requires:
+  - Client-side logic  
+
+### 14. JavaScript as Standard
+- JavaScript = **de facto client-side language**  
+- Widely supported  
+- No strong alternative replacement  
+
+### 15. Evolution of JavaScript
+- Initially:
+  - Limited functionality  
+- Now:
+  - Full DOM interaction  
+  - Complex application support  
+
+### 16. JavaScript Engines
+- Execute JavaScript in browser  
+- Examples:
+  - V8 (Chrome)  
+  - Firefox engine  
+  - Safari engine  
+
+### 17. Differences Between Engines
+- Variations in:
+  - Performance  
+  - Memory usage  
+- Mostly:
+  - API-compatible  
+
+### 18. Standardization of JavaScript
+- Ensures:
+  - Consistent behavior across browsers  
+
+### 19. Client-Side Execution
+- JavaScript runs on:
+  - Client CPU  
+- Reduces:
+  - Server workload  
+
+### 20. Performance Implications
+- Heavy scripts:
+  - Increase CPU usage  
+- May:
+  - Slow system  
+
+### 21. GPU Utilization
+- Some engines support:
+  - Graphics acceleration  
+- Useful for:
+  - Video  
+  - Rendering  
+
+### 22. Risks of Heavy JavaScript
+- Can:
+  - Freeze browser  
+- Extreme cases:
+  - System slowdown  
+
+### 23. Browser Safety Mechanisms
+- Isolation:
+  - Tabs run separately  
+- Prevents:
+  - System-wide crashes  
+
+### 24. Resource Impact Awareness
+- Webpages:
+  - Consume energy  
+- Factors:
+  - Requests  
+  - Data size  
+
+### 25. Non-Human Clients
+- Clients may be:
+  - Machines  
+- Example:
+  - IoT devices  
+
+### 26. Machine-to-Server Communication
+- Uses:
+  - APIs  
+- Example:
+  - Sensors sending data  
+
+### 27. Benefits of Using Web Protocols
+- Easier than:
+  - Custom network protocols  
+- Provides:
+  - Standardization  
+  - Integration  
+
+### 28. API-Based Communication
+- Enables:
+  - Structured interaction  
+- Simplifies:
+  - Backend design  
+
+### 29. Alternative Client-Side Languages
+- Example:
+  - Brython (Python in browser)  
+
+### 30. How Brython Works
+- Python code:
+  - Translated into JavaScript  
+- Executes via:
+  - JS engine  
+
+### 31. Concept of Transpilation
+- Conversion:
+  - One language → JavaScript  
+- Combines:
+  - Translation + compilation  
+
+### 32. Limitations of Alternatives
+- Still depend on:
+  - JavaScript execution  
+
+### 33. Introduction to WebAssembly (WASM)
+- Binary instruction format  
+- Runs in:
+  - Browser  
+
+### 34. Features of WebAssembly
+- High performance  
+- Near-native execution  
+- Supports:
+  - Graphics  
+  - Complex apps  
+
+### 35. Use Cases of WebAssembly
+- Heavy applications:
+  - Office tools  
+  - 3D editing  
+
+### 36. Limitations of WebAssembly
+- Complexity  
+- Limited adoption  
+
+### 37. Compilation to WASM
+- Tools:
+  - Emscripten  
+- Converts:
+  - C/C++ → WebAssembly  
+
+### 38. Future of Frontend
+- Increasing:
+  - Capability  
+  - Performance  
+
+### 39. Native Mode Concept
+- Web apps behave like:
+  - Native applications  
+
+### 40. Native Features
+- Access to:
+  - Files  
+  - Camera  
+  - System APIs  
+
+### 41. Security Restrictions
+- Direct access limited due to:
+  - Security concerns  
+
+### 42. Controlled Access via APIs
+- User permissions required  
+- Enables:
+  - Safe interaction  
+
+### 43. Hybrid Applications
+- Combine:
+  - Web + native features  
+
+### 44. Example: VS Code
+- Built using:
+  - Web technologies  
+- Runs like:
+  - Desktop application  
+
+### 45. Advantages of Native-like Web Apps
+- Cross-platform  
+- Easier deployment  
+
+### 46. Key Takeaways
+- Browser:
+  - Powerful execution environment  
+- JavaScript:
+  - Core frontend engine  
+- Alternatives:
+  - Exist but rely on JS  
+- WebAssembly:
+  - Future potential  
+- Design must consider:
+  - Performance  
+  - Accessibility  
+  - Security
