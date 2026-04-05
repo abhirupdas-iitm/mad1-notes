@@ -252,3 +252,253 @@ Examples:
 ### Notes to be taken for `Activity Question 1`
 1. Registers are located on the CPU. (Question: 1)
 ---
+### Week 8 Lecture 2  
+#### Asynchronous Updates, AJAX, and DOM Manipulation  
+##### Description: Explains asynchronous updates in web applications, introduces AJAX (Asynchronous JavaScript and XML), and covers DOM (Document Object Model) concepts for dynamic frontend manipulation.
+
+### 1. Introduction to Frontend Rendering Approaches
+- Rendering approaches:
+  - Server-side rendering  
+  - Static pages  
+  - Hybrid (client-side + server-side)  
+- Key enabler of dynamic frontend:
+  - **Asynchronous updates**
+
+### 2. Traditional Web Model
+- Workflow:
+  - Client sends request  
+  - Server returns full HTML page  
+  - Browser re-renders entire page  
+- Every update:
+  - Requires full page reload  
+
+### 3. Limitations of Traditional Model
+- Redundant data transfer:
+  - Headers, footers sent repeatedly  
+- Increased:
+  - Network load  
+- Poor UX:
+  - Full page refresh each time  
+
+### 4. Impact of Server-Side Rendering
+- Additional server processing required  
+- Slower page load times  
+- More computational overhead  
+
+### 5. Motivation for Asynchronous Updates
+- Improve:
+  - Speed  
+  - User experience  
+- Idea:
+  - Update only **specific parts** of page  
+
+### 6. Concept of Asynchronous Updates
+- Load main page first  
+- Fetch additional data:
+  - In background  
+- Update:
+  - Only required section  
+
+### 7. Example Scenario
+- Selecting an animal (e.g., cat)
+- Instead of:
+  - Reloading entire page  
+- System:
+  - Fetches only animal data  
+  - Updates specific section  
+
+### 8. Structured Data Response
+- Server returns:
+  - Structured data (not full HTML)  
+- Example fields:
+  - Name  
+  - Latin name  
+  - Habitat  
+
+### 9. Partial Page Updates
+- Only a portion (e.g., a `div`) is updated  
+- Remaining page:
+  - Remains unchanged  
+
+### 10. Introduction to AJAX
+- Stands for:
+  - **Asynchronous JavaScript and XML**  
+- Key idea:
+  - Background data fetching  
+
+### 11. Role of XML in AJAX
+- Provides:
+  - Structured data format  
+- Enables:
+  - Easy parsing and interpretation  
+
+### 12. Evolution Beyond AJAX
+- Concept still used  
+- Name less common now  
+- Modern systems:
+  - Use JSON instead of XML  
+
+### 13. Benefits of Asynchronous Updates
+- Faster loading  
+- Better UX  
+- Reduced data transfer  
+
+### 14. Background Processing
+- Asynchronous = happens:
+  - Without blocking UI  
+- Page renders:
+  - While data is fetched  
+
+### 15. Introduction to DOM
+- DOM = **Document Object Model**  
+- Represents:
+  - Web page as a structured object  
+
+### 16. Nature of DOM
+- Abstract representation  
+- Stored as:
+  - Tree structure  
+
+### 17. DOM Tree Structure
+- Nodes represent:
+  - Elements  
+  - Text  
+- Hierarchical organization  
+
+### 18. DOM as Programming Interface
+- Allows:
+  - Accessing page elements  
+- Enables:
+  - Dynamic manipulation  
+
+### 19. Parsing HTML into DOM
+- Browser:
+  - Converts HTML → DOM tree  
+- Used internally:
+  - For rendering and updates  
+
+### 20. DOM Manipulation
+- Modify:
+  - Content  
+  - Structure  
+- Without reloading page  
+
+### 21. Object-Oriented Approach
+- DOM elements treated as:
+  - Objects  
+- Supports:
+  - Methods and properties  
+
+### 22. JavaScript and DOM
+- JavaScript:
+  - Primary language for DOM manipulation  
+- Supported by:
+  - All browsers  
+
+### 23. Example: Selecting Elements
+- Query elements:
+  - By tag (e.g., `<p>`)  
+- Returns:
+  - Collection of elements  
+
+### 24. Accessing DOM Elements
+- Example:
+  - `paragraphs[0]` → first element  
+- Can retrieve:
+  - Properties (e.g., node name)  
+
+### 25. Document Object
+- Represents:
+  - Entire page  
+- Entry point:
+  - `document` object  
+
+### 26. DOM API Usage
+- Methods:
+  - `querySelectorAll()`  
+- Allows:
+  - Flexible element selection  
+
+### 27. Event Handling
+- Example:
+  - `window.onload`  
+- Executes:
+  - Code after page loads  
+
+### 28. Anonymous Functions
+- Functions without names  
+- Used for:
+  - Inline logic execution  
+
+### 29. Creating Elements Dynamically
+- Example:
+  - Create `<h1>` element  
+- Add:
+  - Text nodes  
+
+### 30. Appending Elements
+- Insert elements into:
+  - DOM tree  
+- Example:
+  - Append to `<body>`  
+
+### 31. Dynamic Page Modification
+- Page updated:
+  - Without reload  
+- Content:
+  - Added at runtime  
+
+### 32. DOM Update Flow
+1. Create element  
+2. Create text  
+3. Attach text to element  
+4. Insert element into DOM  
+
+### 33. Power of DOM Manipulation
+- Enables:
+  - Real-time UI updates  
+- Supports:
+  - Interactive applications  
+
+### 34. Programming Concepts in Frontend
+- Supports:
+  - Loops  
+  - Conditions  
+  - Object composition  
+
+### 35. Flexibility vs Complexity
+- More power:
+  - More complexity  
+- Risk:
+  - Hard-to-maintain code  
+
+### 36. Best Practices
+- Avoid:
+  - Over-complication  
+- Keep:
+  - Code maintainable  
+
+### 37. Importance of UX
+- Asynchronous updates:
+  - Improve responsiveness  
+- Users perceive:
+  - Faster systems  
+
+### 38. Modern Frontend Frameworks
+- Built on:
+  - DOM + asynchronous updates  
+- Examples (conceptual):
+  - React  
+  - Angular  
+
+### 39. Key Takeaways
+- Traditional model:
+  - Full page reloads  
+- AJAX introduced:
+  - Partial updates  
+- DOM enables:
+  - Dynamic manipulation  
+- JavaScript:
+  - Core tool for frontend logic  
+- Balance:
+  - Power vs complexity
