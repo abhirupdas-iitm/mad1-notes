@@ -167,3 +167,231 @@
 - Always:
   - Analyze query plan before optimizing
 ---
+### Week 8 Extra Lecture 2  
+#### Full Text Search using SQLite FTS5 and SQLAlchemy  
+##### Description: Explains implementation of full text search using SQLite FTS5. Covers limitations of LIKE queries, creation of virtual tables, triggers for synchronization, advanced search queries, and integration with SQLAlchemy.
+
+### 1. Introduction to Full Text Search
+- Goal:
+  - Search keywords inside article content  
+- Example:
+  - Searching "flask" inside articles  
+
+### 2. Basic Search using LIKE
+- Query:
+  - `SELECT * FROM article WHERE content LIKE '%keyword%'`  
+- Works for:
+  - Simple substring matching  
+
+### 3. Limitations of LIKE Queries
+- Cannot handle:
+  - Complex conditions (AND, OR properly)  
+  - Ranking or relevance  
+  - Prefix-specific searches efficiently  
+- Performance:
+  - Expensive (slow queries)  
+
+### 4. Search Feature in Web App
+- Endpoint:
+  - `/search?q=keyword`  
+- Controller:
+  - Extract query parameter  
+  - Perform filtering  
+- Result:
+  - Display matching articles  
+
+### 5. SQLAlchemy LIKE Implementation
+- Uses:
+  - `.filter(column.like(query))`  
+- Query format:
+  - `%keyword%`  
+
+### 6. Problems with LIKE in Practice
+- Cannot:
+  - Combine keywords effectively  
+  - Perform logical queries (AND, OR, NOT)  
+- Example limitations:
+  - "flask AND documentation"  
+  - "my OR content"  
+
+### 7. Need for Full Text Search
+- Provides:
+  - Efficient searching  
+  - Rich query capabilities  
+- Solution:
+  - SQLite FTS5  
+
+### 8. Introduction to FTS5
+- Feature of SQLite  
+- Creates:
+  - Specialized search indexes  
+- Benefits:
+  - Faster search  
+  - Flexible queries  
+
+### 9. Virtual Table Concept
+- FTS5 creates:
+  - Virtual table for indexing  
+- Example:
+  - `article_search`  
+
+### 10. Virtual Table Structure
+- Columns:
+  - title  
+  - content  
+- Linked to:
+  - Original table (`article`)  
+
+### 11. Row Mapping
+- Uses:
+  - rowid  
+- Maps:
+  - Virtual table → actual table  
+
+### 12. Tokenization
+- Purpose:
+  - Break text into searchable tokens  
+- Example:
+  - `porter unicode61` tokenizer  
+
+### 13. Creating FTS5 Table
+- Syntax:
+  - `CREATE VIRTUAL TABLE ... USING FTS5`  
+- Includes:
+  - Columns  
+  - Tokenizer  
+  - Content mapping  
+
+### 14. Data Synchronization Problem
+- Virtual table is separate  
+- Needs manual sync:
+  - Insert  
+  - Update  
+  - Delete  
+
+### 15. Using Triggers
+- Automate synchronization  
+- Trigger types:
+  - INSERT  
+  - DELETE  
+  - UPDATE  
+
+### 16. Insert Trigger
+- Action:
+  - Add entry to virtual table  
+- Uses:
+  - New row values  
+
+### 17. Delete Trigger
+- Action:
+  - Remove entry from virtual table  
+
+### 18. Update Trigger
+- Action:
+  - Delete old entry  
+  - Insert updated entry  
+
+### 19. Initial Index Build
+- Required:
+  - Populate virtual table for existing data  
+
+### 20. MATCH Query
+- Used for searching:
+  - `WHERE column MATCH query`  
+- Replaces:
+  - LIKE  
+
+### 21. Prefix Search
+- Example:
+  - `flask*`  
+- Matches:
+  - Words starting with "flask"  
+
+### 22. AND Queries
+- Example:
+  - `dummy AND content`  
+- Returns:
+  - Rows containing both  
+
+### 23. OR Queries
+- Example:
+  - `my OR content OR flask`  
+- Returns:
+  - Rows matching any  
+
+### 24. Advanced Queries
+- Supports:
+  - NOT  
+  - NEAR  
+  - Phrase matching  
+- Much richer than LIKE  
+
+### 25. Performance Benefits
+- Faster:
+  - Optimized indexing  
+- Efficient:
+  - Less resource usage  
+
+### 26. Integration with SQLAlchemy
+- Create model:
+  - `ArticleSearch`  
+- Maps:
+  - Virtual table  
+
+### 27. Controller Update
+- Replace:
+  - LIKE query  
+- With:
+  - MATCH query  
+
+### 28. Dynamic Query Handling
+- User input:
+  - Passed directly to MATCH  
+- Can also:
+  - Sanitize or preprocess  
+
+### 29. Enhancing Search UI
+- Show:
+  - Titles  
+  - Links to articles  
+- Possible improvements:
+  - Highlight keywords  
+  - Show snippets  
+
+### 30. Highlighting Results
+- FTS5 supports:
+  - Returning matched text segments  
+
+### 31. Security Considerations
+- Restrict:
+  - Query scope  
+- Avoid:
+  - Arbitrary query execution  
+
+### 32. Extending Search
+- Add:
+  - Article detail page  
+- Use:
+  - rowid mapping  
+
+### 33. Alternatives to FTS
+- External systems:
+  - Elasticsearch  
+  - Dedicated search engines  
+
+### 34. When to Use FTS5
+- Suitable for:
+  - Most applications  
+- Lightweight:
+  - Built into SQLite  
+
+### 35. Key Takeaways
+- LIKE:
+  - Simple but limited  
+- FTS5:
+  - Powerful and scalable  
+- Use:
+  - Virtual tables + triggers  
+- Enables:
+  - Advanced search features
+---
