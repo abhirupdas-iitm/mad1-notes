@@ -1054,3 +1054,4 @@ Examples:
 ### Notes to be taken for `Activity Question 4`
 1. Registers are located on the CPU. (Question: 1)
 ---
+[[Extra Notes from supplementary content of Week 8]]
