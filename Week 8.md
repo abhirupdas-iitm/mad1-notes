@@ -250,7 +250,10 @@ Examples:
 - Performance and security must be balanced
 
 ### Notes to be taken for `Activity Question 1`
-1. Registers are located on the CPU. (Question: 1)
+1. Run-time HTML generation provides better flexibility. (Question: 1)
+2. Server-side rendering can be easier to develop. (Question: 3)
+3. Client-side rendering provides dynamic loading but puts less load on the server. (Question: 4)
+4. Spring is not a WSGI-compatible application. (Question: 8)
 ---
 ### Week 8 Lecture 2  
 #### Asynchronous Updates, AJAX, and DOM Manipulation  
@@ -504,7 +507,7 @@ Examples:
   - Power vs complexity
 
 ### Notes to be taken for `Activity Question 2`
-1. Registers are located on the CPU. (Question: 1)
+1. For updating a particular page in case of original web, client has to render the page again from scratch. (Question: 1)
 ---
 ### Week 8 Lecture 3  
 #### Browser Capabilities, Client-Side Processing, and Frontend Evolution  
@@ -793,7 +796,8 @@ Examples:
   - Security
 
 ### Notes to be taken for `Activity Question 3`
-1. Registers are located on the CPU. (Question: 1)
+1. `Emscripten` is a compiler framework that can compile C or C++ directly into Web assembly. (Question: 3)
+2. `WebAssembly` is designed to run along with JavaScript. (Question: 7)
 ---
 ### Week 8 Lecture 4  
 #### Client-Side Computation, Validation, and Security Implications  
@@ -1052,6 +1056,8 @@ Examples:
   - Validate on server side
 
 ### Notes to be taken for `Activity Question 4`
-1. Registers are located on the CPU. (Question: 1)
+1. Client-side validation can reduce the number of hits on server. (Question: 1)
+2. Client-side validation helps in reducing the number of hits on the server. (Question: 2)
+3. CAPTCHA stands for Completely Automatic Public Turing `**test**` to tell Computers and Humans Apart. (Question: 5)
 ---
 [[Extra Notes from supplementary content of Week 8]]
