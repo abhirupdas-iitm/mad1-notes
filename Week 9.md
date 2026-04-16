@@ -190,6 +190,9 @@
 - Enforcement happens at multiple layers  
 - In web apps:
   - Controllers + decorators = main enforcement point  
+
+### Notes to be taken for `Activity Question 1`
+1. 
 ---
 ### Week 9 Lecture 2  
 #### Authentication Mechanisms and Web Security  
