@@ -422,3 +422,205 @@
 - API keys enable:
   - Secure automated access  
 ---
+### Week 9 Lecture 3  
+#### Sessions, Cookies, and Authentication Enforcement  
+##### Description: Explains session management in web applications, client-side vs server-side sessions, security concerns with cookies, session handling in Flask, CSRF attacks, server-side storage, and enforcing authentication using decorators.
+
+### 1. Introduction to Sessions
+- A **session** represents:
+  - Multiple requests from the same client  
+- Purpose:
+  - Maintain **state across requests**
+- Example state:
+  - Logged-in status  
+  - Shopping cart contents  
+- Server uses session data to:
+  - Customize responses  
+
+### 2. Why Sessions are Needed
+- HTTP is:
+  - **Stateless by design**
+- Problem:
+  - Server cannot remember client state  
+- Solution:
+  - Add session mechanisms on top of HTTP  
+
+### 3. Types of Sessions
+#### 3.1 Client-Side Sessions
+- Data stored:
+  - Inside **cookies**
+- Advantages:
+  - Simple  
+- Risks:
+  - Can be tampered with  
+
+#### 3.2 Server-Side Sessions
+- Cookie stores:
+  - Only session ID  
+- Server stores:
+  - Actual session data  
+- Example stored data:
+  - Preferences  
+  - Cart items  
+- Advantages:
+  - More secure  
+- Requires:
+  - Backend storage  
+
+### 4. Cookies in Session Management
+- Cookie:
+  - A string sent by server  
+- Stored in:
+  - Browser  
+- Sent with:
+  - Every request  
+
+#### 4.1 Usage
+- Store:
+  - UI preferences  
+  - Session identifiers  
+
+#### 4.2 Security Concern
+- If cookie contains sensitive data:
+  - Must prevent modification  
+
+#### 4.3 Solution
+- Use:
+  - **Encryption / signing with secret key**  
+- Ensures:
+  - Client cannot alter cookie  
+
+### 5. Flask Session Example
+- Flask provides:
+  - `session` object  
+- Acts like:
+  - Dictionary  
+
+#### 5.1 Checking Login
+- If `username` in session:
+  - User is logged in  
+- Else:
+  - Not logged in  
+
+#### 5.2 Login Flow
+- POST request:
+  - Set session value  
+- GET request:
+  - Show login form  
+
+#### 5.3 Logout Flow
+- Use:
+  - `session.pop()`  
+- Removes:
+  - Session data  
+
+### 6. Security Issues in Sessions
+#### 6.1 Cookie Modification
+- Risk:
+  - User alters cookie  
+- Solution:
+  - Use secret key  
+
+#### 6.2 Session Hijacking
+- Risk:
+  - Someone steals cookie  
+- Example:
+  - Public computers  
+- Solution:
+  - Logout properly  
+  - Use HTTPS  
+
+#### 6.3 Cross-Site Request Forgery (CSRF)
+- Attack:
+  - Malicious site triggers requests on behalf of user  
+- Example:
+  - Change password silently  
+- Reason:
+  - Browser automatically sends cookies  
+
+#### 6.4 CSRF Protection
+- Use:
+  - **CSRF tokens in forms**  
+- Ensures:
+  - Request originates from trusted source  
+
+### 7. Server-Side Session Storage
+- Server must store:
+  - Session data  
+
+#### 7.1 Storage Options
+- Files  
+- Databases  
+- Key-value stores (e.g., Redis)  
+
+#### 7.2 Redis
+- Features:
+  - Fast  
+  - Lightweight  
+- Use:
+  - Temporary session storage  
+
+### 8. Authentication Enforcement
+- Not all pages:
+  - Should be publicly accessible  
+- Need:
+  - **Fine-grained access control**  
+
+### 9. Protecting Views (Controllers)
+- Access control happens at:
+  - **Controller level**  
+
+#### 9.1 Using Decorators
+- Add authentication checks  
+- Example:
+  - `@login_required`  
+
+#### 9.2 Workflow
+1. Request made  
+2. Decorator checks authentication  
+3. If not authenticated:
+   - Redirect to login  
+4. If authenticated:
+   - Execute controller  
+
+### 10. Flask-Login Example
+- Provides:
+  - `login_required`  
+  - `current_user`  
+
+#### 10.1 Protected Route
+- Only logged-in users:
+  - Can access `/profile`  
+
+#### 10.2 Role-Based Access
+- Can extend:
+  - Check user roles  
+- Example:
+  - Admin vs normal user  
+
+### 11. Logout Mechanism
+- Requires:
+  - User to be logged in  
+- Action:
+  - Remove session data  
+- Redirect:
+  - Back to homepage  
+
+### 12. Key Takeaways
+- Sessions:
+  - Add state to stateless HTTP  
+- Cookies:
+  - Enable session tracking  
+- Security concerns:
+  - Cookie tampering  
+  - Session hijacking  
+  - CSRF attacks  
+- Solutions:
+  - Secret keys  
+  - Tokens  
+  - HTTPS  
+- Authentication:
+  - Enforced using decorators  
+- Controllers:
+  - Central point for access control  
+---
