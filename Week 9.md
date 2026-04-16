@@ -629,6 +629,9 @@
   - Enforced using decorators  
 - Controllers:
   - Central point for access control  
+
+### Notes to be taken for `Activity Question 3`
+1. 
 ---
 ### Week 9 Lecture 4  
 #### HTTPS, Encryption, and Secure Communication  
