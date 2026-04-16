@@ -424,6 +424,9 @@
   - Stateful sessions over stateless HTTP  
 - API keys enable:
   - Secure automated access  
+
+### Notes to be taken for `Activity Question 2`
+1. 
 ---
 ### Week 9 Lecture 3  
 #### Sessions, Cookies, and Authentication Enforcement  
