@@ -191,3 +191,234 @@
 - In web apps:
   - Controllers + decorators = main enforcement point  
 ---
+### Week 9 Lecture 2  
+#### Authentication Mechanisms and Web Security  
+##### Description: Covers various authentication and security mechanisms in web applications including security by obscurity, host-based access, login systems, tokens, HTTP authentication (Basic and Digest), client certificates, cookies, sessions, and API key-based authentication.
+
+### 1. Introduction to Web Security Mechanisms
+- Focus:
+  - How to **implement access control on the web**
+- Key question:
+  - What checks can a server perform to verify access?
+
+### 2. Security by Obscurity (Bad Practice)
+- Idea:
+  - Hide system details (e.g., use non-standard port like 1356 instead of 80)
+- Assumption:
+  - Only people who know the port can access
+- Problems:
+  - Information can leak easily  
+  - Not reliable security  
+- Conclusion:
+  - **Never rely on obscurity for security**
+
+### 3. Host-Based Access Control
+- Based on:
+  - **Client IP address**
+- Mechanism:
+  - Allow only specific IPs (whitelisting)
+- Example:
+  - SSH access restricted to certain machines  
+- Problem:
+  - If trusted machine is compromised → security breaks  
+- Conclusion:
+  - Useful but **not sufficient alone**
+
+### 4. Login-Based Authentication
+- Most common approach:
+  - Username + Password  
+- Server:
+  - Prompts user for credentials  
+- Important rule:
+  - Do NOT store passwords as plain text  
+- Reason:
+  - Server compromise → all passwords exposed  
+- Solution:
+  - Store **hashed passwords**  
+- Risk:
+  - Users reuse passwords across platforms  
+
+### 5. Token-Based Authentication
+- Used for:
+  - **Machine-to-machine communication**
+- Instead of:
+  - Username/password input  
+- Use:
+  - Token (long random string)  
+- Properties:
+  - Hard to guess  
+  - Stored securely  
+- Risk:
+  - Token leakage → unauthorized access  
+
+### 6. HTTP Authentication Mechanisms
+#### 6.1 Basic HTTP Authentication
+- Process:
+  1. Client sends request  
+  2. Server responds with **401 Unauthorized**  
+  3. Server sends:
+     - `WWW-Authenticate` header  
+  4. Client sends:
+     - Username + Password (Base64 encoded)  
+
+- Issues:
+  - Base64 is **NOT encryption** (easily reversible)  
+  - Credentials visible in transit  
+  - No proper logout mechanism  
+- Conclusion:
+  - **Insecure without HTTPS**
+
+#### 6.2 HTTP Status Codes
+- `401` → Unauthorized (needs authentication)  
+- `403` → Forbidden (access denied)  
+- `404` → Resource not found  
+
+### 7. Digest Authentication
+- Improvement over Basic Auth  
+- Uses:
+  - **Cryptographic hash functions**  
+- Key idea:
+  - Do NOT send password directly  
+
+#### 7.1 One-Way Functions
+- Properties:
+  - Easy to compute forward:  
+    - `f(A) → B`  
+  - Hard to reverse:  
+    - Cannot get A from B  
+- Used for:
+  - Secure password handling  
+
+#### 7.2 Nonce (Number Used Once)
+- Server generates random value  
+- Client:
+  - Combines:
+    - Username  
+    - Password  
+    - Nonce  
+  - Applies hashing  
+- Benefits:
+  - Prevents replay attacks  
+  - Each request is unique  
+
+#### 7.3 Advantages
+- More secure than Basic Auth  
+- Password not transmitted directly  
+
+### 8. Client Certificate Authentication
+- Based on:
+  - **Certificates (like HTTPS)**
+- Instead of password:
+  - Client proves identity using certificate  
+- Trusted authority:
+  - Issues certificates  
+- Problem:
+  - If certificate is stolen → security compromised  
+
+### 9. Form-Based Authentication
+- Users enter:
+  - Username  
+  - Password  
+- Sent to server via HTTP  
+
+#### 9.1 GET vs POST
+- GET (unsafe):
+  - Credentials appear in URL  
+  - Stored in logs  
+- POST (safer):
+  - Data in request body  
+  - Safer  
+
+#### 9.2 Best Practice
+- Use:
+  - POST + HTTPS  
+- Avoid:
+  - Sending credentials in URL  
+
+### 10. Connection-Based Security
+- Each request:
+  - Requires authentication  
+- Optimization:
+  - Keep connection alive  
+- Benefit:
+  - Reduces repeated authentication overhead  
+
+### 11. Cookies and Sessions
+#### 11.1 What is a Cookie?
+- Small data sent by server to client  
+- Stored in browser  
+
+#### 11.2 Purpose
+- Maintain **state in stateless HTTP**
+- Example:
+  - Remember user session  
+
+#### 11.3 How It Works
+1. Server sends:
+   - `Set-Cookie` header  
+2. Client stores cookie  
+3. Client sends cookie in future requests  
+
+#### 11.4 Uses
+- Authentication  
+- Session tracking  
+- Personalization  
+
+#### 11.5 Session Concept
+- Cookie acts as:
+  - Session identifier  
+- Server:
+  - Maps cookie → user state  
+
+#### 11.6 Control Mechanisms
+- Server:
+  - Can expire cookies  
+  - Force logout  
+- Client:
+  - Can block/delete cookies  
+  - Incognito mode → no persistent cookies  
+
+### 12. API-Level Security
+- Used in:
+  - REST APIs  
+- Mechanism:
+  - **API Keys / Tokens**  
+
+#### 12.1 API Key Workflow
+1. User registers  
+2. Server issues API key  
+3. Client sends key with each request  
+4. Server validates key  
+
+#### 12.2 Advantages
+- Simple  
+- Suitable for automation  
+- No interactive login needed  
+
+#### 12.3 Security Features
+- Keys can be:
+  - Revoked  
+  - Expired  
+- Risks:
+  - Key leakage → misuse  
+
+### 13. Key Takeaways
+- Security mechanisms include:
+  - Login/password  
+  - Tokens  
+  - Cookies  
+  - Certificates  
+  - API keys  
+- Avoid:
+  - Security by obscurity  
+  - Plain text passwords  
+  - GET for sensitive data  
+- Prefer:
+  - HTTPS  
+  - Hashing  
+  - Secure tokens  
+- Cookies enable:
+  - Stateful sessions over stateless HTTP  
+- API keys enable:
+  - Secure automated access  
+---
