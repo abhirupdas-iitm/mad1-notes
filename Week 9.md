@@ -971,4 +971,7 @@ Typical fields:
   - Time-series analysis  
 - Continuous monitoring:
   - Critical for system reliability  
+
+### Notes to be taken for `Activity Question 5`
+1. 
 ---
