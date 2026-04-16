@@ -808,6 +808,9 @@
   - Security vs performance  
 - Essential for:
   - Safe web communication  
+
+### Notes to be taken for `Activity Question 4`
+1. 
 ---
 ### Week 9 Lecture 5  
 #### Logging, Monitoring, and Security Analysis  
