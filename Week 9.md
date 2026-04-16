@@ -800,3 +800,163 @@
 - Essential for:
   - Safe web communication  
 ---
+### Week 9 Lecture 5  
+#### Logging, Monitoring, and Security Analysis  
+##### Description: Explains logging in web applications, its importance for debugging, analytics, and security. Covers server vs application-level logging, log formats, status codes, log rotation, and using logs for time-series analysis and monitoring.
+
+### 1. Introduction to Logging
+- Logging:
+  - Recording all accesses to an application  
+- Purpose:
+  - Debugging errors  
+  - Monitoring usage  
+  - Security analysis  
+
+### 2. Why Logging is Important
+- Helps identify:
+  - Bugs and server errors  
+- Provides:
+  - Usage statistics  
+- Examples:
+  - Number of visits  
+  - Popular pages  
+  - Peak usage times  
+- Enables:
+  - Site optimization  
+
+### 3. Levels of Logging
+#### 3.1 Application-Level Logging
+- Implemented by:
+  - Developer  
+- Stored in:
+  - Log files or external pipelines  
+- Provides:
+  - Detailed insights  
+
+#### 3.2 Server-Level Logging
+- Built into:
+  - Web servers (Apache, Nginx)  
+- Logs:
+  - URL accessed  
+  - Request metadata  
+- Limitation:
+  - Cannot see internal application logic  
+
+### 4. Application-Level Logging Details
+- Can log:
+  - Controllers invoked  
+  - Model interactions  
+  - User actions  
+  - Errors and exceptions  
+- Can include:
+  - Stack traces  
+- Tools:
+  - Python logging framework  
+
+### 5. Log Output Types
+- File-based logs  
+- Stream-based logs  
+- Network-based logging:
+  - Send logs to remote server  
+
+### 6. Example Log Structure
+Typical fields:
+- IP address  
+- Timestamp  
+- HTTP method  
+- URL  
+- HTTP version  
+- Status code  
+- Referrer  
+
+### 7. Understanding Status Codes
+- **200**:
+  - Success  
+- **300–399**:
+  - Redirection  
+- **404**:
+  - Resource not found (problematic if frequent)  
+
+### 8. Detecting Security Issues via Logs
+- Indicators:
+  - High request frequency  
+  - Malformed URLs  
+  - Unexpected patterns  
+- Possible attacks:
+  - SQL injection  
+  - Malicious probing  
+
+### 9. Log Volume Management
+- Problem:
+  - Logs can grow rapidly  
+- Risk:
+  - Disk space exhaustion  
+
+### 10. Log Rotation
+- Solution:
+  - Maintain fixed number of log files  
+- Process:
+  - Delete oldest logs  
+  - Rename existing logs  
+  - Create new log file  
+- Benefit:
+  - Prevents storage overflow  
+
+### 11. Cloud-Based Logging
+- Platforms:
+  - Google App Engine  
+- Features:
+  - Automatic logging  
+  - Custom reports  
+  - Security analysis  
+
+### 12. Logs as Time-Series Data
+- Each log entry:
+  - Has timestamp  
+- Enables:
+  - Time-based analysis  
+
+### 13. Time-Series Use Cases
+- Identify:
+  - Traffic spikes  
+  - System bottlenecks  
+  - Usage trends  
+
+### 14. Databases for Log Analysis
+- Suitable systems:
+  - RRDTool  
+  - InfluxDB  
+- Optimized for:
+  - Time-series data  
+
+### 15. Security and Logging
+- Logging helps:
+  - Detect vulnerabilities  
+  - Monitor suspicious activity  
+- Must:
+  - Continuously analyze logs  
+
+### 16. Best Practices
+- Use:
+  - Reliable frameworks  
+- Ensure:
+  - Proper logging coverage  
+- Regularly:
+  - Analyze logs  
+- Maintain:
+  - Security awareness  
+
+### 17. Key Takeaways
+- Logging is essential for:
+  - Debugging  
+  - Monitoring  
+  - Security  
+- Two levels:
+  - Server-level  
+  - Application-level  
+- Important practices:
+  - Log rotation  
+  - Time-series analysis  
+- Continuous monitoring:
+  - Critical for system reliability  
+---
