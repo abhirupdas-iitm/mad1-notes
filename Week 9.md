@@ -624,3 +624,179 @@
 - Controllers:
   - Central point for access control  
 ---
+### Week 9 Lecture 4  
+#### HTTPS, Encryption, and Secure Communication  
+##### Description: Explains the need for HTTPS, how encryption secures communication, SSL/TLS concepts, key exchange, certificate-based trust, chain of trust, and trade-offs of using HTTPS.
+
+### 1. HTTP Communication Basics
+- Client connects to server:
+  - Typically via **port 80**
+- Sends:
+  - HTTP request (plain text)  
+- Receives:
+  - HTTP response (plain text)  
+- Problem:
+  - Data is **readable by anyone on the network**  
+
+### 2. The Security Problem
+- Communication travels through:
+  - Multiple networks (WiFi, routers, fiber, etc.)  
+- Possible attacker:
+  - Can **intercept (sniff)** data  
+  - Can **modify** requests/responses  
+
+### 3. Types of Attacks
+#### 3.1 Eavesdropping
+- Attacker reads:
+  - Requests  
+  - Responses  
+- Sensitive data exposed:
+  - Passwords  
+  - Personal info  
+
+#### 3.2 Data Tampering
+- Attacker modifies:
+  - Requests (e.g., GET → POST)  
+  - Responses  
+
+### 4. Need for Encryption
+- Goal:
+  - Make intercepted data **unreadable**  
+- Approach:
+  - Convert data into:
+    - Encrypted form (ciphertext)  
+- Only client + server:
+  - Can decrypt  
+
+### 5. Secure Channel (SSL/TLS)
+- HTTPS uses:
+  - **Secure Sockets Layer (SSL) / TLS**  
+- Creates:
+  - Encrypted communication channel  
+
+### 6. Encryption Key Concept
+- Requires:
+  - **Shared secret key**  
+- Process:
+  - Combine data + key → encrypted data  
+- Without key:
+  - Attacker cannot decode  
+
+### 7. Challenge: Key Exchange
+- Problem:
+  - How to share secret securely?  
+- Constraint:
+  - Communication channel is already insecure  
+
+### 8. Conceptual Solution
+- Use:
+  - Mathematical methods  
+- Combine:
+  - Client secret + Server secret  
+- Result:
+  - Shared key unknown to attacker  
+
+### 9. Additional Security Guarantees
+- Prevent:
+  - Unauthorized decryption  
+- Prevent:
+  - Fake requests (integrity protection)  
+
+### 10. Server Authentication
+- Client must verify:
+  - Server identity  
+- Prevents:
+  - Fake servers (phishing)  
+
+### 11. Certificates
+- Server provides:
+  - **Digital certificate**  
+- Contains:
+  - Identity  
+  - Expiry date  
+  - Issuer information  
+
+### 12. Certificate Authority (CA)
+- Trusted organization:
+  - Issues certificates  
+- Example:
+  - Google Trust Services  
+
+### 13. Chain of Trust
+- Certificate hierarchy:
+  1. Website certificate  
+  2. Intermediate CA  
+  3. Root CA  
+- Root CA:
+  - Trusted by browser/OS  
+
+### 14. Root of Trust
+- Stored in:
+  - Browser  
+  - Operating system  
+- Trust assumption:
+  - Root certificates are valid  
+
+### 15. Browser Verification Process
+- Steps:
+  1. Receive server certificate  
+  2. Verify chain of trust  
+  3. Check expiry  
+  4. Confirm domain match  
+- If valid:
+  - Show **HTTPS lock icon**  
+
+### 16. Risks in Trust Model
+- If root certificate compromised:
+  - Entire system at risk  
+- Fake certificates:
+  - Can impersonate websites  
+
+### 17. DNS Consideration
+- DNS may redirect to wrong server  
+- Protection:
+  - Certificate mismatch detected  
+- Result:
+  - Browser shows warning  
+
+### 18. Wildcard Certificates
+- Covers:
+  - Multiple subdomains  
+- Example:
+  - `*.iitm.ac.in`  
+- Useful for:
+  - Large systems  
+
+### 19. Benefits of HTTPS
+- Encryption:
+  - Protects confidentiality  
+- Integrity:
+  - Prevents tampering  
+- Authentication:
+  - Verifies server identity  
+
+### 20. Limitations of HTTPS
+#### 20.1 Performance Overhead
+- Encryption/decryption:
+  - Requires computation  
+
+#### 20.2 Reduced Caching
+- Proxies cannot:
+  - Read encrypted content  
+- Limits:
+  - Intermediate caching  
+
+### 21. Key Takeaways
+- HTTP:
+  - Insecure (plain text)  
+- HTTPS:
+  - Secure via encryption  
+- Core components:
+  - SSL/TLS  
+  - Certificates  
+  - Chain of trust  
+- Trade-off:
+  - Security vs performance  
+- Essential for:
+  - Safe web communication  
+---
