@@ -736,3 +736,256 @@
 - Important principle:
   - Combine multiple approaches for robustness  
 ---
+### Week 10 Lecture 4  
+#### Testing in Python using Pytest Framework  
+##### Description: Introduces the pytest framework for writing and executing tests in Python. Covers test discovery, assertions, fixtures, exception testing, temporary resources, and testing Flask applications using client fixtures.
+
+### 1. Introduction to Pytest
+- Framework for:
+  - Writing and running tests in Python  
+- Characteristics:
+  - Easy to use  
+  - Opinionated (follows conventions automatically) :contentReference[oaicite:0]{index=0}  
+
+### 2. Opinionated Nature of Pytest
+- Automatically detects:
+  - Test files  
+  - Test functions  
+- Convention:
+  - Files start with `test_`  
+  - Functions start with `test_`  
+- Benefit:
+  - Reduces boilerplate code  
+
+### 3. Features of Pytest
+- Provides:
+  - Automatic setup/teardown  
+  - Test fixtures  
+  - Monkeypatching support  
+- Helps:
+  - Simplify test writing  
+
+### 4. Pytest vs unittest
+- `unittest`:
+  - Built-in Python library  
+- `pytest`:
+  - More features  
+  - Cleaner syntax  
+- Both:
+  - Can be used together  
+
+### 5. Basic Test Example
+- Function:
+  - `func(x) = x + 1`  
+- Test:
+  - Assert expected output  
+- Purpose:
+  - Validate correctness  
+
+### 6. Assertion Mechanism
+- Uses:
+  - `assert` statement  
+- Behavior:
+  - True → pass  
+  - False → fail with error  
+- Example:
+  - `assert func(3) == 5` (fails)  
+
+### 7. Understanding Test Failures
+- Output includes:
+  - Expected vs actual values  
+- Helps:
+  - Debug quickly  
+- Developer decides:
+  - Bug in test or code  
+
+### 8. Testing Exceptions
+- Use:
+  - `pytest.raises()`  
+- Purpose:
+  - Verify error conditions  
+- Example:
+  - Out-of-bound access → IndexError  
+
+### 9. Temporary Resources in Tests
+- Need:
+  - Temporary files/directories  
+- Pytest:
+  - Creates safely  
+  - Cleans automatically  
+- Avoids:
+  - Side effects on system  
+
+### 10. Test Fixtures
+- Definition:
+  - Setup + teardown logic  
+- Purpose:
+  - Prepare environment before test  
+- Cleanup:
+  - Done after test  
+
+### 11. Fixture Example
+- Setup:
+  - Create list `[apple, banana]`  
+- Tests:
+  - Check presence of elements  
+- Result:
+  - Pass/fail based on assertions  
+
+### 12. Fixture Behavior
+- Automatically:
+  - Runs before test  
+- Isolated:
+  - Each test gets fresh data  
+- No interference between tests  
+
+### 13. Multiple Test Results
+- Output:
+  - `..F`  
+- Meaning:
+  - Two passed, one failed  
+- Helps:
+  - Identify failing test quickly  
+
+### 14. Test Discovery Rules
+- Pytest searches:
+  - Current directory  
+  - Subdirectories  
+- File patterns:
+  - `test_*.py`  
+  - `*_test.py`  
+
+### 15. Function Naming Rules
+- Test functions:
+  - Must start with `test`  
+- Class-based tests:
+  - Class starts with `Test`  
+  - Methods start with `test`  
+
+### 16. Best Practice
+- Follow:
+  - Consistent naming conventions  
+- Avoid:
+  - Mixing patterns randomly  
+
+### 17. Pytest as Superset
+- Compatible with:
+  - `unittest`  
+- Adds:
+  - Fixtures  
+  - Simpler syntax  
+
+### 18. Testing Flask Applications
+- Flask supports:
+  - Pytest integration  
+- Key concept:
+  - Test client  
+
+### 19. Client Fixture
+- Purpose:
+  - Simulate HTTP requests  
+- Setup:
+  - Create app instance  
+  - Enable testing mode  
+- Uses:
+  - Temporary database  
+
+### 20. Role of Yield in Fixtures
+- Behavior:
+  - Setup → yield → cleanup  
+- After tests:
+  - Resources removed  
+
+### 21. Temporary Database Setup
+- Example:
+  - SQLite file  
+- Used for:
+  - Isolated testing  
+- Ensures:
+  - No real data affected  
+
+### 22. Making Requests in Tests
+- Methods:
+  - `client.get()`  
+  - `client.post()`  
+- Simulates:
+  - User interaction  
+
+### 23. Validating Responses
+- Response object:
+  - `rv.data` → content  
+  - `rv.headers` → metadata  
+- Assertions:
+  - Check expected output  
+
+### 24. Example – Empty Database Test
+- Action:
+  - GET `/`  
+- Check:
+  - “No entries” message  
+- Purpose:
+  - Verify initial state  
+
+### 25. Helper Functions in Tests
+- Example:
+  - `login()`  
+  - `logout()`  
+- Role:
+  - Simplify repeated logic  
+- Not tests:
+  - Names do not start with `test`  
+
+### 26. Testing Authentication
+- Scenarios:
+  - Valid login  
+  - Invalid username  
+  - Invalid password  
+- Assertions:
+  - Correct messages returned  
+
+### 27. Handling Redirects
+- Option:
+  - `follow_redirects=True`  
+- Ensures:
+  - Final response captured  
+
+### 28. Comprehensive Testing
+- Combine:
+  - Fixtures  
+  - Helper functions  
+  - Assertions  
+- Covers:
+  - Multiple scenarios  
+
+### 29. Automated Grading Use Case
+- Example:
+  - Checking HTML files exist  
+- Tests:
+  - Verify file presence  
+- Application:
+  - Auto-evaluation systems  
+
+### 30. Importance of Automated Testing
+- Benefits:
+  - Detect regressions  
+  - Improve confidence  
+- Limitation:
+  - 100% coverage ≠ bug-free  
+
+### 31. Continuous Testing
+- Needed for:
+  - Stability  
+  - Reliability  
+- Process:
+  - Ongoing, not one-time  
+
+### 32. Key Takeaways
+- Pytest:
+  - Powerful testing framework  
+- Supports:
+  - Fixtures  
+  - API testing  
+  - Flask testing  
+- Essential for:
+  - Scalable, reliable applications  
+---
