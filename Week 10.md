@@ -486,3 +486,253 @@
 - Final goal:
   - Reliable and scalable software  
 ---
+### Week 10 Lecture 3  
+#### Systematic Test Generation – API Testing, Abstract Tests, Model-Based Testing, UI and Security Testing  
+##### Description: Explores systematic approaches to generating test cases including API-based testing using OpenAPI/Swagger, abstract and executable tests, model-based testing using state machines, GUI testing with tools like Selenium, and security testing techniques such as fuzzing and SQL injection testing.
+
+### 1. Introduction to Systematic Test Generation
+- Goal:
+  - Generate tests in a **structured and repeatable way**  
+- Question:
+  - Can test cases be **automatically generated**? :contentReference[oaicite:0]{index=0}  
+
+### 2. API-Based Testing
+- Based on:
+  - **Application Programming Interface (API)**  
+- Uses:
+  - REST APIs  
+  - OpenAPI / Swagger specifications  
+- Idea:
+  - Generate tests directly from API definition  
+
+### 3. OpenAPI and Test Generation
+- OpenAPI provides:
+  - API documentation  
+  - Endpoint definitions  
+- Enables:
+  - Code generation  
+  - Test case generation  
+- Benefit:
+  - Single source of truth  
+
+### 4. Swagger-Based Testing Tools
+- Example:
+  - Swagger Inspector  
+- Capabilities:
+  - Generate tests from endpoints  
+  - Define query parameters  
+  - Define request body  
+  - Define authentication  
+- Output:
+  - Automated test cases  
+
+### 5. Benefits of API-Based Testing
+- Advantages:
+  - Reduces manual effort  
+  - Standardized testing  
+  - Captures best practices  
+- Helps:
+  - Beginners adopt proven techniques  
+
+### 6. Abstract Tests
+- Definition:
+  - **Semi-formal test description**  
+- Example:
+  - “Request / endpoint and check for ‘Hello world’”  
+- Characteristics:
+  - Human-readable  
+  - Not executable  
+
+### 7. Executable Tests
+- Implementation:
+  - Convert abstract tests → code  
+- Example:
+  - `client.get("/")`  
+  - `assert "Hello world" in response`  
+- Result:
+  - Runnable test case  
+
+### 8. Abstract vs Executable Tests
+- Abstract:
+  - General  
+  - Reusable  
+- Executable:
+  - Specific  
+  - Implemented in code  
+- Workflow:
+  - Abstract → Translate → Execute  
+
+### 9. Automation Possibilities
+- Partial automation:
+  - Convert abstract tests to code  
+- Limitation:
+  - Context-specific logic required  
+- Developer role:
+  - Final implementation  
+
+### 10. Model-Based Testing
+- Idea:
+  - Represent system as a **model**  
+- Common model:
+  - Finite State Machine (FSM)  
+
+### 11. Example – Authentication Flow
+- States:
+  - Not logged in  
+  - Login page  
+  - Logged in  
+  - Password reset  
+- Transitions:
+  - Login  
+  - Reset password  
+  - Redirect  
+
+### 12. Generating Tests from Models
+- Approach:
+  - Identify states  
+  - Identify transitions  
+- Tests:
+  - Validate each transition  
+- Example:
+  - Password reset → return to correct page  
+
+### 13. Advantages of Model-Based Testing
+- Covers:
+  - All possible scenarios  
+- Ensures:
+  - Transition correctness  
+- Supports:
+  - Automated test generation  
+
+### 14. Combining Models and Abstract Tests
+- Model:
+  - Defines system behavior  
+- Abstract test:
+  - Defines expected outcomes  
+- Together:
+  - Generate executable tests  
+
+### 15. GUI (User Interface) Testing
+- Focus:
+  - Graphical User Interface  
+- In web apps:
+  - HTML + CSS separation  
+
+### 16. Types of UI Testing
+- Check:
+  - Element presence  
+  - Layout positioning  
+- Examples:
+  - Navigation links exist  
+  - Button position on screen  
+
+### 17. Behavior Testing in UI
+- Actions:
+  - Random clicks  
+  - Navigation flow  
+- Goal:
+  - Detect crashes  
+  - Detect data corruption  
+
+### 18. Challenges in UI Testing
+- Issues:
+  - CAPTCHA  
+  - Access restrictions  
+- Result:
+  - Hard to fully automate  
+
+### 19. Selenium for UI Testing
+- Tool:
+  - Browser automation framework  
+- Features:
+  - Controls browser programmatically  
+  - Simulates user actions  
+- Actions:
+  - Click  
+  - Scroll  
+  - Input text  
+
+### 20. Advantages of Selenium
+- Realistic testing:
+  - Uses actual browser  
+- Supports:
+  - Cookies  
+  - Sessions  
+- Mimics:
+  - Real user behavior  
+
+### 21. Alternative Tools
+- Example:
+  - Python `requests` library  
+- Limitation:
+  - No UI interaction  
+- Use case:
+  - API-level testing  
+
+### 22. Security Testing
+- Goal:
+  - Identify vulnerabilities  
+- Risks:
+  - Application crash  
+  - Data corruption  
+
+### 23. Importance of Data Integrity
+- Worst case:
+  - Incorrect data without detection  
+- Better case:
+  - System crash (visible issue)  
+
+### 24. Types of Security Testing
+- Techniques:
+  - SQL injection testing  
+  - Input validation testing  
+- Approach:
+  - Simulate attacks  
+
+### 25. Black Box vs White Box Testing
+#### Black Box
+- No knowledge of internals  
+- Simulates external attacker  
+
+#### White Box
+- Full knowledge of code  
+- More thorough testing  
+
+### 26. Developer Responsibility
+- Must assume:
+  - Attacker knows implementation  
+- Goal:
+  - Secure even in worst-case scenario  
+
+### 27. Fuzz Testing
+- Definition:
+  - Random/semi-random input generation  
+- Purpose:
+  - Break system  
+
+### 28. Fuzzing Techniques
+- Methods:
+  - Random text inputs  
+  - Random clicks  
+- Targets:
+  - Forms  
+  - Input fields  
+
+### 29. Goals of Fuzz Testing
+- Detect:
+  - Crashes  
+  - Overflows  
+  - Unexpected behavior  
+
+### 30. Key Takeaways
+- Test generation can be:
+  - Automated (partially)  
+- Techniques:
+  - API-based testing  
+  - Abstract tests  
+  - Model-based testing  
+  - UI testing  
+  - Security testing  
+- Important principle:
+  - Combine multiple approaches for robustness  
+---
