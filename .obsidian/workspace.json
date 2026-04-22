@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Week 10.md",
+                "file": "Extra Notes from supplementary content of Week 10.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Week 10"
+              "title": "Extra Notes from supplementary content of Week 10"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Week 10.md",
+                "file": "Extra Notes from supplementary content of Week 10.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Week 10"
+              "title": "Backlinks for Extra Notes from supplementary content of Week 10"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Week 10.md",
+                "file": "Extra Notes from supplementary content of Week 10.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Week 10"
+              "title": "Outgoing links from Extra Notes from supplementary content of Week 10"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Week 10.md",
+                "file": "Extra Notes from supplementary content of Week 10.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Week 10"
+              "title": "Outline of Extra Notes from supplementary content of Week 10"
             }
           }
         ]
@@ -185,7 +185,8 @@
   },
   "active": "3257f75b3c8c1408",
   "lastOpenFiles": [
-    "Week 9.md",
-    "Week 10.md"
+    "Week 10.md",
+    "Extra Notes from supplementary content of Week 10.md",
+    "Week 9.md"
   ]
 }
