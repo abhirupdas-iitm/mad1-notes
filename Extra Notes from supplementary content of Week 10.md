@@ -264,3 +264,311 @@
 - Role-based design:
   - Essential for scalable apps  
 ---
+### Week 10 Extra Lecture 2  
+#### Testing Flask Applications using Pytest and Test Client  
+##### Description: Demonstrates how to test Flask applications using pytest. Covers unit vs functional testing, test discovery, Flask test client usage, fixtures, database setup/cleanup, HTML validation using BeautifulSoup, and measuring test coverage.
+
+### 1. Types of Testing
+- **Unit Testing**:
+  - Tests smallest components (functions)  
+
+- **Integration Testing**:
+  - Tests interaction between components  
+
+- **Functional Testing**:
+  - Tests full application behavior  
+
+- Focus:
+  - Flask → integration + functional testing :contentReference[oaicite:0]{index=0}  
+
+### 2. Pytest Setup
+- Install:
+  - pytest  
+  - coverage  
+  - BeautifulSoup  
+- Add to:
+  - `requirements.txt`  
+
+### 3. Test Directory Structure
+- Create:
+  - `test/` folder  
+- Subfolders:
+  - `unit/`  
+  - `functional/`  
+- Add:
+  - `__init__.py` to make packages  
+
+### 4. Test Discovery Rules
+- Pytest automatically finds:
+  - Files starting with `test_`  
+- Functions:
+  - Must start with `test_`  
+
+### 5. Basic Unit Test Example
+- Function:
+  - `add(x, y)`  
+- Test:
+  - `assert add(1,2) == 3`  
+- Assertion:
+  - Validates expected output  
+
+### 6. Running Tests
+- Command:
+  - `pytest`  
+- Options:
+  - Verbose output  
+  - Disable warnings  
+
+### 7. Assertion Failure
+- Shows:
+  - Expected vs actual result  
+- Helps:
+  - Debug logic errors  
+
+### 8. Flask Testing Approach
+- Two options:
+  - Run server + send requests  
+  - Use Flask **test client**  
+
+- Preferred:
+  - Test client (faster, cleaner)  
+
+### 9. Flask Test Client
+- Create:
+  - `client = app.test_client()`  
+- Allows:
+  - Simulating HTTP requests  
+
+### 10. App Context Requirement
+- Needed:
+  - For database and app operations  
+- Use:
+  - `app.app_context().push()`  
+
+### 11. Database Setup in Tests
+- Use:
+  - `db.create_all()`  
+- Ensures:
+  - Tables exist before test  
+
+### 12. Sending Requests
+- Example:
+  - `client.get("/")`  
+- Returns:
+  - Response object  
+
+### 13. Validating Response
+- Check:
+  - Content  
+  - Status  
+- Example:
+  - Page title = "All Articles"  
+
+### 14. Cleanup After Test
+- Remove:
+  - App context  
+  - Database data  
+- Ensures:
+  - No side effects  
+
+### 15. Testing Configuration
+- Separate config:
+  - Testing environment  
+- Changes:
+  - In-memory database  
+  - Disable CSRF  
+
+### 16. In-Memory Database
+- Benefits:
+  - Fast  
+  - Temporary  
+- Auto-destroyed after tests  
+
+### 17. CSRF Disable for Testing
+- Reason:
+  - Avoid blocking automated requests  
+- Variable:
+  - `WTF_CSRF_ENABLED = False`  
+
+### 18. Arrange–Act–Assert–Cleanup Pattern
+- **Arrange**:
+  - Setup environment  
+
+- **Act**:
+  - Execute functionality  
+
+- **Assert**:
+  - Verify output  
+
+- **Cleanup**:
+  - Reset state  
+
+### 19. Pytest Fixtures
+- Purpose:
+  - Reusable setup/teardown  
+- Avoid:
+  - Code duplication  
+
+### 20. Fixture Example – Client
+- Setup:
+  - Create test client  
+- Yield:
+  - Client for test  
+- Cleanup:
+  - Runs after test  
+
+### 21. Fixture Example – Database
+- Setup:
+  - `db.create_all()`  
+- Cleanup:
+  - `db.drop_all()`  
+
+### 22. Yield vs Return
+- `yield`:
+  - Allows cleanup after test  
+- `return`:
+  - Ends function immediately  
+
+### 23. Fixture Execution Flow
+- Order:
+  1. Setup  
+  2. Yield  
+  3. Run test  
+  4. Cleanup  
+
+### 24. Using Fixtures in Tests
+- Pass as:
+  - Function parameters  
+- Pytest:
+  - Injects automatically  
+
+### 25. Shared Fixtures (conftest.py)
+- Store fixtures in:
+  - `conftest.py`  
+- Scope:
+  - Available across all tests  
+
+### 26. Functional Testing Example
+- Scenario:
+  - Homepage with no articles  
+- Test:
+  - Check "All Articles" text  
+
+### 27. Testing Database Data
+- Insert:
+  - User  
+  - Article  
+- Validate:
+  - Appears in UI  
+
+### 28. HTML Parsing with BeautifulSoup
+- Parse:
+  - Response HTML  
+- Extract:
+  - Elements (tags, classes)  
+
+### 29. Validating UI Elements
+- Example:
+  - Count "like icons"  
+- Assertion:
+  - Number of elements = expected  
+
+### 30. Checking Content
+- Extract:
+  - `<h2>` or headings  
+- Compare:
+  - Text with expected value  
+
+### 31. Testing Login Flow
+- Send:
+  - POST `/login`  
+- Data:
+  - Email + password  
+- Verify:
+  - Login success  
+
+### 32. Testing Without Login
+- Access:
+  - Protected route  
+- Expect:
+  - Redirect to login page  
+
+### 33. Testing With Login
+- After login:
+  - Access route  
+- Verify:
+  - Content displayed  
+
+### 34. Role of Response Data
+- Used for:
+  - Assertions  
+- Contains:
+  - HTML output  
+
+### 35. Class-Based Tests
+- Group:
+  - Related test cases  
+- Run:
+  - Top-to-bottom  
+
+### 36. Drawback of Class Tests
+- Tests may:
+  - Depend on each other  
+- Risk:
+  - Reduced independence  
+
+### 37. Best Practice
+- Prefer:
+  - Independent test functions  
+- Avoid:
+  - Dependency between tests  
+
+### 38. Advanced Testing Scenarios
+- Test:
+  - Forms  
+  - Tables  
+  - Multiple records  
+- Add:
+  - Multiple assertions  
+
+### 39. Coverage Tool
+- Measures:
+  - Code coverage  
+- Shows:
+  - % of code tested  
+
+### 40. Running Coverage
+- Command:
+  - `coverage run -m pytest`  
+- Report:
+  - `coverage report`  
+
+### 41. Coverage Insights
+- Shows:
+  - Total statements  
+  - Covered lines  
+  - Missing lines  
+
+### 42. Limiting Coverage Scope
+- Focus:
+  - Application code only  
+- Ignore:
+  - Test files  
+
+### 43. Importance of Testing
+- Ensures:
+  - Reliability  
+  - Stability  
+- Helps:
+  - Catch bugs early  
+
+### 44. Key Takeaways
+- Pytest:
+  - Powerful and flexible  
+- Flask test client:
+  - Simplifies API testing  
+- Fixtures:
+  - Improve reusability  
+- Coverage:
+  - Measures test completeness  
+---
