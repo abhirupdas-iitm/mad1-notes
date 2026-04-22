@@ -205,6 +205,9 @@
   - Code coverage analysis  
 - Final insight:
   - Testing improves confidence, NOT guarantees correctness
+
+### Notes to be taken for `Activity Question 1`
+1. 
 ---
 ### Week 10 Lecture 2  
 #### Levels of Testing – Requirements, Unit, Integration, System, and Acceptance Testing  
