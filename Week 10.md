@@ -741,6 +741,9 @@
   - Security testing  
 - Important principle:
   - Combine multiple approaches for robustness  
+
+### Notes to be taken for `Activity Question 3`
+1. 
 ---
 ### Week 10 Lecture 4  
 #### Testing in Python using Pytest Framework  
