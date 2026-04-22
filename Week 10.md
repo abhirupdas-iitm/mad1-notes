@@ -488,6 +488,9 @@
   - Continuous integration  
 - Final goal:
   - Reliable and scalable software  
+
+### Notes to be taken for `Activity Question 2`
+1. 
 ---
 ### Week 10 Lecture 3  
 #### Systematic Test Generation – API Testing, Abstract Tests, Model-Based Testing, UI and Security Testing  
