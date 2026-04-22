@@ -997,4 +997,7 @@
   - Flask testing  
 - Essential for:
   - Scalable, reliable applications  
+
+### Notes to be taken for `Activity Question 4`
+1. 
 ---
