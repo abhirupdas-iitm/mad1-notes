@@ -305,3 +305,286 @@
 - Future:
   - Dynamic, extensible applications  
 ---
+### Week 11 Lecture 2  
+#### Introduction to JavaScript – Language Features and DOM Interaction  
+##### Description: Provides an overview of JavaScript as a high-level, multi-paradigm language. Covers dynamic typing, functional and event-driven paradigms, DOM manipulation, and how JavaScript enables interactivity in web applications.
+
+### 1. Introduction to JavaScript
+- Not a full tutorial  
+- Focus:
+  - Capabilities  
+  - Purpose  
+  - Role in web development
+
+### 2. What is JavaScript?
+- High-level programming language  
+- Similar to:
+  - Python  
+- Used primarily:
+  - In web browsers  
+
+### 3. Levels of Programming Languages
+- Low-level:
+  - Assembly (machine instructions)  
+- Mid-level:
+  - C (memory control, pointers)  
+- High-level:
+  - Python, JavaScript  
+- Higher level:
+  - More abstraction  
+
+### 4. Features of High-Level Languages
+- Dynamic typing  
+- Abstract data types  
+- Easier syntax  
+- Less hardware interaction  
+
+### 5. JavaScript Characteristics
+- Dynamic typing  
+- Object-oriented (prototype-based)  
+- Supports:
+  - Arrays  
+  - Dictionaries (maps)  
+
+### 6. Complex Data Structures
+- Using objects and references:
+  - Trees  
+  - Graphs  
+- Flexible data modeling  
+
+### 7. Multi-Paradigm Nature
+- Supports multiple programming styles:
+  - Imperative  
+  - Functional  
+  - Event-driven  
+
+### 8. Imperative Programming
+- Step-by-step execution  
+- Functions called sequentially  
+- Example:
+  - Traditional C-style programming  
+
+### 9. Functional Programming
+- Based on:
+  - Mathematical functions  
+- Features:
+  - Functions as first-class objects  
+  - Higher-order functions  
+- Benefits:
+  - Cleaner abstraction  
+  - Powerful composition  
+
+### 10. Event-Driven Programming
+- Code responds to events  
+- Events:
+  - Click  
+  - Input  
+  - Selection  
+- Functions triggered automatically  
+
+### 11. Importance of Event-Driven Model
+- Ideal for:
+  - GUI systems  
+  - Web pages  
+- User interaction:
+  - Drives execution flow  
+
+### 12. Ease of Learning
+- Similar to Python  
+- Beginner-friendly  
+- Widely used  
+
+### 13. Java vs JavaScript
+- No direct relationship  
+- Only similarity:
+  - Some syntax  
+- JavaScript closer to:
+  - Python in usage style  
+
+### 14. Why JavaScript is Needed
+- Browsers include:
+  - JavaScript engines  
+- Enables:
+  - Interactive web pages  
+- Became:
+  - Essential for web  
+
+### 15. No Native I/O
+- Cannot:
+  - Directly read/write files  
+- Uses:
+  - APIs for I/O  
+
+### 16. Role of APIs
+- Provide functionality:
+  - File access (controlled)  
+  - Network operations  
+  - Data handling  
+
+### 17. Built-in Capabilities
+- String manipulation  
+- Date handling  
+- Regular expressions  
+- Data structures  
+
+### 18. DOM (Document Object Model)
+- Represents:
+  - Web page structure  
+- JavaScript can:
+  - Modify DOM  
+- Enables:
+  - Dynamic updates  
+
+### 19. Power of DOM Manipulation
+- Change content dynamically  
+- Update UI without reload  
+- Core feature of modern web  
+
+### 20. Three Pillars of Web
+- HTML:
+  - Structure  
+- CSS:
+  - Styling  
+- JavaScript:
+  - Behavior  
+
+### 21. Example – Selecting Elements
+- Use:
+  - `document.querySelector()`  
+- Purpose:
+  - Access HTML elements  
+
+### 22. Variable Declaration
+- `const`:
+  - Constant value  
+- `let`:
+  - Block-scoped variable  
+
+### 23. Event Listener Example
+- `addEventListener()`  
+- Binds:
+  - Event → function  
+- Example:
+  - Click event  
+
+### 24. Function Definition
+- Syntax:
+  - `function name() { }`  
+- Similar to:
+  - Python `def`  
+
+### 25. Example – Updating Text
+- Prompt user input  
+- Update:
+  - `textContent`  
+- Result:
+  - Dynamic content change  
+
+### 26. Interactive Behavior
+- Clicking element:
+  - Triggers function  
+- Page updates:
+  - Without reload  
+
+### 27. Creating Elements Dynamically
+- Use:
+  - `document.createElement()`  
+- Add to DOM:
+  - `appendChild()`  
+
+### 28. Button Interaction Example
+- Button click:
+  - Calls function  
+- Function:
+  - Adds new paragraph  
+
+### 29. Repeated Interaction
+- Multiple clicks:
+  - Add multiple elements  
+- Demonstrates:
+  - Dynamic UI building  
+
+### 30. Anonymous Functions
+- Functions without name  
+- Used for:
+  - Inline logic  
+- Common in:
+  - Event handling  
+
+### 31. Direct Event Assignment
+- Example:
+  - `onclick = function()`  
+- Alternative to:
+  - addEventListener  
+
+### 32. DOM Modification vs Source Code
+- Changes:
+  - Visible in browser  
+- Not present in:
+  - Original HTML source  
+
+### 33. Developer Tools
+- Inspect page:
+  - View DOM structure  
+- Helps:
+  - Debug UI changes  
+
+### 34. Browser Developer Tools Access
+- Found in:
+  - Browser menu  
+- Includes:
+  - Elements inspector  
+  - Console  
+
+### 35. Variables in JavaScript
+- Declare:
+  - var / let / const  
+- Differences:
+  - Scope and mutability  
+
+### 36. Basic Syntax Elements
+- Comments:
+  - `//`  
+  - `/* */`  
+- Operators:
+  - +, -, *, /  
+
+### 37. Conditional Statements
+- Example:
+  - if-else  
+- Controls:
+  - Program flow  
+
+### 38. Functions Recap
+- Define logic  
+- Reusable code blocks  
+- Accept parameters  
+
+### 39. Events Recap
+- Core concept:
+  - User interaction triggers code  
+- Examples:
+  - Click  
+  - Input  
+
+### 40. Learning Resources
+- Mozilla Developer Network (MDN)  
+- Online tutorials  
+- Practice-based learning  
+
+### 41. Best Way to Learn JavaScript
+- Write code  
+- Experiment  
+- Build small projects  
+
+### 42. Key Takeaways
+- JavaScript:
+  - High-level, multi-paradigm language  
+- Enables:
+  - Interactivity  
+  - Dynamic web pages  
+- Core strength:
+  - DOM manipulation  
+- Learning approach:
+  - Practice-driven  
+---
