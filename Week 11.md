@@ -1202,5 +1202,8 @@
   - Improves performance  
 - Core stack:
   - HTML + CSS + JavaScript  
+
+### Notes to be taken for `Activity Question 4`
+1. 
 ---
 [[Extra Notes from supplementary content of Week 11]]
