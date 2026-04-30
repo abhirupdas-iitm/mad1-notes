@@ -590,6 +590,9 @@
   - DOM manipulation  
 - Learning approach:
   - Practice-driven  
+
+### Notes to be taken for `Activity Question 2`
+1. 
 ---
 ### Week 11 Lecture 3  
 #### Custom Elements and Web Components in HTML5 using JavaScript  
