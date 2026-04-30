@@ -588,3 +588,311 @@
 - Learning approach:
   - Practice-driven  
 ---
+### Week 11 Lecture 3  
+#### Custom Elements and Web Components in HTML5 using JavaScript  
+##### Description: Explains how JavaScript enables the creation of custom HTML elements. Covers limitations of HTML, custom elements API, Shadow DOM, HTML templates, and the concept of reusable web components.
+
+### 1. Need for JavaScript in HTML
+- HTML limitation:
+  - Fixed set of elements  
+- Requirement:
+  - Extend functionality  
+- Solution:
+  - Use JavaScript to define custom elements  
+
+### 2. What are Custom Elements?
+- User-defined HTML tags  
+- Example:
+  - `<my-button>`  
+- Problem:
+  - Browser does not understand meaning automatically  
+
+### 3. Semantic Limitation
+- Custom tag names:
+  - No inherent meaning  
+- Browser cannot infer:
+  - Type (button, heading, etc.)  
+- Leads to:
+  - Ambiguity  
+
+### 4. Role of JavaScript in Custom Elements
+- Defines:
+  - Behavior  
+  - Rendering  
+- Controls:
+  - How element appears on screen  
+
+### 5. Elements and State
+- Elements can have:
+  - Internal state  
+- Example:
+  - Checkbox → checked/unchecked  
+- Custom elements:
+  - Can define own state  
+
+### 6. Managing State
+- JavaScript used to:
+  - Store state  
+  - Update state  
+  - Use state in rendering  
+
+### 7. Types of Custom Elements
+- Extend existing elements  
+- Create autonomous elements:
+  - Fully independent tags  
+
+### 8. HTML Living Standard
+- Defines:
+  - Custom elements specification  
+- Characteristics:
+  - Continuously updated  
+- Sections:
+  - Include custom elements API  
+
+### 9. Normative vs Non-Normative
+- Normative:
+  - Official standard  
+- Non-normative:
+  - Subject to change  
+- Living standard:
+  - Frequently updated  
+
+### 10. Custom Elements API
+- Provided by:
+  - Browser (JavaScript)  
+- Used to:
+  - Define new tags  
+
+### 11. Example – Custom Element Definition
+- Create class:
+  - Extends HTMLElement  
+- Define behavior:
+  - Attributes  
+  - Rendering logic  
+
+### 12. Registering Custom Elements
+- Use:
+  - `customElements.define()`  
+- Maps:
+  - Tag name → class  
+
+### 13. Example – Flag Icon
+- Custom tag:
+  - `<flag-icon>`  
+- Behavior:
+  - Display country flag  
+- Logic:
+  - Fetch image  
+  - Render  
+
+### 14. Rendering Responsibility
+- Developer defines:
+  - What appears on screen  
+- Browser:
+  - Executes logic  
+
+### 15. Limitation of Raw Custom Elements
+- Difficult to manage:
+  - Styling  
+  - Structure  
+- Need:
+  - Better abstraction  
+
+### 16. Introduction to Web Components
+- Built on:
+  - Custom elements  
+- Adds:
+  - More structure  
+- Goal:
+  - Simplify usage  
+
+### 17. Components of Web Components
+- Custom Elements  
+- Shadow DOM  
+- HTML Templates  
+
+### 18. Custom Elements Recap
+- Define:
+  - New HTML tags  
+- Provide:
+  - Functionality  
+
+### 19. Shadow DOM Concept
+- Encapsulation mechanism  
+- Separates:
+  - Component styling  
+  - Global styling  
+
+### 20. Purpose of Shadow DOM
+- Prevent:
+  - Style conflicts  
+- Restrict:
+  - Scope of CSS  
+
+### 21. Example – Style Isolation
+- Style applied inside component:
+  - Does not affect page  
+- External styles:
+  - Do not affect component  
+
+### 22. Encapsulation Benefit
+- Self-contained components  
+- Predictable behavior  
+
+### 23. HTML Templates
+- Define:
+  - Reusable structure  
+- Tags:
+  - `<template>`  
+  - `<slot>`  
+
+### 24. Template Functionality
+- Acts like:
+  - Blueprint  
+- Allows:
+  - Reuse of UI patterns  
+
+### 25. Dynamic Rendering with Templates
+- Data inserted into:
+  - Template structure  
+- Example:
+  - Book title + author  
+
+### 26. Template Switching Example
+- Change template:
+  - Changes display format  
+- Same data:
+  - Different representation  
+
+### 27. Combining Web Component Features
+- Custom elements:
+  - Structure  
+- Shadow DOM:
+  - Styling isolation  
+- Templates:
+  - Rendering logic  
+
+### 28. Example – Basic Custom Component
+- Define:
+  - `<my-component>`  
+- Behavior:
+  - Replace content  
+- Output:
+  - Render predefined text  
+
+### 29. Reusability of Components
+- Same component:
+  - Used multiple times  
+- Behavior:
+  - Consistent across page  
+
+### 30. Example – Dynamic Content Rendering
+- Replace inner HTML  
+- Multiple instances:
+  - Render independently  
+
+### 31. Shadow DOM Example
+- Modify:
+  - Component style  
+- Result:
+  - Local change only  
+
+### 32. Avoiding Global Side Effects
+- Shadow DOM ensures:
+  - Isolation  
+- No unintended changes  
+
+### 33. Template Example – Books
+- Data:
+  - Title + author  
+- Display:
+  - Different formats  
+- Controlled via:
+  - Template  
+
+### 34. Example – Word Count Component
+- Extends:
+  - Paragraph element  
+- Function:
+  - Count words dynamically  
+
+### 35. Implementation Details
+- Use:
+  - JavaScript class  
+- Create:
+  - Shadow root  
+- Update:
+  - Text dynamically  
+
+### 36. Word Count Logic
+- Split text:
+  - Based on spaces  
+- Count:
+  - Words  
+
+### 37. Dynamic Updates
+- Update interval:
+  - Every few milliseconds  
+- Reflect:
+  - Real-time changes  
+
+### 38. User Interaction
+- Editable text area  
+- Word count updates:
+  - Automatically  
+
+### 39. Non-Editable UI Elements
+- Generated elements:
+  - Cannot be edited directly  
+- Controlled by:
+  - JavaScript  
+
+### 40. Reusability Advantage
+- Component:
+  - Independent  
+- Can be reused:
+  - Across applications  
+
+### 41. Extensibility
+- Modify JavaScript:
+  - Add features  
+- Example:
+  - Word limit  
+  - Timer  
+
+### 42. Widget Concept
+- Component:
+  - UI building block  
+- Examples:
+  - Counters  
+  - Forms  
+  - Buttons  
+
+### 43. Purpose of Web Components
+- Create:
+  - Reusable UI widgets  
+- Improve:
+  - Development efficiency  
+
+### 44. Limitations of Web Components
+- Not fully standardized  
+- Implementation differences:
+  - Across developers  
+
+### 45. Subjectivity in Design
+- Different approaches:
+  - Different implementations  
+- No single standard:
+  - For usage patterns  
+
+### 46. Key Takeaways
+- Custom elements:
+  - Extend HTML  
+- Web components:
+  - Combine multiple APIs  
+- Benefits:
+  - Reusability  
+  - Encapsulation  
+- Challenge:
+  - Lack of standardization  
+---
