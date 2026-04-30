@@ -304,6 +304,9 @@
   - Essential for modern web  
 - Future:
   - Dynamic, extensible applications  
+
+### Notes to be taken for `Activity Question 1`
+1. 
 ---
 ### Week 11 Lecture 2  
 #### Introduction to JavaScript – Language Features and DOM Interaction  
