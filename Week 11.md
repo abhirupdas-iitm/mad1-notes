@@ -901,6 +901,9 @@
   - Encapsulation  
 - Challenge:
   - Lack of standardization  
+
+### Notes to be taken for `Activity Question 3`
+1. 
 ---
 ### Week 11 Lecture 4  
 #### Frontend Frameworks and React – Purpose, Design Patterns, and Single Page Applications  
