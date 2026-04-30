@@ -13,7 +13,7 @@
   - When to test?  
   - How to test?  
 - Example tool:
-  - `pytest` for Python programs :contentReference[oaicite:0]{index=0}  
+  - `pytest` for Python programs
 
 ### 2. Why Testing is Needed
 - Primary goal:
@@ -216,7 +216,7 @@
 ### 1. Introduction to Testing Levels
 - Testing applies at **multiple levels** in software development  
 - Example context:
-  - Online degree dashboard system :contentReference[oaicite:0]{index=0}  
+  - Online degree dashboard system 
 - Key idea:
   - Testing starts **before coding begins**  
 
@@ -500,7 +500,7 @@
 - Goal:
   - Generate tests in a **structured and repeatable way**  
 - Question:
-  - Can test cases be **automatically generated**? :contentReference[oaicite:0]{index=0}  
+  - Can test cases be **automatically generated**?
 
 ### 2. API-Based Testing
 - Based on:
@@ -754,7 +754,7 @@
   - Writing and running tests in Python  
 - Characteristics:
   - Easy to use  
-  - Opinionated (follows conventions automatically) :contentReference[oaicite:0]{index=0}  
+  - Opinionated (follows conventions automatically) 
 
 ### 2. Opinionated Nature of Pytest
 - Automatically detects:
