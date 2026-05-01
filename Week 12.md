@@ -596,3 +596,272 @@
 - Platforms:
   - Simplify deployment  
 ---
+### Week 12 Lecture 3  
+#### Platform-as-a-Service in Practice – Google App Engine and Deployment Tools  
+##### Description: Explores real-world Platform-as-a-Service (PaaS) using Google App Engine. Covers cloud console, cloud shell, deployment workflow, comparison with Replit/Glitch, and introduces the need for CI/CD and automation. 
+
+### 1. Introduction to Advanced PaaS
+- Focus:
+  - Larger-scale platforms  
+- Example:
+  - Google App Engine  
+
+### 2. App Engine vs Compute Engine
+- Compute Engine:
+  - IaaS (raw VM)  
+- App Engine:
+  - PaaS (managed platform)  
+
+### 3. Key Idea of App Engine
+- Provides:
+  - Runtime environment  
+  - Web server  
+- Developer:
+  - Focuses on code  
+
+### 4. Getting Started
+- Requires:
+  - Google Cloud account  
+- Access via:
+  - console.cloud.google.com  
+
+### 5. Cloud Console Overview
+- Shows:
+  - Project details  
+  - Resource usage  
+  - Request statistics  
+
+### 6. Monitoring Features
+- Displays:
+  - Requests per second  
+  - Service health  
+- Helps:
+  - Debugging and scaling decisions  
+
+### 7. Platform Status
+- Tracks:
+  - Frontend services  
+  - HTTPS  
+  - Logging  
+- Ensures:
+  - System reliability  
+
+### 8. Billing Aspect
+- Paid service  
+- Includes:
+  - Free tier  
+  - Trial credits  
+
+### 9. Cloud Shell Introduction
+- Provides:
+  - Linux environment  
+- Used for:
+  - Managing deployment  
+
+### 10. Cloud Shell Features
+- Pre-installed tools  
+- Commands for:
+  - Google Cloud interaction  
+
+### 11. CLI Integration
+- Example:
+  - gcloud commands  
+- Used to:
+  - Configure projects  
+  - Deploy apps  
+
+### 12. Interface Characteristics
+- Less visual than:
+  - Replit/Glitch  
+- More focused on:
+  - Professional usage  
+
+### 13. Intended Use Case
+- Designed for:
+  - Large-scale applications  
+- Not for:
+  - Simple experiments  
+
+### 14. Development vs Production
+- Development:
+  - Simple tools sufficient  
+- Production:
+  - Requires robust systems  
+
+### 15. Resource Availability
+- Example:
+  - Multi-core CPUs  
+  - Significant RAM  
+- Shared infrastructure  
+
+### 16. Resource Abstraction
+- Resources:
+  - Virtualized  
+- Not dedicated:
+  - Fully to one user  
+
+### 17. Development Workflow
+- Clone sample project  
+- Edit code  
+- Deploy to platform  
+
+### 18. Editor Environment
+- Browser-based editor  
+- Similar to:
+  - VS Code  
+
+### 19. Code Structure Example
+- Flask app:
+  - Defines route  
+  - Returns response  
+
+### 20. Deployment Output
+- App accessible via:
+  - *.appspot.com domain  
+- Example:
+  - hello world output  
+
+### 21. URL Generation
+- Unique deployment URL  
+- Managed by:
+  - Platform  
+
+### 22. Comparison – Replit
+- Focus:
+  - Education  
+  - Development  
+- Limited:
+  - Scaling  
+
+### 23. Replit Behavior
+- Auto shutdown:
+  - After inactivity  
+- Restart:
+  - On new request  
+
+### 24. Comparison – Glitch
+- Focus:
+  - Lightweight deployment  
+- Provides:
+  - Always-on options  
+
+### 25. Glitch vs Replit
+- Both:
+  - PaaS-like  
+- Differences:
+  - Target users  
+  - Deployment features  
+
+### 26. App Engine Position
+- Higher complexity  
+- Better suited for:
+  - Production systems  
+
+### 27. Ease vs Power Tradeoff
+- Simple tools:
+  - Easy to use  
+- Advanced tools:
+  - More powerful  
+  - More complex  
+
+### 28. Platform Responsibilities
+- Handles:
+  - OS  
+  - Web server  
+  - Scaling basics  
+
+### 29. Failure Handling
+- Detect:
+  - Crashes  
+- Restart:
+  - Automatically  
+
+### 30. Resource Monitoring
+- Tracks:
+  - Usage limits  
+- Provides:
+  - Alerts  
+
+### 31. Scalability Support
+- Handles:
+  - Increased load  
+- Requires:
+  - Proper app design  
+
+### 32. Multi-Service Integration
+- Supports:
+  - Databases  
+  - Logging  
+  - Monitoring  
+
+### 33. Common PaaS Providers
+- Google App Engine  
+- AWS Elastic Beanstalk  
+- Heroku  
+
+### 34. Supported Platforms
+- Python (Flask, Django)  
+- PHP (Laravel)  
+- Node.js  
+- React  
+
+### 35. Developer Workflow in PaaS
+- Write code  
+- Push to platform  
+- Platform:
+  - Deploys automatically  
+
+### 36. Abstraction Benefits
+- No need to manage:
+  - Infrastructure  
+- Faster development  
+
+### 37. Trade-offs
+- Less control  
+- Platform dependency  
+
+### 38. Importance of Integration
+- Must connect with:
+  - Version control  
+  - Deployment pipelines  
+
+### 39. CI/CD Introduction
+- Continuous Integration:
+  - Frequent merging  
+- Continuous Deployment:
+  - Automated release  
+
+### 40. Automation Need
+- Reduce:
+  - Manual steps  
+- Improve:
+  - Reliability  
+
+### 41. Development Best Practices
+- Use:
+  - Version control  
+- Automate:
+  - Testing  
+  - Deployment  
+
+### 42. Scaling Considerations
+- Requires:
+  - Infrastructure support  
+  - Code optimization  
+
+### 43. Platform Ecosystem
+- Provides:
+  - Tools + services  
+- Enables:
+  - End-to-end deployment  
+
+### 44. Key Takeaways
+- PaaS:
+  - Simplifies deployment  
+- App Engine:
+  - Production-ready platform  
+- Tradeoff:
+  - Ease vs control  
+- Future steps:
+  - CI/CD and automation  
+---
