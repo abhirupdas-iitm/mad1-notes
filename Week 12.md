@@ -865,3 +865,295 @@
 - Future steps:
   - CI/CD and automation  
 ---
+### Week 12 Lecture 4  
+#### Version Control, CI/CD, and Deployment Pipelines  
+##### Description: Covers version control systems (Git), branching strategies, distributed vs centralized systems, and introduces CI/CD pipelines including continuous integration, delivery, and deployment.  
+
+### 1. Introduction to Deployment Practices
+- Focus:
+  - Supporting systems for deployment  
+- Includes:
+  - Version control  
+  - Automation  
+
+### 2. Version Control Concept
+- Purpose:
+  - Manage code changes  
+- Tracks:
+  - History of modifications  
+
+### 3. Need for Version Control
+- Code evolves:
+  - Incrementally  
+- Must:
+  - Track and revert changes  
+
+### 4. Problem Without Version Control
+- Multiple backups:
+  - Hard to manage  
+- No clear:
+  - Change tracking  
+
+### 5. Git Overview
+- Most popular:
+  - Version control system  
+- Features:
+  - Efficient  
+  - Flexible  
+
+### 6. Core Idea of Git
+- Tracks:
+  - Changes, not just files  
+- Maintains:
+  - History  
+
+### 7. Incremental Development
+- Code written:
+  - Step by step  
+- Requires:
+  - Continuous updates  
+
+### 8. Rollback Capability
+- Allows:
+  - Reverting to previous state  
+- Useful for:
+  - Bug fixing  
+
+### 9. Experimentation Support
+- Try:
+  - New features safely  
+- Without affecting:
+  - Main code  
+
+### 10. Branching Concept
+- Create:
+  - Parallel versions of code  
+- Used for:
+  - Feature development  
+
+### 11. Main (Master) Branch
+- Represents:
+  - Stable version  
+- Used for:
+  - Production  
+
+### 12. Develop Branch
+- Used for:
+  - Active development  
+- Contains:
+  - Ongoing changes  
+
+### 13. Feature Branches
+- Created from:
+  - Develop branch  
+- Each branch:
+  - Handles one feature  
+
+### 14. Merging Concept
+- Combines:
+  - Changes from branches  
+- Ensures:
+  - Unified codebase  
+
+### 15. Release Branch
+- Used for:
+  - Preparing final release  
+- Includes:
+  - Testing and bug fixes  
+
+### 16. Hotfix Branch
+- Created from:
+  - Master branch  
+- Purpose:
+  - Urgent bug fixes  
+
+### 17. Hotfix Workflow
+- Fix bug  
+- Merge into:
+  - Master  
+  - Develop  
+
+### 18. Branch Lifecycle
+- Create → Modify → Merge → Delete  
+
+### 19. Merge vs Push
+- Merge:
+  - Combine branches  
+- Push:
+  - Send changes to repository  
+
+### 20. Pull Request Concept
+- Request:
+  - Merge into main branch  
+- Requires:
+  - Approval  
+
+### 21. Code Review
+- Review by:
+  - Other developers  
+- Ensures:
+  - Quality  
+
+### 22. Centralized Version Control
+- Example:
+  - SVN  
+- Single:
+  - Central server  
+
+### 23. Issues with Centralized Systems
+- File locking  
+- Limited flexibility  
+
+### 24. Distributed Version Control
+- Example:
+  - Git  
+- No mandatory:
+  - Central server  
+
+### 25. Advantages of Git
+- Parallel work  
+- Easy merging  
+- Better collaboration  
+
+### 26. Git Hosting Platforms
+- GitHub  
+- GitLab  
+- Bitbucket  
+
+### 27. Platform Features
+- Provide:
+  - UI  
+  - Collaboration tools  
+- Extend:
+  - Git functionality  
+
+### 28. Command Line Usage
+- Important for:
+  - Advanced workflows  
+- More efficient:
+  - At scale  
+
+### 29. Continuous Integration (CI)
+- Automates:
+  - Code integration  
+- Runs:
+  - Tests automatically  
+
+### 30. CI Definition
+- Integration of:
+  - Code from multiple contributors  
+- Done:
+  - Automatically  
+
+### 31. CI Workflow
+- Developer pushes code  
+- Server:
+  - Builds  
+  - Tests  
+
+### 32. Build Process
+- Compile code  
+- Create:
+  - Deployable package  
+
+### 33. Automation Importance
+- Eliminates:
+  - Manual errors  
+- Speeds up:
+  - Development  
+
+### 34. Test-Driven Development
+- Write tests:
+  - Before code  
+- Ensures:
+  - Reliability  
+
+### 35. Automated Testing
+- Runs:
+  - On every commit  
+- Validates:
+  - Functionality  
+
+### 36. Code Review in CI
+- Improves:
+  - Code quality  
+- Reduces:
+  - Bugs  
+
+### 37. CI Pipeline
+- Sequence:
+  - Build → Test → Validate  
+- Must be:
+  - Efficient  
+
+### 38. Optimization of CI
+- Run:
+  - Relevant tests only  
+- Improve:
+  - Speed  
+
+### 39. Continuous Delivery (CD)
+- Extends CI  
+- Packages:
+  - Application  
+
+### 40. Delivery Concept
+- Creates:
+  - Deployable artifact  
+- Example:
+  - Zip file  
+
+### 41. Use Case of Delivery
+- Nightly builds  
+- Beta releases  
+
+### 42. Continuous Deployment
+- Automatically:
+  - Deploy after tests pass  
+- No manual step  
+
+### 43. Deployment Workflow
+- Test → Package → Deploy  
+- Restart:
+  - Services  
+
+### 44. Web Application Deployment
+- Update:
+  - Server code  
+- Users:
+  - See latest version instantly  
+
+### 45. Benefits of Continuous Deployment
+- Faster updates  
+- Immediate bug fixes  
+
+### 46. Risks of Continuous Deployment
+- Untested scenarios  
+- Potential:
+  - System failure  
+
+### 47. Testing Limitations
+- Cannot cover:
+  - All cases  
+- Bugs may:
+  - Still occur  
+
+### 48. CI/CD in DevOps
+- DevOps:
+  - Development + Operations  
+- Focus:
+  - Automation  
+
+### 49. End-to-End Pipeline
+- Version control → CI → CD → Deployment  
+
+### 50. Key Takeaways
+- Version control:
+  - Manages changes  
+- CI:
+  - Automates testing  
+- CD:
+  - Automates delivery/deployment  
+- Goal:
+  - Faster, reliable software development  
+---
