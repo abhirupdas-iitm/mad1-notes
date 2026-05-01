@@ -1464,4 +1464,7 @@
   - Automates workflow  
 - Goal:
   - Efficient, scalable applications  
+
+### Notes to be taken for `Activity Question 4`
+1. 
 ---
