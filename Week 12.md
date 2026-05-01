@@ -1157,3 +1157,299 @@
 - Goal:
   - Faster, reliable software development  
 ---
+### Week 12 Lecture 5  
+#### Containers, Docker, Kubernetes, and Orchestration  
+##### Description: Introduces containerization, lightweight environments, Docker, orchestration tools like Kubernetes, and ties together the full development-to-deployment pipeline.
+
+### 1. Introduction to Containers
+- Concept:
+  - Self-contained environments  
+- Purpose:
+  - Run applications independently  
+
+### 2. What is a Container?
+- Includes:
+  - OS (minimal)  
+  - Required libraries  
+- Runs:
+  - Specific process  
+
+### 3. Container vs Virtual Machine
+- VM:
+  - Full OS  
+- Container:
+  - Lightweight  
+  - Minimal dependencies  
+
+### 4. Resource Efficiency
+- Containers:
+  - Use fewer resources  
+- Faster:
+  - Startup and execution  
+
+### 5. Linux Kernel Role
+- Uses:
+  - Control groups (cgroups)  
+- Provides:
+  - Resource management  
+
+### 6. Namespaces Concept
+- Each process:
+  - Isolated environment  
+- Prevents:
+  - Interference  
+
+### 7. Process Isolation
+- OS ensures:
+  - Separation of processes  
+- Improves:
+  - Stability  
+
+### 8. Sandboxing
+- Each container:
+  - Independent sandbox  
+- Errors:
+  - Stay isolated  
+
+### 9. Resource Limits
+- Containers restrict:
+  - CPU  
+  - Memory  
+  - Disk usage  
+
+### 10. Benefits of Containers
+- Portability  
+- Consistency  
+- Isolation  
+
+### 11. Minimal Dependencies
+- Only required:
+  - Libraries included  
+- Avoid:
+  - OS complexity  
+
+### 12. Version Control Advantage
+- Easier:
+  - Manage environments  
+- Share:
+  - Configurations  
+
+### 13. Communication Between Containers
+- Done via:
+  - Networking  
+- No direct:
+  - Memory sharing  
+
+### 14. Container Networking
+- Each container:
+  - Has network interface  
+- Communicates:
+  - Through APIs  
+
+### 15. History of Containers
+- Early concepts:
+  - chroot (1970s)  
+- FreeBSD:
+  - Jails  
+
+### 16. Linux Evolution
+- Projects:
+  - OpenVZ  
+  - Linux VServer  
+
+### 17. Kernel Enhancements
+- Introduced:
+  - Namespaces (2008)  
+- Enabled:
+  - Modern containers  
+
+### 18. Docker Introduction
+- Tool for:
+  - Container management  
+- Popularized:
+  - Containers  
+
+### 19. Docker Features
+- Image management  
+- Easy deployment  
+- Isolation  
+
+### 20. Docker Limitations
+- Can lead to:
+  - Poor practices  
+- Needs:
+  - Proper usage  
+
+### 21. Container Images
+- Pre-built:
+  - Environments  
+- Include:
+  - Dependencies  
+
+### 22. Why Containers Matter
+- Simplify:
+  - Deployment  
+- Improve:
+  - Reproducibility  
+
+### 23. Orchestration Concept
+- Manages:
+  - Multiple containers  
+- Ensures:
+  - Coordination  
+
+### 24. Need for Orchestration
+- Applications have:
+  - Multiple components  
+- Must:
+  - Work together  
+
+### 25. Multi-Container Systems
+- Separate containers for:
+  - Frontend  
+  - Backend  
+  - Database  
+
+### 26. Scaling with Containers
+- Add:
+  - More container instances  
+- Improves:
+  - Performance  
+
+### 27. Load Balancing
+- Distributes:
+  - Requests  
+- Across:
+  - Containers  
+
+### 28. Logging Containers
+- Dedicated:
+  - Logging service  
+- Helps:
+  - Debugging  
+
+### 29. Lightweight Deployment
+- Containers:
+  - Faster than VMs  
+- Easy:
+  - Start/stop  
+
+### 30. Container Lifecycle
+- Create → Run → Stop → Remove  
+
+### 31. Orchestration Tools
+- Docker Compose:
+  - Simple setup  
+- Kubernetes:
+  - Advanced orchestration  
+
+### 32. Docker Compose
+- Defines:
+  - Multi-container apps  
+- Uses:
+  - Configuration files  
+
+### 33. Kubernetes Overview
+- Large-scale:
+  - Container management  
+- Highly:
+  - Scalable  
+
+### 34. Kubernetes Capabilities
+- Auto scaling  
+- Load balancing  
+- Fault tolerance  
+
+### 35. Orchestration Responsibilities
+- Start/stop containers  
+- Manage dependencies  
+- Handle failures  
+
+### 36. Distributed Systems
+- Containers:
+  - Run across machines  
+- Enable:
+  - Scalability  
+
+### 37. Deployment Flexibility
+- Containers:
+  - Portable across environments  
+- Same behavior:
+  - Everywhere  
+
+### 38. DevOps Integration
+- Containers support:
+  - CI/CD pipelines  
+- Automate:
+  - Deployment  
+
+### 39. CI/CD + Containers
+- Build:
+  - Container image  
+- Deploy:
+  - Automatically  
+
+### 40. Application Pipeline
+- Idea → Code → Test → Deploy  
+
+### 41. Full Stack Integration
+- Frontend:
+  - HTML/CSS/JS  
+- Backend:
+  - Server logic  
+
+### 42. Database Layer
+- Stores:
+  - Data  
+- Examples:
+  - SQL / NoSQL  
+
+### 43. Middleware Layer
+- Includes:
+  - Authentication  
+  - Logging  
+  - Load balancing  
+
+### 44. Service-Based Architecture
+- Components:
+  - Independent  
+- Communicate:
+  - Via APIs  
+
+### 45. Scaling Considerations
+- Increase:
+  - Instances  
+- Optimize:
+  - Performance  
+
+### 46. Deployment Challenges
+- Managing:
+  - Complexity  
+- Ensuring:
+  - Reliability  
+
+### 47. Key Technologies Recap
+- HTML/CSS/JS  
+- Databases  
+- Cloud platforms  
+- Containers  
+
+### 48. Course Pipeline Summary
+- Idea → Requirements → Tests → Code → Integration → Deployment  
+
+### 49. Key Insight
+- Deployment is:
+  - Complex  
+- Requires:
+  - Multiple systems  
+
+### 50. Final Takeaways
+- Containers:
+  - Enable scalability  
+- Orchestration:
+  - Manages complexity  
+- CI/CD:
+  - Automates workflow  
+- Goal:
+  - Efficient, scalable applications  
+---
