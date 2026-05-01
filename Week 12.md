@@ -305,6 +305,9 @@
   - Enables scalable deployment  
 - Real-world systems:
   - Distributed and multi-layered  
+
+### Notes to be taken for `Activity Question 1`
+1. 
 ---
 ### Week 12 Lecture 2  
 #### Service-Based Deployment Models – SaaS, IaaS, and PaaS  
