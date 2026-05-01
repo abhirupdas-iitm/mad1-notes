@@ -870,6 +870,9 @@
   - Ease vs control  
 - Future steps:
   - CI/CD and automation  
+
+### Notes to be taken for `Activity Question 3`
+1. 
 ---
 ### Week 12 Lecture 4  
 #### Version Control, CI/CD, and Deployment Pipelines  
