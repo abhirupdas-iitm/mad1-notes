@@ -1165,6 +1165,9 @@
   - Automates delivery/deployment  
 - Goal:
   - Faster, reliable software development  
+
+### Notes to be taken for `Activity Question 4`
+1. 
 ---
 ### Week 12 Lecture 5  
 #### Containers, Docker, Kubernetes, and Orchestration  
