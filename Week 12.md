@@ -598,6 +598,9 @@
   - Improves efficiency  
 - Platforms:
   - Simplify deployment  
+
+### Notes to be taken for `Activity Question 2`
+1. 
 ---
 ### Week 12 Lecture 3  
 #### Platform-as-a-Service in Practice – Google App Engine and Deployment Tools  
