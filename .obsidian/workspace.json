@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "2e2420e1c1dc3fe5",
+        "id": "e087a8e4ef00d246",
         "type": "tabs",
         "children": [
           {
-            "id": "3257f75b3c8c1408",
+            "id": "834718f43e11e822",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Week 12.md",
+                "file": "Week 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Week 12"
+              "title": "Week 1"
             }
           }
         ]
@@ -183,14 +183,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "3257f75b3c8c1408",
+  "active": "834718f43e11e822",
   "lastOpenFiles": [
-    "Week 11.md",
+    "Week 1.md",
+    "Insights from Graded Assignment 1.md",
     "Week 12.md",
-    "Week 10.md",
     "Extra Notes from supplementary content of Week 11.md",
+    "MAD1 Theory (Modern Application Development).md",
+    "Extra Notes from supplementary content of Week 10.md",
+    "Extra Notes from supplementary content of Week 9.md",
+    "Extra Notes from supplementary content of Week 8.md",
+    "Extra Notes from supplementary content of Week 7.md",
+    "Extra Notes from supplementary content of Week 6.md",
+    "Extra Notes from supplementary content of Week 5.md",
+    "Extra Notes from supplementary content of Week 4.md",
+    "Extra Notes from supplementary content of Week 3.md",
+    "Extra Notes from supplementary content of Week 2.md",
+    "Extra Notes from supplementary content of Week 1.md",
+    "Week 11.md",
+    "Week 10.md",
     "Week 8.md",
-    "Week 9.md",
-    "Extra Notes from supplementary content of Week 10.md"
+    "Week 9.md"
   ]
 }
