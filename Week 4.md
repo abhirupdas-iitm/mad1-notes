@@ -1270,3 +1270,4 @@ Understanding SQL and relational data models is essential for building scalable 
 2. Truncate command only deletes the data, but the schema/structure is preserved. (Question: 3)
 ---
 [[Extra Notes from supplementary content of Week 4]]
+[[Insights from Graded Assignment 4]]
