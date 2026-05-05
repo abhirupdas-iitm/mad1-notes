@@ -1,3 +1,4 @@
+This repository contains notes of MAD1 (or also called AppDev1). It includes solutions to activity questions which I got wrong, graded assignment questions which were wrong too and extra lecture notes from the weeks as well). It's maximum utility can be experienced if used with Obsidian!
 [[Week 1]]
 [[Week 2]]
 [[Week 3]]
